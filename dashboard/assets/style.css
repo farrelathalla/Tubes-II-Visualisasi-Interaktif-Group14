@@ -1,0 +1,562 @@
+/* ============================================================
+   Indonesian Food Security Dashboard — Global Stylesheet
+   Dark green / gold / red agricultural theme
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Root variables
+   ------------------------------------------------------------ */
+:root {
+  --bg-main:       #0d1a0e;
+  --bg-panel:      #152818;
+  --bg-card:       #1c3319;
+  --bg-sidebar:    #0a1509;
+  --border-card:   #3d7a3d;
+  --accent-green:  #7ab528;
+  --accent-gold:   #d4a520;
+  --accent-red:    #c53030;
+  --accent-orange: #e07820;
+  --text-primary:  #f2f7ec;
+  --text-muted:    #a8c878;
+  --text-dim:      #7a9060;
+  --radius-card:   8px;
+  --radius-kpi:    10px;
+}
+
+/* ------------------------------------------------------------
+   2. Global app background
+   ------------------------------------------------------------ */
+.stApp {
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Main content container */
+.main .block-container {
+  background-color: var(--bg-main) !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* ------------------------------------------------------------
+   3. Sidebar
+   ------------------------------------------------------------ */
+[data-testid="stSidebar"] {
+  background-color: var(--bg-sidebar) !important;
+  border-right: 1px solid var(--border-card) !important;
+}
+
+[data-testid="stSidebar"] * {
+  color: var(--text-primary) !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown p {
+  color: var(--text-primary) !important;
+}
+
+[data-testid="stSidebarNav"] {
+  background-color: var(--bg-sidebar) !important;
+}
+
+/* ------------------------------------------------------------
+   4. Headings
+   ------------------------------------------------------------ */
+h1 {
+  color: var(--accent-green) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  color: var(--accent-green) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--border-card);
+  padding-bottom: 6px;
+}
+
+h3 {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+/* Streamlit internal header elements */
+[data-testid="stHeader"] {
+  background-color: var(--bg-main) !important;
+}
+
+/* ------------------------------------------------------------
+   5. Metric cards (st.metric)
+   ------------------------------------------------------------ */
+[data-testid="stMetric"] {
+  background-color: var(--bg-card) !important;
+  border-left: 4px solid var(--accent-green) !important;
+  border-radius: var(--radius-card) !important;
+  padding: 12px 16px !important;
+  margin-bottom: 8px !important;
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--text-muted) !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[data-testid="stMetricValue"] {
+  color: var(--accent-gold) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+}
+
+[data-testid="stMetricDelta"] {
+  font-size: 0.8rem !important;
+}
+
+[data-testid="stMetricDelta"][data-direction="up"] {
+  color: var(--accent-green) !important;
+}
+
+[data-testid="stMetricDelta"][data-direction="down"] {
+  color: var(--accent-red) !important;
+}
+
+/* ------------------------------------------------------------
+   6. Dataframe / Table
+   ------------------------------------------------------------ */
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-card) !important;
+  border-radius: var(--radius-card) !important;
+  overflow: hidden;
+}
+
+/* Column headers */
+[data-testid="stDataFrame"] th,
+[data-testid="stTable"] th {
+  background-color: var(--bg-panel) !important;
+  color: var(--accent-green) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--border-card) !important;
+}
+
+/* Cells */
+[data-testid="stDataFrame"] td,
+[data-testid="stTable"] td {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border-card) !important;
+}
+
+/* Zebra striping */
+[data-testid="stDataFrame"] tr:nth-child(even) td,
+[data-testid="stTable"] tr:nth-child(even) td {
+  background-color: var(--bg-panel) !important;
+}
+
+/* Hover */
+[data-testid="stDataFrame"] tr:hover td,
+[data-testid="stTable"] tr:hover td {
+  background-color: #203d1e !important;
+}
+
+/* Ag-Grid / newer dataframe wrapper */
+.dvn-scroller {
+  background-color: var(--bg-card) !important;
+}
+
+/* ------------------------------------------------------------
+   7. Form controls — selectbox
+   ------------------------------------------------------------ */
+[data-testid="stSelectbox"] > div > div,
+[data-baseweb="select"] > div {
+  background-color: var(--bg-panel) !important;
+  border: 1px solid var(--border-card) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-baseweb="select"] > div:focus-within {
+  border-color: var(--accent-green) !important;
+  box-shadow: 0 0 0 2px rgba(122, 181, 40, 0.25) !important;
+}
+
+[data-baseweb="popover"] {
+  background-color: var(--bg-panel) !important;
+  border: 1px solid var(--border-card) !important;
+}
+
+[data-baseweb="menu"] {
+  background-color: var(--bg-panel) !important;
+}
+
+[data-baseweb="menu"] li {
+  color: var(--text-primary) !important;
+}
+
+[data-baseweb="menu"] li:hover {
+  background-color: var(--bg-card) !important;
+  color: var(--accent-green) !important;
+}
+
+/* ------------------------------------------------------------
+   8. Form controls — slider
+   ------------------------------------------------------------ */
+[data-testid="stSlider"] > div > div > div > div {
+  background-color: var(--accent-green) !important;
+}
+
+[data-testid="stSlider"] [role="slider"] {
+  background-color: var(--accent-gold) !important;
+  border: 2px solid var(--accent-green) !important;
+}
+
+[data-testid="stSlider"] [data-testid="stThumbValue"] {
+  color: var(--accent-gold) !important;
+}
+
+/* Track */
+[data-testid="stSlider"] .st-bd {
+  background-color: var(--border-card) !important;
+}
+
+/* ------------------------------------------------------------
+   9. Form controls — multiselect
+   ------------------------------------------------------------ */
+[data-baseweb="tag"] {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--accent-green) !important;
+  color: var(--accent-green) !important;
+  border-radius: 4px !important;
+}
+
+[data-baseweb="tag"] span {
+  color: var(--accent-green) !important;
+}
+
+/* Remove-tag button */
+[data-baseweb="tag"] button {
+  color: var(--text-muted) !important;
+}
+
+[data-baseweb="tag"] button:hover {
+  color: var(--accent-red) !important;
+}
+
+/* ------------------------------------------------------------
+   10. Text input / number input
+   ------------------------------------------------------------ */
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextArea"] textarea {
+  background-color: var(--bg-panel) !important;
+  border: 1px solid var(--border-card) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-testid="stTextInput"] input:focus,
+[data-testid="stNumberInput"] input:focus,
+[data-testid="stTextArea"] textarea:focus {
+  border-color: var(--accent-green) !important;
+  box-shadow: 0 0 0 2px rgba(122, 181, 40, 0.25) !important;
+}
+
+/* ------------------------------------------------------------
+   11. Buttons
+   ------------------------------------------------------------ */
+[data-testid="stButton"] > button {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--accent-green) !important;
+  color: var(--accent-green) !important;
+  border-radius: var(--radius-card) !important;
+  font-weight: 600 !important;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+[data-testid="stButton"] > button:hover {
+  background-color: var(--accent-green) !important;
+  color: var(--bg-main) !important;
+}
+
+[data-testid="stButton"] > button:active {
+  background-color: #5a8a1e !important;
+}
+
+/* Primary button variant */
+[data-testid="stButton"] > button[kind="primary"] {
+  background-color: var(--accent-green) !important;
+  color: var(--bg-main) !important;
+}
+
+/* ------------------------------------------------------------
+   12. Alert / info / warning / error / success boxes
+   ------------------------------------------------------------ */
+[data-testid="stInfo"],
+.stAlert[data-baseweb="notification"][kind="info"] {
+  background-color: #0e2233 !important;
+  border-left: 4px solid #4a90d9 !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-testid="stWarning"],
+.stAlert[data-baseweb="notification"][kind="warning"] {
+  background-color: #2a1e08 !important;
+  border-left: 4px solid var(--accent-gold) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-testid="stError"],
+.stAlert[data-baseweb="notification"][kind="error"] {
+  background-color: #2a0e0e !important;
+  border-left: 4px solid var(--accent-red) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-testid="stSuccess"],
+.stAlert[data-baseweb="notification"][kind="success"] {
+  background-color: #0e2218 !important;
+  border-left: 4px solid var(--accent-green) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+/* ------------------------------------------------------------
+   13. Tabs
+   ------------------------------------------------------------ */
+[data-testid="stTabs"] [role="tablist"] {
+  border-bottom: 1px solid var(--border-card) !important;
+  background-color: transparent !important;
+}
+
+[data-testid="stTabs"] [role="tab"] {
+  color: var(--text-muted) !important;
+  border-bottom: 2px solid transparent !important;
+  background-color: transparent !important;
+  padding: 8px 16px !important;
+  font-weight: 500;
+}
+
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+  color: var(--accent-green) !important;
+  border-bottom: 2px solid var(--accent-green) !important;
+}
+
+[data-testid="stTabs"] [role="tab"]:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Tab content panel */
+[data-testid="stTabs"] [role="tabpanel"] {
+  background-color: var(--bg-main) !important;
+  padding-top: 1rem !important;
+}
+
+/* ------------------------------------------------------------
+   14. Expander
+   ------------------------------------------------------------ */
+[data-testid="stExpander"] {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-card) !important;
+  border-radius: var(--radius-card) !important;
+}
+
+[data-testid="stExpander"] summary {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+[data-testid="stExpander"] summary:hover {
+  color: var(--accent-green) !important;
+}
+
+/* ------------------------------------------------------------
+   15. Progress bar
+   ------------------------------------------------------------ */
+[data-testid="stProgress"] > div > div > div {
+  background-color: var(--accent-green) !important;
+}
+
+[data-testid="stProgress"] > div > div {
+  background-color: var(--border-card) !important;
+  border-radius: 4px !important;
+}
+
+/* ------------------------------------------------------------
+   16. Plotly chart container
+   ------------------------------------------------------------ */
+[data-testid="stPlotlyChart"] {
+  background-color: var(--bg-panel) !important;
+  border: 1px solid var(--border-card) !important;
+  border-radius: var(--radius-card) !important;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------
+   17. Custom component classes (for st.markdown HTML injection)
+   ------------------------------------------------------------ */
+
+/* Headline card — full-width contextual callout */
+.headline-card {
+  background-color: var(--bg-card);
+  border-left: 4px solid var(--accent-green);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.headline-card h4,
+.headline-card strong {
+  color: var(--accent-green);
+  margin-bottom: 4px;
+}
+
+.headline-card p {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* KPI card — compact metric display */
+.kpi-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-kpi);
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-card);
+  transition: box-shadow 0.2s;
+}
+
+.kpi-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-green);
+}
+
+.kpi-card .kpi-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.kpi-card .kpi-value {
+  color: var(--accent-gold);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.kpi-card .kpi-sub {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
+
+/* Danger variant */
+.kpi-card.danger .kpi-value {
+  color: var(--accent-red);
+}
+
+/* Warning variant */
+.kpi-card.warning .kpi-value {
+  color: var(--accent-orange);
+}
+
+/* Success / good variant */
+.kpi-card.success .kpi-value {
+  color: var(--accent-green);
+}
+
+/* Section divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-card);
+  margin: 20px 0;
+}
+
+/* Chip / badge */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--bg-panel);
+  color: var(--text-muted);
+  border: 1px solid var(--border-card);
+}
+
+.badge.green  { background-color: #1a3a0a; color: var(--accent-green);  border-color: var(--accent-green);  }
+.badge.gold   { background-color: #2a2000; color: var(--accent-gold);   border-color: var(--accent-gold);   }
+.badge.red    { background-color: #2a0a0a; color: var(--accent-red);    border-color: var(--accent-red);    }
+.badge.orange { background-color: #2a1500; color: var(--accent-orange); border-color: var(--accent-orange); }
+
+/* ------------------------------------------------------------
+   18. Hide Streamlit branding / default chrome
+   ------------------------------------------------------------ */
+#MainMenu          { visibility: hidden !important; }
+footer             { visibility: hidden !important; }
+header             { visibility: hidden !important; }
+[data-testid="stToolbar"]            { display: none !important; }
+[data-testid="stDecoration"]         { display: none !important; }
+[data-testid="stStatusWidget"]       { display: none !important; }
+
+/* Re-show sidebar collapse button if needed */
+[data-testid="collapsedControl"] { display: flex !important; }
+
+/* ------------------------------------------------------------
+   19. Custom scrollbar (WebKit / Blink only)
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-card);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-green);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-main);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-card) var(--bg-main);
+}
+
+/* ------------------------------------------------------------
+   20. Responsive tweaks
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .kpi-card {
+    padding: 12px 14px;
+  }
+
+  .kpi-card .kpi-value {
+    font-size: 1.4rem;
+  }
+
+  .headline-card {
+    padding: 10px 12px;
+  }
+}

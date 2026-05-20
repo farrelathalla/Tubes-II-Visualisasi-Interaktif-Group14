@@ -1,0 +1,260 @@
+No,Kelompok Bahan Pangan,Komoditas,konsumsi_pangan,Satuan,Tahun
+1,Padi-padian,Padi-padian,116.9,kg/kap/tahun,2018
+2,Padi-padian,Beras,97.1,kg/kap/tahun,2018
+3,Padi-padian,Jagung,1.6,kg/kap/tahun,2018
+4,Padi-padian,Terigu,18.2,kg/kap/tahun,2018
+5,Umbi-umbian,Umbi-umbian,16.4,kg/kap/tahun,2018
+6,Umbi-umbian,Singkong,9.5,kg/kap/tahun,2018
+7,Umbi-umbian,Ubi Jalar,3.4,kg/kap/tahun,2018
+8,Umbi-umbian,Kentang,2.4,kg/kap/tahun,2018
+9,Umbi-umbian,Sagu,0.4,kg/kap/tahun,2018
+10,Umbi-umbian,Umbi Lainnya,0.7,kg/kap/tahun,2018
+11,Pangan Hewani,Pangan Hewani,43.2,kg/kap/tahun,2018
+12,Pangan Hewani,Daging Ruminansia,5.1,kg/kap/tahun,2018
+13,Pangan Hewani,Daging Unggas,7.2,kg/kap/tahun,2018
+14,Pangan Hewani,Telur,7.2,kg/kap/tahun,2018
+15,Pangan Hewani,Susu,3.1,kg/kap/tahun,2018
+16,Pangan Hewani,Ikan,20.7,kg/kap/tahun,2018
+17,Minyak dan Lemak,Minyak dan Lemak,9.8,kg/kap/tahun,2018
+18,Minyak dan Lemak,Minyak Kelapa,0.8,kg/kap/tahun,2018
+19,Minyak dan Lemak,Minyak Sawit,8.7,kg/kap/tahun,2018
+20,Minyak dan Lemak,Minyak Lainnya,0.3,kg/kap/tahun,2018
+21,Buah/biji berminyak,Buah/biji berminyak,1.4,kg/kap/tahun,2018
+22,Buah/biji berminyak,Kelapa,1.2,kg/kap/tahun,2018
+23,Buah/biji berminyak,Kemiri,0.2,kg/kap/tahun,2018
+24,Kacang-kacangan,Kacang-kacangan,10,kg/kap/tahun,2018
+25,Kacang-kacangan,Kedelai,9.1,kg/kap/tahun,2018
+26,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2018
+27,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2018
+28,Kacang-kacangan,Kacang Lain,0.2,kg/kap/tahun,2018
+29,Gula,Gula,7.6,kg/kap/tahun,2018
+30,Gula,Gula Pasir,7,kg/kap/tahun,2018
+31,Gula,Gula Merah,0.6,kg/kap/tahun,2018
+32,Sayuran dan buah,Sayuran dan buah,90.5,kg/kap/tahun,2018
+33,Sayuran dan buah,Sayur,54,kg/kap/tahun,2018
+34,Sayuran dan buah,Buah,36.5,kg/kap/tahun,2018
+35,Lain-lain,Lain-lain,33.8,kg/kap/tahun,2018
+36,Lain-lain,Minuman,30.9,kg/kap/tahun,2018
+37,Lain-lain,Bumbu-Bumbuan,2.9,kg/kap/tahun,2018
+38,Padi-padian,Padi-padian,114.3,kg/kap/tahun,2019
+39,Padi-padian,Beras,94.9,kg/kap/tahun,2019
+40,Padi-padian,Jagung,1.7,kg/kap/tahun,2019
+41,Padi-padian,Terigu,17.8,kg/kap/tahun,2019
+42,Umbi-umbian,Umbi-umbian,15.9,kg/kap/tahun,2019
+43,Umbi-umbian,Singkong,8.6,kg/kap/tahun,2019
+44,Umbi-umbian,Ubi Jalar,3.5,kg/kap/tahun,2019
+45,Umbi-umbian,Kentang,2.9,kg/kap/tahun,2019
+46,Umbi-umbian,Sagu,0.3,kg/kap/tahun,2019
+47,Umbi-umbian,Umbi Lainnya,0.6,kg/kap/tahun,2019
+48,Pangan Hewani,Pangan Hewani,42.8,kg/kap/tahun,2019
+49,Pangan Hewani,Daging Ruminansia,3.8,kg/kap/tahun,2019
+50,Pangan Hewani,Daging Unggas,7.5,kg/kap/tahun,2019
+51,Pangan Hewani,Telur,7.2,kg/kap/tahun,2019
+52,Pangan Hewani,Susu,3,kg/kap/tahun,2019
+53,Pangan Hewani,Ikan,21.4,kg/kap/tahun,2019
+54,Minyak dan Lemak,Minyak dan Lemak,9.9,kg/kap/tahun,2019
+55,Minyak dan Lemak,Minyak Kelapa,0.7,kg/kap/tahun,2019
+56,Minyak dan Lemak,Minyak Sawit,8.8,kg/kap/tahun,2019
+57,Minyak dan Lemak,Minyak Lainnya,0.4,kg/kap/tahun,2019
+58,Buah/biji berminyak,Buah/biji berminyak,1.4,kg/kap/tahun,2019
+59,Buah/biji berminyak,Kelapa,1.2,kg/kap/tahun,2019
+60,Buah/biji berminyak,Kemiri,0.2,kg/kap/tahun,2019
+61,Kacang-kacangan,Kacang-kacangan,9.7,kg/kap/tahun,2019
+62,Kacang-kacangan,Kedelai,8.7,kg/kap/tahun,2019
+63,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2019
+64,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2019
+65,Kacang-kacangan,Kacang Lain,0.2,kg/kap/tahun,2019
+66,Gula,Gula,7.4,kg/kap/tahun,2019
+67,Gula,Gula Pasir,6.8,kg/kap/tahun,2019
+68,Gula,Gula Merah,0.6,kg/kap/tahun,2019
+69,Sayuran dan buah,Sayuran dan buah,89.2,kg/kap/tahun,2019
+70,Sayuran dan buah,Sayur,54.9,kg/kap/tahun,2019
+71,Sayuran dan buah,Buah,34.3,kg/kap/tahun,2019
+72,Lain-lain,Lain-lain,34.4,kg/kap/tahun,2019
+73,Lain-lain,Minuman,31.5,kg/kap/tahun,2019
+74,Lain-lain,Bumbu-Bumbuan,2.9,kg/kap/tahun,2019
+75,Padi-padian,Padi-padian,112.9,kg/kap/tahun,2020
+76,Padi-padian,Beras,94,kg/kap/tahun,2020
+77,Padi-padian,Jagung,1.8,kg/kap/tahun,2020
+78,Padi-padian,Terigu,17.1,kg/kap/tahun,2020
+79,Umbi-umbian,Umbi-umbian,15.1,kg/kap/tahun,2020
+80,Umbi-umbian,Singkong,8.6,kg/kap/tahun,2020
+81,Umbi-umbian,Ubi Jalar,3.2,kg/kap/tahun,2020
+82,Umbi-umbian,Kentang,2.5,kg/kap/tahun,2020
+83,Umbi-umbian,Sagu,0.3,kg/kap/tahun,2020
+84,Umbi-umbian,Umbi Lainnya,0.4,kg/kap/tahun,2020
+85,Pangan Hewani,Pangan Hewani,43.2,kg/kap/tahun,2020
+86,Pangan Hewani,Daging Ruminansia,3.8,kg/kap/tahun,2020
+87,Pangan Hewani,Daging Unggas,7.8,kg/kap/tahun,2020
+88,Pangan Hewani,Telur,7.3,kg/kap/tahun,2020
+89,Pangan Hewani,Susu,3,kg/kap/tahun,2020
+90,Pangan Hewani,Ikan,21.3,kg/kap/tahun,2020
+91,Minyak dan Lemak,Minyak dan Lemak,10.1,kg/kap/tahun,2020
+92,Minyak dan Lemak,Minyak Kelapa,0.6,kg/kap/tahun,2020
+93,Minyak dan Lemak,Minyak Sawit,9.1,kg/kap/tahun,2020
+94,Minyak dan Lemak,Minyak Lainnya,0.4,kg/kap/tahun,2020
+95,Buah/biji berminyak,Buah/biji berminyak,1.3,kg/kap/tahun,2020
+96,Buah/biji berminyak,Kelapa,1.1,kg/kap/tahun,2020
+97,Buah/biji berminyak,Kemiri,0.2,kg/kap/tahun,2020
+98,Kacang-kacangan,Kacang-kacangan,9.2,kg/kap/tahun,2020
+99,Kacang-kacangan,Kedelai,8.2,kg/kap/tahun,2020
+100,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2020
+101,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2020
+102,Kacang-kacangan,Kacang Lain,0.3,kg/kap/tahun,2020
+103,Gula,Gula,7.3,kg/kap/tahun,2020
+104,Gula,Gula Pasir,6.7,kg/kap/tahun,2020
+105,Gula,Gula Merah,0.6,kg/kap/tahun,2020
+106,Sayuran dan buah,Sayuran dan buah,84.6,kg/kap/tahun,2020
+107,Sayuran dan buah,Sayur,52.3,kg/kap/tahun,2020
+108,Sayuran dan buah,Buah,32.3,kg/kap/tahun,2020
+109,Lain-lain,Lain-lain,33.8,kg/kap/tahun,2020
+110,Lain-lain,Minuman,30.9,kg/kap/tahun,2020
+111,Lain-lain,Bumbu-Bumbuan,2.9,kg/kap/tahun,2020
+112,Padi-padian,Padi-padian,112.8,kg/kap/tahun,2021
+113,Padi-padian,Beras,94.4,kg/kap/tahun,2021
+114,Padi-padian,Jagung,1.5,kg/kap/tahun,2021
+115,Padi-padian,Terigu,16.9,kg/kap/tahun,2021
+116,Umbi-umbian,Umbi-umbian,18.2,kg/kap/tahun,2021
+117,Umbi-umbian,Singkong,10.5,kg/kap/tahun,2021
+118,Umbi-umbian,Ubi Jalar,3.8,kg/kap/tahun,2021
+119,Umbi-umbian,Kentang,2.8,kg/kap/tahun,2021
+120,Umbi-umbian,Sagu,0.3,kg/kap/tahun,2021
+121,Umbi-umbian,Umbi Lainnya,0.7,kg/kap/tahun,2021
+122,Pangan Hewani,Pangan Hewani,44.7,kg/kap/tahun,2021
+123,Pangan Hewani,Daging Ruminansia,3.6,kg/kap/tahun,2021
+124,Pangan Hewani,Daging Unggas,8.3,kg/kap/tahun,2021
+125,Pangan Hewani,Telur,7.5,kg/kap/tahun,2021
+126,Pangan Hewani,Susu,2.8,kg/kap/tahun,2021
+127,Pangan Hewani,Ikan,22.4,kg/kap/tahun,2021
+128,Minyak dan Lemak,Minyak dan Lemak,10.9,kg/kap/tahun,2021
+129,Minyak dan Lemak,Minyak Kelapa,0.7,kg/kap/tahun,2021
+130,Minyak dan Lemak,Minyak Sawit,9.8,kg/kap/tahun,2021
+131,Minyak dan Lemak,Minyak Lainnya,0.4,kg/kap/tahun,2021
+132,Buah/biji berminyak,Buah/biji berminyak,1.4,kg/kap/tahun,2021
+133,Buah/biji berminyak,Kelapa,1.1,kg/kap/tahun,2021
+134,Buah/biji berminyak,Kemiri,0.3,kg/kap/tahun,2021
+135,Kacang-kacangan,Kacang-kacangan,9.3,kg/kap/tahun,2021
+136,Kacang-kacangan,Kedelai,8.5,kg/kap/tahun,2021
+137,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2021
+138,Kacang-kacangan,Kacang Hijau,0.3,kg/kap/tahun,2021
+139,Kacang-kacangan,Kacang Lain,0.2,kg/kap/tahun,2021
+140,Gula,Gula,7.6,kg/kap/tahun,2021
+141,Gula,Gula Pasir,6.9,kg/kap/tahun,2021
+142,Gula,Gula Merah,0.7,kg/kap/tahun,2021
+143,Sayuran dan buah,Sayuran dan buah,82.6,kg/kap/tahun,2021
+144,Sayuran dan buah,Sayur,54.6,kg/kap/tahun,2021
+145,Sayuran dan buah,Buah,28,kg/kap/tahun,2021
+146,Lain-lain,Lain-lain,28.6,kg/kap/tahun,2021
+147,Lain-lain,Minuman,25.5,kg/kap/tahun,2021
+148,Lain-lain,Bumbu-Bumbuan,3.1,kg/kap/tahun,2021
+149,Padi-padian,Padi-padian,111.2,kg/kap/tahun,2022
+150,Padi-padian,Beras,93.5,kg/kap/tahun,2022
+151,Padi-padian,Jagung,1.4,kg/kap/tahun,2022
+152,Padi-padian,Terigu,16.3,kg/kap/tahun,2022
+153,Umbi-umbian,Umbi-umbian,17.5,kg/kap/tahun,2022
+154,Umbi-umbian,Singkong,9.7,kg/kap/tahun,2022
+155,Umbi-umbian,Ubi Jalar,3.5,kg/kap/tahun,2022
+156,Umbi-umbian,Kentang,3.2,kg/kap/tahun,2022
+157,Umbi-umbian,Sagu,0.3,kg/kap/tahun,2022
+158,Umbi-umbian,Umbi Lainnya,0.8,kg/kap/tahun,2022
+159,Pangan Hewani,Pangan Hewani,46.1,kg/kap/tahun,2022
+160,Pangan Hewani,Daging Ruminansia,3.9,kg/kap/tahun,2022
+161,Pangan Hewani,Daging Unggas,8.9,kg/kap/tahun,2022
+162,Pangan Hewani,Telur,7.6,kg/kap/tahun,2022
+163,Pangan Hewani,Susu,2.7,kg/kap/tahun,2022
+164,Pangan Hewani,Ikan,23,kg/kap/tahun,2022
+165,Minyak dan Lemak,Minyak dan Lemak,10.2,kg/kap/tahun,2022
+166,Minyak dan Lemak,Minyak Kelapa,0.4,kg/kap/tahun,2022
+167,Minyak dan Lemak,Minyak Sawit,9.5,kg/kap/tahun,2022
+168,Minyak dan Lemak,Minyak Lainnya,0.3,kg/kap/tahun,2022
+169,Buah/biji berminyak,Buah/biji berminyak,1.3,kg/kap/tahun,2022
+170,Buah/biji berminyak,Kelapa,1,kg/kap/tahun,2022
+171,Buah/biji berminyak,Kemiri,0.3,kg/kap/tahun,2022
+172,Kacang-kacangan,Kacang-kacangan,10.2,kg/kap/tahun,2022
+173,Kacang-kacangan,Kedelai,9.3,kg/kap/tahun,2022
+174,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2022
+175,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2022
+176,Kacang-kacangan,Kacang Lain,0.2,kg/kap/tahun,2022
+177,Gula,Gula,7.2,kg/kap/tahun,2022
+178,Gula,Gula Pasir,6.5,kg/kap/tahun,2022
+179,Gula,Gula Merah,0.7,kg/kap/tahun,2022
+180,Sayuran dan buah,Sayuran dan buah,86.7,kg/kap/tahun,2022
+181,Sayuran dan buah,Sayur,55.6,kg/kap/tahun,2022
+182,Sayuran dan buah,Buah,31.1,kg/kap/tahun,2022
+183,Lain-lain,Lain-lain,28.8,kg/kap/tahun,2022
+184,Lain-lain,Minuman,25.2,kg/kap/tahun,2022
+185,Lain-lain,Bumbu-Bumbuan,3.6,kg/kap/tahun,2022
+186,Padi-padian,Padi-padian,112.1,kg/kap/tahun,2023
+187,Padi-padian,Beras,93.8,kg/kap/tahun,2023
+188,Padi-padian,Jagung,1.4,kg/kap/tahun,2023
+189,Padi-padian,Terigu,16.9,kg/kap/tahun,2023
+190,Umbi-umbian,Umbi-umbian,17.7,kg/kap/tahun,2023
+191,Umbi-umbian,Singkong,10,kg/kap/tahun,2023
+192,Umbi-umbian,Ubi Jalar,3.6,kg/kap/tahun,2023
+193,Umbi-umbian,Kentang,2.9,kg/kap/tahun,2023
+194,Umbi-umbian,Sagu,0.3,kg/kap/tahun,2023
+195,Umbi-umbian,Umbi Lainnya,0.9,kg/kap/tahun,2023
+196,Pangan Hewani,Pangan Hewani,45.2,kg/kap/tahun,2023
+197,Pangan Hewani,Daging Ruminansia,4.1,kg/kap/tahun,2023
+198,Pangan Hewani,Daging Unggas,9.1,kg/kap/tahun,2023
+199,Pangan Hewani,Telur,7.2,kg/kap/tahun,2023
+200,Pangan Hewani,Susu,2.6,kg/kap/tahun,2023
+201,Pangan Hewani,Ikan,22.2,kg/kap/tahun,2023
+202,Minyak dan Lemak,Minyak dan Lemak,10.3,kg/kap/tahun,2023
+203,Minyak dan Lemak,Minyak Kelapa,0.3,kg/kap/tahun,2023
+204,Minyak dan Lemak,Minyak Sawit,9.6,kg/kap/tahun,2023
+205,Minyak dan Lemak,Minyak Lainnya,0.4,kg/kap/tahun,2023
+206,Buah/biji berminyak,Buah/biji berminyak,1.3,kg/kap/tahun,2023
+207,Buah/biji berminyak,Kelapa,1.1,kg/kap/tahun,2023
+208,Buah/biji berminyak,Kemiri,0.2,kg/kap/tahun,2023
+209,Kacang-kacangan,Kacang-kacangan,8.6,kg/kap/tahun,2023
+210,Kacang-kacangan,Kedelai,7.8,kg/kap/tahun,2023
+211,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2023
+212,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2023
+213,Kacang-kacangan,Kacang Lain,0.1,kg/kap/tahun,2023
+214,Gula,Gula,6.5,kg/kap/tahun,2023
+215,Gula,Gula Pasir,5.9,kg/kap/tahun,2023
+216,Gula,Gula Merah,0.6,kg/kap/tahun,2023
+217,Sayuran dan buah,Sayuran dan buah,87.8,kg/kap/tahun,2023
+218,Sayuran dan buah,Sayur,55.4,kg/kap/tahun,2023
+219,Sayuran dan buah,Buah,32.4,kg/kap/tahun,2023
+220,Lain-lain,Lain-lain,30.2,kg/kap/tahun,2023
+221,Lain-lain,Minuman,26.8,kg/kap/tahun,2023
+222,Lain-lain,Bumbu-Bumbuan,3.4,kg/kap/tahun,2023
+223,Padi-padian,Padi-padian,109.7,kg/kap/tahun,2024
+224,Padi-padian,Beras,92.1,kg/kap/tahun,2024
+225,Padi-padian,Jagung,1.5,kg/kap/tahun,2024
+226,Padi-padian,Terigu,16.1,kg/kap/tahun,2024
+227,Umbi-umbian,Umbi-umbian,15,kg/kap/tahun,2024
+228,Umbi-umbian,Singkong,8.5,kg/kap/tahun,2024
+229,Umbi-umbian,Ubi Jalar,3.1,kg/kap/tahun,2024
+230,Umbi-umbian,Kentang,2.5,kg/kap/tahun,2024
+231,Umbi-umbian,Sagu,0.6,kg/kap/tahun,2024
+232,Umbi-umbian,Umbi Lainnya,0.3,kg/kap/tahun,2024
+233,Pangan Hewani,Pangan Hewani,45.5,kg/kap/tahun,2024
+234,Pangan Hewani,Daging Ruminansia,3.3,kg/kap/tahun,2024
+235,Pangan Hewani,Daging Unggas,9.9,kg/kap/tahun,2024
+236,Pangan Hewani,Telur,7.2,kg/kap/tahun,2024
+237,Pangan Hewani,Susu,2.6,kg/kap/tahun,2024
+238,Pangan Hewani,Ikan,22.5,kg/kap/tahun,2024
+239,Minyak dan Lemak,Minyak dan Lemak,10.3,kg/kap/tahun,2024
+240,Minyak dan Lemak,Minyak Kelapa,0.4,kg/kap/tahun,2024
+241,Minyak dan Lemak,Minyak Sawit,9.5,kg/kap/tahun,2024
+242,Minyak dan Lemak,Minyak Lainnya,0.4,kg/kap/tahun,2024
+243,Buah/biji berminyak,Buah/biji berminyak,1.2,kg/kap/tahun,2024
+244,Buah/biji berminyak,Kelapa,1,kg/kap/tahun,2024
+245,Buah/biji berminyak,Kemiri,0.2,kg/kap/tahun,2024
+246,Kacang-kacangan,Kacang-kacangan,10,kg/kap/tahun,2024
+247,Kacang-kacangan,Kedelai,9.1,kg/kap/tahun,2024
+248,Kacang-kacangan,Kacang Tanah,0.3,kg/kap/tahun,2024
+249,Kacang-kacangan,Kacang Hijau,0.4,kg/kap/tahun,2024
+250,Kacang-kacangan,Kacang Lain,0.2,kg/kap/tahun,2024
+251,Gula,Gula,6,kg/kap/tahun,2024
+252,Gula,Gula Pasir,5.5,kg/kap/tahun,2024
+253,Gula,Gula Merah,0.5,kg/kap/tahun,2024
+254,Sayuran dan buah,Sayuran dan buah,89.3,kg/kap/tahun,2024
+255,Sayuran dan buah,Sayur,52.1,kg/kap/tahun,2024
+256,Sayuran dan buah,Buah,37.2,kg/kap/tahun,2024
+257,Lain-lain,Lain-lain,31.2,kg/kap/tahun,2024
+258,Lain-lain,Minuman,27.9,kg/kap/tahun,2024
+259,Lain-lain,Bumbu-Bumbuan,3.3,kg/kap/tahun,2024
