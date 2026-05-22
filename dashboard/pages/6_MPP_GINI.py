@@ -227,8 +227,8 @@ with col2:
     )
 
     fig_trend.update_layout(
-        paper_bgcolor=colors.BG_PANEL,
-        plot_bgcolor=colors.BG_CARD,
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#f7faf6",
         font=dict(color=colors.TEXT_PRIMARY),
         xaxis=dict(gridcolor=colors.BORDER_CARD, tickfont=dict(color=colors.TEXT_MUTED)),
         yaxis=dict(
