@@ -1,6 +1,6 @@
 """
 Color constants and theme definitions for the Indonesian Food Security Dashboard.
-Dark green / gold / red agricultural theme derived from the original infographic.
+Light Corporate / Modern theme — aligned with DESIGN-2.md.
 """
 
 from __future__ import annotations
@@ -8,77 +8,80 @@ from __future__ import annotations
 # ---------------------------------------------------------------------------
 # Base background palette
 # ---------------------------------------------------------------------------
-BG_MAIN: str = "#0d1a0e"
-BG_PANEL: str = "#152818"
-BG_CARD: str = "#1c3319"
+BG_MAIN: str = "#f7faf6"
+BG_PANEL: str = "#f1f4f0"
+BG_CARD: str = "#ffffff"
 
 # ---------------------------------------------------------------------------
 # Border
 # ---------------------------------------------------------------------------
-BORDER_CARD: str = "#3d7a3d"
+BORDER_CARD: str = "#e2e8f0"
 
 # ---------------------------------------------------------------------------
 # Accent colors
 # ---------------------------------------------------------------------------
-ACCENT_GREEN: str = "#7ab528"
-ACCENT_GOLD: str = "#d4a520"
-ACCENT_RED: str = "#c53030"
-ACCENT_ORANGE: str = "#e07820"
+ACCENT_GREEN: str = "#065f46"    # deep emerald (primary-dark)
+ACCENT_GOLD: str = "#904d00"     # amber (secondary)
+ACCENT_RED: str = "#be123c"      # crimson (error)
+ACCENT_ORANGE: str = "#c2410c"   # orange
 
 # ---------------------------------------------------------------------------
 # Text colors
 # ---------------------------------------------------------------------------
-TEXT_PRIMARY: str = "#f2f7ec"
-TEXT_MUTED: str = "#a8c878"
-TEXT_DIM: str = "#7a9060"
+TEXT_PRIMARY: str = "#181c1a"
+TEXT_MUTED: str = "#6f7973"
+TEXT_DIM: str = "#3f4944"
 
 # ---------------------------------------------------------------------------
 # Choropleth map scale colors
 # ---------------------------------------------------------------------------
-MAP_LOW: str = "#f5e6a3"
-MAP_MID: str = "#7ab528"
-MAP_HIGH: str = "#1a4a0a"
-MAP_CRITICAL: str = "#c53030"
+MAP_LOW: str = "#fef2f2"
+MAP_MID: str = "#15803d"
+MAP_HIGH: str = "#14532d"
+MAP_CRITICAL: str = "#be123c"
 
 # ---------------------------------------------------------------------------
-# K-Means cluster colors (6 visually distinct, accessible on dark bg)
+# K-Means cluster colors (6 visually distinct, works on light bg)
 # ---------------------------------------------------------------------------
 CLUSTER_COLORS: list[str] = [
-    "#7ab528",  # 0 – green
-    "#d4a520",  # 1 – gold
-    "#4a90d9",  # 2 – blue
-    "#c53030",  # 3 – red
-    "#b05ec0",  # 4 – purple
-    "#e07820",  # 5 – orange
+    "#065f46",  # 0 – deep emerald
+    "#904d00",  # 1 – amber
+    "#1e6ba8",  # 2 – blue
+    "#be123c",  # 3 – crimson
+    "#7c3aed",  # 4 – purple
+    "#c2410c",  # 5 – orange
 ]
 
 # ---------------------------------------------------------------------------
 # Island-group colors (for regional breakdown charts)
 # ---------------------------------------------------------------------------
 ISLAND_COLORS: dict[str, str] = {
-    "Sumatera": "#4a90d9",
-    "Jawa": "#7ab528",
-    "Kalimantan": "#d4a520",
-    "Sulawesi": "#e07820",
-    "Nusa Tenggara & Bali": "#b05ec0",
-    "Maluku": "#4ac9b0",
-    "Papua": "#c53030",
+    "Sumatera": "#1e6ba8",
+    "Jawa": "#065f46",
+    "Kalimantan": "#904d00",
+    "Sulawesi": "#c2410c",
+    "Nusa Tenggara & Bali": "#7c3aed",
+    "Maluku": "#0891b2",
+    "Papua": "#be123c",
 }
 
 # ---------------------------------------------------------------------------
-# Custom Plotly layout template
+# Custom Plotly layout template — light theme
 # ---------------------------------------------------------------------------
 PLOTLY_TEMPLATE: dict = {
     "layout": {
-        "paper_bgcolor": BG_PANEL,
-        "plot_bgcolor": BG_CARD,
+        "paper_bgcolor": "#ffffff",
+        "plot_bgcolor": "#f7faf6",
         "font": {
             "color": TEXT_PRIMARY,
-            "family": "Inter, Segoe UI, sans-serif",
+            "family": "Plus Jakarta Sans, Segoe UI, sans-serif",
         },
         "title": {
-            "font": {"color": TEXT_PRIMARY, "size": 16},
-            "x": 0.05,
+            "font": {"color": TEXT_PRIMARY, "size": 15},
+            "x": 0.04,
+            "xanchor": "left",
+            "yanchor": "top",
+            "pad": {"t": 12, "l": 8},
         },
         "xaxis": {
             "gridcolor": BORDER_CARD,
@@ -95,7 +98,7 @@ PLOTLY_TEMPLATE: dict = {
             "tickfont": {"color": TEXT_MUTED},
         },
         "legend": {
-            "bgcolor": BG_PANEL,
+            "bgcolor": "#ffffff",
             "bordercolor": BORDER_CARD,
             "borderwidth": 1,
             "font": {"color": TEXT_PRIMARY},
@@ -104,41 +107,41 @@ PLOTLY_TEMPLATE: dict = {
             "colorbar": {
                 "tickfont": {"color": TEXT_MUTED},
                 "title": {"font": {"color": TEXT_MUTED}},
-                "bgcolor": BG_PANEL,
+                "bgcolor": "#ffffff",
                 "bordercolor": BORDER_CARD,
             }
         },
         "hoverlabel": {
-            "bgcolor": BG_PANEL,
+            "bgcolor": "#ffffff",
             "bordercolor": BORDER_CARD,
             "font": {"color": TEXT_PRIMARY},
         },
-        "margin": {"l": 40, "r": 20, "t": 50, "b": 40},
+        "margin": {"l": 60, "r": 36, "t": 72, "b": 52},
     }
 }
 
 # ---------------------------------------------------------------------------
-# Food-security category colors (IKP / Kerentanan Pangan categories)
+# Food-security category colors
 # ---------------------------------------------------------------------------
 KERENTANAN_COLORS: dict[str, str] = {
-    "Sangat Tahan": ACCENT_GREEN,   # #7ab528
-    "Tahan": "#4a8a18",
-    "Agak Tahan": ACCENT_GOLD,      # #d4a520
-    "Agak Rentan": ACCENT_ORANGE,   # #e07820
-    "Rentan": "#c07030",
-    "Sangat Rentan": ACCENT_RED,    # #c53030
+    "Sangat Tahan": "#15803d",
+    "Tahan": "#16a34a",
+    "Agak Tahan": "#ca8a04",
+    "Agak Rentan": "#ea580c",
+    "Rentan": "#dc2626",
+    "Sangat Rentan": "#be123c",
 }
 
 # ---------------------------------------------------------------------------
 # Continuous colorscale for IKP choropleth
-# 0.0 = most food-insecure (red) → 0.5 = moderate (gold) → 1.0 = secure (dark green)
+# 0.0 = most food-insecure (crimson) → 1.0 = secure (dark green)
 # ---------------------------------------------------------------------------
 IKP_COLORSCALE: list[list] = [
-    [0.00, MAP_CRITICAL],   # #c53030
-    [0.25, ACCENT_ORANGE],  # #e07820
-    [0.50, ACCENT_GOLD],    # #d4a520
-    [0.75, ACCENT_GREEN],   # #7ab528
-    [1.00, MAP_HIGH],       # #1a4a0a
+    [0.00, MAP_CRITICAL],   # #be123c
+    [0.25, ACCENT_ORANGE],  # #c2410c
+    [0.50, "#ca8a04"],      # amber
+    [0.75, "#16a34a"],      # green
+    [1.00, MAP_HIGH],       # #14532d
 ]
 
 # ---------------------------------------------------------------------------
@@ -209,16 +212,5 @@ _PROVINCE_TO_ISLAND: dict[str, str] = {
 
 
 def get_province_island(province_name: str) -> str | None:
-    """Return the island-group name for *province_name* (case-insensitive).
-
-    Parameters
-    ----------
-    province_name:
-        Province name as it appears in the dataset (any case).
-
-    Returns
-    -------
-    str | None
-        The island group string (e.g. ``"Jawa"``), or ``None`` if not found.
-    """
+    """Return the island-group name for *province_name* (case-insensitive)."""
     return _PROVINCE_TO_ISLAND.get(province_name.upper().strip())

@@ -1,5 +1,5 @@
 """
-dashboard/pages/3_Price_Trend.py — Tren & Gap Harga Beras
+dashboard/pages/3_Price_Trend.py, Tren & Gap Harga Beras
 Interactive rice price trend and gap analysis across Indonesian provinces.
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
@@ -17,7 +17,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # ---------------------------------------------------------------------------
-# 1. Page config — MUST be the first Streamlit call
+# 1. Page config, MUST be the first Streamlit call
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Tren & Gap Harga | Ketahanan Pangan",
@@ -38,7 +38,7 @@ with open(css_path) as f:
 df_harga = load_harga_beras()
 
 # ---------------------------------------------------------------------------
-# 4. Dynamic headline card — Papua vs Lampung gap for 2025
+# 4. Dynamic headline card, Papua vs Lampung gap for 2025
 # ---------------------------------------------------------------------------
 papua_2025 = df_harga[
     (df_harga.PROVINSI == "PAPUA") & (df_harga.TANGGAL.dt.year == 2025)
@@ -52,10 +52,10 @@ gap = papua_2025 - lampung_2025
 
 st.markdown(f"""
 <div class='headline-card'>
-  <h1 style='color:#7ab528; margin:0;'>Tren & Gap Harga Beras</h1>
-  <p style='color:#e8f0e0; margin:4px 0 2px;'>Papua membayar beras
-    <b style='color:#c53030;'>Rp {gap:,.0f}/kg lebih mahal</b>
-    dari Lampung pada 2025 — gap ini tidak pernah mengecil sejak 2019.</p>
+  <h1 style='color:#065f46; margin:0;'>Tren & Gap Harga Beras</h1>
+  <p style='color:#181c1a; margin:4px 0 2px;'>Papua membayar beras
+    <b style='color:#be123c;'>Rp {gap:,.0f}/kg lebih mahal</b>
+    dari Lampung pada 2025, gap ini tidak pernah mengecil sejak 2019.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -141,15 +141,15 @@ with col2:
         st.metric(f"Harga {prov_a} ({gap_year})", f"Rp {price_a:,.0f}/kg")
         st.metric(f"Harga {prov_b} ({gap_year})", f"Rp {price_b:,.0f}/kg")
 
-        color = "#c53030" if gap_val > 0 else "#7ab528"
+        color = "#be123c" if gap_val > 0 else "#065f46"
         card_class = "danger" if gap_val > 0 else "success"
         st.markdown(f"""
         <div class='kpi-card {card_class}' style='margin-top:12px;'>
-          <div style='font-size:12px; color:#8aaa70;'>Selisih Harga</div>
+          <div style='font-size:12px; color:#6f7973;'>Selisih Harga</div>
           <div style='font-size:28px; font-weight:700; color:{color};'>
             Rp {abs(gap_val):,.0f}/kg
           </div>
-          <div style='font-size:13px; color:#e8f0e0;'>
+          <div style='font-size:13px; color:#181c1a;'>
             {prov_a} {'lebih mahal' if gap_val > 0 else 'lebih murah'} {abs(pct_diff):.1f}% dari {prov_b}
           </div>
         </div>
@@ -183,4 +183,5 @@ fig_nat = make_line_harga(
     ["Nasional"],
     year_range=year_range,
 )
+fig_nat.update_layout(margin=dict(l=64, r=80, t=72, b=52))
 st.plotly_chart(fig_nat, use_container_width=True, height=300)

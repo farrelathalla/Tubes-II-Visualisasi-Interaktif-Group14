@@ -1,5 +1,5 @@
 """
-dashboard/pages/6_MPP_GINI.py — Ketimpangan Distribusi (MPP)
+dashboard/pages/6_MPP_GINI.py, Ketimpangan Distribusi (MPP)
 Margin Perdagangan & Pengangkutan vs Indeks Ketahanan Pangan
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # ---------------------------------------------------------------------------
-# 1. Page config — MUST be the first Streamlit call
+# 1. Page config, MUST be the first Streamlit call
 # ---------------------------------------------------------------------------
 import streamlit as st
 
@@ -69,36 +69,36 @@ r, p_val = stats.pearsonr(_valid["MPP_TOTAL_PCT"], _valid["IKP"])
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center; padding: 16px 0 8px 0;'>
-      <div style='color:#7ab528; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
-      <div style='color:#a8c878; font-size:12px;'>Indonesia Dashboard</div>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
+      <div style='color:#6f7973; font-size:12px;'>Indonesia Dashboard</div>
     </div>
-    <hr style='border-color:#2d5a2d; margin:8px 0;'>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
     st.markdown(
-        "<div style='color:#a8c878; font-size:11px; padding: 4px 0 8px 0; "
+        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
         "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
         unsafe_allow_html=True,
     )
 
     st.markdown("""
-    <div style='font-size:13px; color:#f2f7ec; line-height:2;'>
-    <b>Gambaran Umum</b> — Peta IKP<br>
-    <b>Klaster Wilayah</b> — K-Means<br>
-    <b>Tren &amp; Gap Harga</b> — Slope<br>
-    <b>Proyeksi ARIMA</b> — Forecast<br>
-    <b>Analisis Pareto</b> — 80/20<br>
-    <b>Distribusi MPP</b> — Ketimpangan
+    <div style='font-size:13px; color:#181c1a; line-height:2;'>
+    <b>Gambaran Umum</b>, Peta IKP<br>
+    <b>Klaster Wilayah</b>, K-Means<br>
+    <b>Tren &amp; Gap Harga</b>, Slope<br>
+    <b>Proyeksi ARIMA</b>, Forecast<br>
+    <b>Analisis Pareto</b>, 80/20<br>
+    <b>Distribusi MPP</b>, Ketimpangan
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<hr style='border-color:#2d5a2d; margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='font-size:11px; color:#7a9060; line-height:1.6;'>
-    <b style='color:#a8c878;'>IF4061 Visualisasi Data</b><br>
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101 — Group 14<br><br>
+    VSC26101, Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -119,11 +119,11 @@ _corr_label = "negatif" if r < 0 else "positif"
 
 st.markdown(f"""
 <div class='headline-card'>
-  <h1 style='color:#7ab528; margin:0;'>Ketimpangan Distribusi Beras</h1>
-  <p style='color:#e8f0e0; margin:4px 0 2px;'>
+  <h1 style='color:#065f46; margin:0;'>Ketimpangan Distribusi Beras</h1>
+  <p style='color:#181c1a; margin:4px 0 2px;'>
     Margin Perdagangan &amp; Pengangkutan (MPP) berkorelasi
     <b style='color:#{_corr_color};'>{_corr_label} (r = {r:.3f})</b>
-    dengan IKP — provinsi dengan margin distribusi tinggi cenderung memiliki ketahanan pangan lebih rendah.
+    dengan IKP, provinsi dengan margin distribusi tinggi cenderung memiliki ketahanan pangan lebih rendah.
   </p>
 </div>
 """, unsafe_allow_html=True)
@@ -157,7 +157,7 @@ else:
     df_scatter = df_merged.copy()
 
 st.markdown(
-    "<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+    "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
     "text-transform:uppercase; margin-bottom:8px;'>Hubungan MPP vs IKP</h3>",
     unsafe_allow_html=True,
 )
@@ -173,7 +173,7 @@ st.caption(
 st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# 9. Section 4: Two-column — MPP bar + MPP trend
+# 9. Section 4: Two-column, MPP bar + MPP trend
 # ---------------------------------------------------------------------------
 col1, col2 = st.columns(2)
 
@@ -237,7 +237,7 @@ with col2:
             title="MPP Total (%)",
         ),
         legend=dict(bgcolor=colors.BG_PANEL, bordercolor=colors.BORDER_CARD, borderwidth=1),
-        margin=dict(l=40, r=20, t=30, b=40),
+        margin=dict(l=40, r=200, t=30, b=40),
         hoverlabel=dict(
             bgcolor=colors.BG_PANEL,
             bordercolor=colors.BORDER_CARD,
@@ -265,18 +265,18 @@ st.warning(
 st.markdown("<div style='margin-bottom:24px;'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='
-    border-top: 1px solid #2d5a2d;
+    border-top: 1px solid #e2e8f0;
     padding-top: 16px;
     text-align: center;
-    color: #7a9060;
+    color: #6f7973;
     font-size: 0.78rem;
     line-height: 1.8;
 '>
-  <span style='color:#a8c878; font-weight:600;'>Sumber Data:</span>
+  <span style='color:#6f7973; font-weight:600;'>Sumber Data:</span>
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik — IF4061 Visualisasi Data,
+  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

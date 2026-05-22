@@ -1,91 +1,155 @@
 /* ============================================================
    Indonesian Food Security Dashboard — Global Stylesheet
-   Dark green / gold / red agricultural theme
+   Light Corporate / Modern theme — DESIGN-2.md
    ============================================================ */
+
+/* ------------------------------------------------------------
+   0. Font import
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* ------------------------------------------------------------
    1. Root variables
    ------------------------------------------------------------ */
 :root {
-  --bg-main:       #0d1a0e;
-  --bg-panel:      #152818;
-  --bg-card:       #1c3319;
-  --bg-sidebar:    #0a1509;
-  --border-card:   #3d7a3d;
-  --accent-green:  #7ab528;
-  --accent-gold:   #d4a520;
-  --accent-red:    #c53030;
-  --accent-orange: #e07820;
-  --text-primary:  #f2f7ec;
-  --text-muted:    #a8c878;
-  --text-dim:      #7a9060;
-  --radius-card:   8px;
-  --radius-kpi:    10px;
+  --bg-main:        #f7faf6;
+  --bg-card:        #ffffff;
+  --bg-surface-low: #f1f4f0;
+  --bg-sidebar:     #004532;
+  --border:         #e2e8f0;
+  --border-muted:   #bec9c2;
+  --shadow-card:    0px 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-float:   0px 10px 30px rgba(0, 0, 0, 0.10);
+  --primary:        #004532;
+  --primary-dark:   #065f46;
+  --primary-light:  #a6f2d1;
+  --secondary:      #904d00;
+  --secondary-lt:   #fe932c;
+  --text-primary:   #181c1a;
+  --text-secondary: #3f4944;
+  --text-muted:     #6f7973;
+  --accent-green:   #15803d;
+  --accent-amber:   #904d00;
+  --accent-red:     #be123c;
+  --radius-card:    12px;
+  --radius-btn:     8px;
 }
 
 /* ------------------------------------------------------------
-   2. Global app background
+   2. Global font + app background
    ------------------------------------------------------------ */
+.stApp, .stApp * {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif !important;
+}
+
 .stApp {
   background-color: var(--bg-main) !important;
   color: var(--text-primary) !important;
 }
 
-/* Main content container */
 .main .block-container {
   background-color: var(--bg-main) !important;
   padding-top: 1.5rem !important;
   padding-bottom: 2rem !important;
 }
 
+[data-testid="stHeader"] {
+  background-color: var(--bg-main) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
 /* ------------------------------------------------------------
-   3. Sidebar
+   3. Sidebar — deep emerald
    ------------------------------------------------------------ */
 [data-testid="stSidebar"] {
   background-color: var(--bg-sidebar) !important;
-  border-right: 1px solid var(--border-card) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 [data-testid="stSidebar"] * {
-  color: var(--text-primary) !important;
+  color: #ffffff !important;
 }
 
+[data-testid="stSidebar"] p,
 [data-testid="stSidebar"] .stMarkdown p {
-  color: var(--text-primary) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-testid="stSidebar"] hr {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+  color: #ffffff !important;
 }
 
 [data-testid="stSidebarNav"] {
   background-color: var(--bg-sidebar) !important;
 }
 
+/* Sidebar form controls */
+[data-testid="stSidebar"] [data-baseweb="select"] > div,
+[data-testid="stSidebar"] [data-testid="stSelectbox"] > div > div {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-btn) !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="select"] svg {
+  fill: rgba(255, 255, 255, 0.7) !important;
+}
+
+
+[data-testid="stSidebar"] [data-baseweb="tag"] {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="tag"] span {
+  color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="tag"] button {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="tag"] button:hover {
+  color: #ffffff !important;
+}
+
+/* Sidebar multiselect input */
+[data-testid="stSidebar"] [data-baseweb="input"] input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
 /* ------------------------------------------------------------
    4. Headings
    ------------------------------------------------------------ */
 h1 {
-  color: var(--accent-green) !important;
+  color: var(--primary);
   font-weight: 700 !important;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  color: var(--accent-green) !important;
+  color: var(--primary);
   font-weight: 600 !important;
-  border-bottom: 1px solid var(--border-card);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
 }
 
 h3 {
-  color: var(--text-primary) !important;
+  color: var(--text-primary);
   font-weight: 600 !important;
 }
 
 h4, h5, h6 {
-  color: var(--text-primary) !important;
-}
-
-/* Streamlit internal header elements */
-[data-testid="stHeader"] {
-  background-color: var(--bg-main) !important;
+  color: var(--text-primary);
 }
 
 /* ------------------------------------------------------------
@@ -93,22 +157,24 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 [data-testid="stMetric"] {
   background-color: var(--bg-card) !important;
-  border-left: 4px solid var(--accent-green) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
-  padding: 12px 16px !important;
+  padding: 16px 20px !important;
   margin-bottom: 8px !important;
+  box-shadow: var(--shadow-card) !important;
 }
 
 [data-testid="stMetricLabel"] {
   color: var(--text-muted) !important;
-  font-size: 0.8rem !important;
+  font-size: 0.72rem !important;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  font-weight: 600 !important;
 }
 
 [data-testid="stMetricValue"] {
-  color: var(--accent-gold) !important;
-  font-size: 1.6rem !important;
+  color: var(--primary) !important;
+  font-size: 1.8rem !important;
   font-weight: 700 !important;
 }
 
@@ -130,41 +196,39 @@ h4, h5, h6 {
 [data-testid="stDataFrame"],
 [data-testid="stTable"] {
   background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-card) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
-  overflow: hidden;
+  box-shadow: var(--shadow-card) !important;
 }
 
-/* Column headers */
 [data-testid="stDataFrame"] th,
 [data-testid="stTable"] th {
-  background-color: var(--bg-panel) !important;
-  color: var(--accent-green) !important;
+  background-color: var(--bg-surface-low) !important;
+  color: var(--text-secondary) !important;
   font-weight: 600 !important;
-  border-bottom: 1px solid var(--border-card) !important;
+  border-bottom: 1px solid var(--border) !important;
+  font-size: 0.78rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-/* Cells */
 [data-testid="stDataFrame"] td,
 [data-testid="stTable"] td {
   background-color: var(--bg-card) !important;
   color: var(--text-primary) !important;
-  border-bottom: 1px solid var(--border-card) !important;
+  border-bottom: 1px solid var(--border) !important;
 }
 
-/* Zebra striping */
 [data-testid="stDataFrame"] tr:nth-child(even) td,
 [data-testid="stTable"] tr:nth-child(even) td {
-  background-color: var(--bg-panel) !important;
+  background-color: var(--bg-surface-low) !important;
 }
 
-/* Hover */
 [data-testid="stDataFrame"] tr:hover td,
 [data-testid="stTable"] tr:hover td {
-  background-color: #203d1e !important;
+  background-color: #ecf4f0 !important;
 }
 
-/* Ag-Grid / newer dataframe wrapper */
 .dvn-scroller {
   background-color: var(--bg-card) !important;
 }
@@ -174,24 +238,26 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 [data-testid="stSelectbox"] > div > div,
 [data-baseweb="select"] > div {
-  background-color: var(--bg-panel) !important;
-  border: 1px solid var(--border-card) !important;
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
   color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-baseweb="select"] > div:focus-within {
-  border-color: var(--accent-green) !important;
-  box-shadow: 0 0 0 2px rgba(122, 181, 40, 0.25) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 0 0 2px rgba(6, 95, 70, 0.2) !important;
 }
 
 [data-baseweb="popover"] {
-  background-color: var(--bg-panel) !important;
-  border: 1px solid var(--border-card) !important;
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-float) !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-baseweb="menu"] {
-  background-color: var(--bg-panel) !important;
+  background-color: var(--bg-card) !important;
 }
 
 [data-baseweb="menu"] li {
@@ -199,46 +265,61 @@ h4, h5, h6 {
 }
 
 [data-baseweb="menu"] li:hover {
-  background-color: var(--bg-card) !important;
-  color: var(--accent-green) !important;
+  background-color: var(--bg-surface-low) !important;
+  color: var(--primary-dark) !important;
 }
 
 /* ------------------------------------------------------------
    8. Form controls — slider
    ------------------------------------------------------------ */
-[data-testid="stSlider"] > div > div > div > div {
-  background-color: var(--accent-green) !important;
+
+/* Override Streamlit's inline red fill (rgb(255, 75, 75)) on any div inside slider */
+[data-testid="stSlider"] div[style*="rgb(255"],
+[data-testid="stSlider"] div[style*="background: rgb(255"],
+[data-testid="stSlider"] div[style*="background-color: rgb(255"] {
+  background: var(--primary-dark) !important;
+  background-color: var(--primary-dark) !important;
 }
 
+/* Sidebar: same override but with light green */
+[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="rgb(255"],
+[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="background: rgb(255"],
+[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="background-color: rgb(255"] {
+  background: var(--primary-light) !important;
+  background-color: var(--primary-light) !important;
+}
+
+/* Thumb */
 [data-testid="stSlider"] [role="slider"] {
-  background-color: var(--accent-gold) !important;
-  border: 2px solid var(--accent-green) !important;
+  background-color: var(--primary-dark) !important;
+  border: 2px solid var(--bg-card) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
+  outline: none !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stSlider"] [role="slider"] {
+  background-color: #ffffff !important;
+  border: 2px solid var(--primary-light) !important;
 }
 
 [data-testid="stSlider"] [data-testid="stThumbValue"] {
-  color: var(--accent-gold) !important;
-}
-
-/* Track */
-[data-testid="stSlider"] .st-bd {
-  background-color: var(--border-card) !important;
+  color: var(--primary-dark) !important;
 }
 
 /* ------------------------------------------------------------
    9. Form controls — multiselect
    ------------------------------------------------------------ */
 [data-baseweb="tag"] {
-  background-color: var(--bg-card) !important;
-  border: 1px solid var(--accent-green) !important;
-  color: var(--accent-green) !important;
-  border-radius: 4px !important;
+  background-color: #ecf4f0 !important;
+  border: 1px solid var(--primary-light) !important;
+  color: var(--primary-dark) !important;
+  border-radius: 6px !important;
 }
 
 [data-baseweb="tag"] span {
-  color: var(--accent-green) !important;
+  color: var(--primary-dark) !important;
 }
 
-/* Remove-tag button */
 [data-baseweb="tag"] button {
   color: var(--text-muted) !important;
 }
@@ -253,17 +334,17 @@ h4, h5, h6 {
 [data-testid="stTextInput"] input,
 [data-testid="stNumberInput"] input,
 [data-testid="stTextArea"] textarea {
-  background-color: var(--bg-panel) !important;
-  border: 1px solid var(--border-card) !important;
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
   color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-testid="stTextInput"] input:focus,
 [data-testid="stNumberInput"] input:focus,
 [data-testid="stTextArea"] textarea:focus {
-  border-color: var(--accent-green) !important;
-  box-shadow: 0 0 0 2px rgba(122, 181, 40, 0.25) !important;
+  border-color: var(--primary-dark) !important;
+  box-shadow: 0 0 0 2px rgba(6, 95, 70, 0.2) !important;
 }
 
 /* ------------------------------------------------------------
@@ -271,26 +352,28 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 [data-testid="stButton"] > button {
   background-color: var(--bg-card) !important;
-  border: 1px solid var(--accent-green) !important;
-  color: var(--accent-green) !important;
-  border-radius: var(--radius-card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-btn) !important;
   font-weight: 600 !important;
-  transition: background-color 0.15s, color 0.15s;
+  transition: background-color 0.15s, border-color 0.15s;
 }
 
 [data-testid="stButton"] > button:hover {
-  background-color: var(--accent-green) !important;
-  color: var(--bg-main) !important;
+  background-color: var(--bg-surface-low) !important;
+  border-color: var(--primary-dark) !important;
+  color: var(--primary-dark) !important;
 }
 
-[data-testid="stButton"] > button:active {
-  background-color: #5a8a1e !important;
-}
-
-/* Primary button variant */
 [data-testid="stButton"] > button[kind="primary"] {
-  background-color: var(--accent-green) !important;
-  color: var(--bg-main) !important;
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  color: #ffffff !important;
+}
+
+[data-testid="stButton"] > button[kind="primary"]:hover {
+  background-color: var(--primary) !important;
+  color: #ffffff !important;
 }
 
 /* ------------------------------------------------------------
@@ -298,41 +381,41 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 [data-testid="stInfo"],
 .stAlert[data-baseweb="notification"][kind="info"] {
-  background-color: #0e2233 !important;
-  border-left: 4px solid #4a90d9 !important;
-  color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  background-color: #eff6ff !important;
+  border: 1px solid #93c5fd !important;
+  color: #1e40af !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-testid="stWarning"],
 .stAlert[data-baseweb="notification"][kind="warning"] {
-  background-color: #2a1e08 !important;
-  border-left: 4px solid var(--accent-gold) !important;
-  color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  background-color: #fffbeb !important;
+  border: 1px solid #fcd34d !important;
+  color: #92400e !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-testid="stError"],
 .stAlert[data-baseweb="notification"][kind="error"] {
-  background-color: #2a0e0e !important;
-  border-left: 4px solid var(--accent-red) !important;
-  color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  background-color: #fff1f2 !important;
+  border: 1px solid #fca5a5 !important;
+  color: #9f1239 !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 [data-testid="stSuccess"],
 .stAlert[data-baseweb="notification"][kind="success"] {
-  background-color: #0e2218 !important;
-  border-left: 4px solid var(--accent-green) !important;
-  color: var(--text-primary) !important;
-  border-radius: var(--radius-card) !important;
+  background-color: #f0fdf4 !important;
+  border: 1px solid #86efac !important;
+  color: #166534 !important;
+  border-radius: var(--radius-btn) !important;
 }
 
 /* ------------------------------------------------------------
    13. Tabs
    ------------------------------------------------------------ */
 [data-testid="stTabs"] [role="tablist"] {
-  border-bottom: 1px solid var(--border-card) !important;
+  border-bottom: 1px solid var(--border) !important;
   background-color: transparent !important;
 }
 
@@ -345,15 +428,14 @@ h4, h5, h6 {
 }
 
 [data-testid="stTabs"] [role="tab"][aria-selected="true"] {
-  color: var(--accent-green) !important;
-  border-bottom: 2px solid var(--accent-green) !important;
+  color: var(--primary-dark) !important;
+  border-bottom: 2px solid var(--primary-dark) !important;
 }
 
 [data-testid="stTabs"] [role="tab"]:hover {
   color: var(--text-primary) !important;
 }
 
-/* Tab content panel */
 [data-testid="stTabs"] [role="tabpanel"] {
   background-color: var(--bg-main) !important;
   padding-top: 1rem !important;
@@ -364,8 +446,9 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 [data-testid="stExpander"] {
   background-color: var(--bg-card) !important;
-  border: 1px solid var(--border-card) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
+  box-shadow: var(--shadow-card) !important;
 }
 
 [data-testid="stExpander"] summary {
@@ -374,18 +457,18 @@ h4, h5, h6 {
 }
 
 [data-testid="stExpander"] summary:hover {
-  color: var(--accent-green) !important;
+  color: var(--primary-dark) !important;
 }
 
 /* ------------------------------------------------------------
    15. Progress bar
    ------------------------------------------------------------ */
 [data-testid="stProgress"] > div > div > div {
-  background-color: var(--accent-green) !important;
+  background-color: var(--primary-dark) !important;
 }
 
 [data-testid="stProgress"] > div > div {
-  background-color: var(--border-card) !important;
+  background-color: var(--border) !important;
   border-radius: 4px !important;
 }
 
@@ -393,112 +476,106 @@ h4, h5, h6 {
    16. Plotly chart container
    ------------------------------------------------------------ */
 [data-testid="stPlotlyChart"] {
-  background-color: var(--bg-panel) !important;
-  border: 1px solid var(--border-card) !important;
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
-  overflow: hidden;
+  padding: 10px 8px 6px 10px !important;
+  box-shadow: var(--shadow-card) !important;
+  overflow: hidden !important;
 }
 
 /* ------------------------------------------------------------
    17. Custom component classes (for st.markdown HTML injection)
    ------------------------------------------------------------ */
 
-/* Headline card — full-width contextual callout */
+/* Headline card — page-level section header */
 .headline-card {
   background-color: var(--bg-card);
-  border-left: 4px solid var(--accent-green);
+  border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 12px 16px;
-  margin-bottom: 16px;
-  color: var(--text-primary);
-  line-height: 1.5;
+  padding: 7px 52px 24px 32px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow-card);
 }
 
-.headline-card h4,
-.headline-card strong {
-  color: var(--accent-green);
-  margin-bottom: 4px;
+.headline-card h1,
+.headline-card h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+  line-height: 1.25 !important;
 }
 
 .headline-card p {
-  color: var(--text-primary);
-  margin: 0;
+  color: var(--text-secondary);
+  margin: 4px 0 0 0 !important;
   font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+/* Remove stray bottom margin from Streamlit's wrapper divs inside the card */
+.headline-card > div > div,
+.headline-card [data-testid="stMarkdownContainer"] > * {
+  margin-bottom: 0 !important;
 }
 
 /* KPI card — compact metric display */
 .kpi-card {
   background-color: var(--bg-card);
-  border-radius: var(--radius-kpi);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
   padding: 16px 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-card);
-  transition: box-shadow 0.2s;
-}
-
-.kpi-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-green);
+  box-shadow: var(--shadow-card);
 }
 
 .kpi-card .kpi-label {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
   margin-bottom: 6px;
 }
 
 .kpi-card .kpi-value {
-  color: var(--accent-gold);
+  color: var(--primary);
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.1;
 }
 
 .kpi-card .kpi-sub {
-  color: var(--text-dim);
+  color: var(--text-muted);
   font-size: 0.78rem;
   margin-top: 4px;
 }
 
-/* Danger variant */
-.kpi-card.danger .kpi-value {
-  color: var(--accent-red);
-}
-
-/* Warning variant */
-.kpi-card.warning .kpi-value {
-  color: var(--accent-orange);
-}
-
-/* Success / good variant */
-.kpi-card.success .kpi-value {
-  color: var(--accent-green);
-}
+.kpi-card.danger .kpi-value  { color: var(--accent-red); }
+.kpi-card.warning .kpi-value { color: var(--secondary); }
+.kpi-card.success .kpi-value { color: var(--accent-green); }
 
 /* Section divider */
 .section-divider {
   border: none;
-  border-top: 1px solid var(--border-card);
+  border-top: 1px solid var(--border);
   margin: 20px 0;
 }
 
-/* Chip / badge */
+/* Badge / chip */
 .badge {
   display: inline-block;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
   font-weight: 600;
-  background-color: var(--bg-panel);
-  color: var(--text-muted);
-  border: 1px solid var(--border-card);
+  letter-spacing: 0.03em;
 }
 
-.badge.green  { background-color: #1a3a0a; color: var(--accent-green);  border-color: var(--accent-green);  }
-.badge.gold   { background-color: #2a2000; color: var(--accent-gold);   border-color: var(--accent-gold);   }
-.badge.red    { background-color: #2a0a0a; color: var(--accent-red);    border-color: var(--accent-red);    }
-.badge.orange { background-color: #2a1500; color: var(--accent-orange); border-color: var(--accent-orange); }
+.badge.green  { background-color: #f0fdf4; color: #15803d;  border: 1px solid #86efac; }
+.badge.amber  { background-color: #fffbeb; color: #92400e;  border: 1px solid #fcd34d; }
+.badge.red    { background-color: #fff1f2; color: #9f1239;  border: 1px solid #fca5a5; }
+.badge.orange { background-color: #fff7ed; color: #9a3412;  border: 1px solid #fdba74; }
 
 /* ------------------------------------------------------------
    18. Hide Streamlit branding / default chrome
@@ -509,54 +586,23 @@ header             { visibility: hidden !important; }
 [data-testid="stToolbar"]            { display: none !important; }
 [data-testid="stDecoration"]         { display: none !important; }
 [data-testid="stStatusWidget"]       { display: none !important; }
-
-/* Re-show sidebar collapse button if needed */
-[data-testid="collapsedControl"] { display: flex !important; }
+[data-testid="collapsedControl"]     { display: flex !important; }
 
 /* ------------------------------------------------------------
-   19. Custom scrollbar (WebKit / Blink only)
+   19. Custom scrollbar
    ------------------------------------------------------------ */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--border-card);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent-green);
-}
-
-::-webkit-scrollbar-corner {
-  background: var(--bg-main);
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-card) var(--bg-main);
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background-color: var(--border-muted); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background-color: var(--primary-dark); }
+::-webkit-scrollbar-corner { background: var(--bg-main); }
+* { scrollbar-width: thin; scrollbar-color: var(--border-muted) var(--bg-main); }
 
 /* ------------------------------------------------------------
    20. Responsive tweaks
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
-  .kpi-card {
-    padding: 12px 14px;
-  }
-
-  .kpi-card .kpi-value {
-    font-size: 1.4rem;
-  }
-
-  .headline-card {
-    padding: 10px 12px;
-  }
+  .kpi-card { padding: 12px 14px; }
+  .kpi-card .kpi-value { font-size: 1.4rem; }
+  .headline-card { padding: 16px; }
 }

@@ -1,5 +1,5 @@
 """
-dashboard/pages/5_Pareto.py — Analisis Prioritas (Pareto)
+dashboard/pages/5_Pareto.py, Analisis Prioritas (Pareto)
 Prinsip Pareto untuk identifikasi provinsi prioritas ketahanan pangan
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
@@ -15,7 +15,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # ---------------------------------------------------------------------------
-# 1. Page config — MUST be the first Streamlit call
+# 1. Page config, MUST be the first Streamlit call
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Analisis Pareto | Ketahanan Pangan",
@@ -43,36 +43,36 @@ from utils import colors
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center; padding: 16px 0 8px 0;'>
-      <div style='color:#7ab528; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
-      <div style='color:#a8c878; font-size:12px;'>Indonesia Dashboard</div>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
+      <div style='color:#6f7973; font-size:12px;'>Indonesia Dashboard</div>
     </div>
-    <hr style='border-color:#2d5a2d; margin:8px 0;'>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
     st.markdown(
-        "<div style='color:#a8c878; font-size:11px; padding: 4px 0 8px 0; "
+        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
         "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
         unsafe_allow_html=True,
     )
 
     st.markdown("""
-    <div style='font-size:13px; color:#f2f7ec; line-height:2;'>
-    <b>Gambaran Umum</b> — Peta IKP<br>
-    <b>Klaster Wilayah</b> — K-Means<br>
-    <b>Tren &amp; Gap Harga</b> — Slope<br>
-    <b>Proyeksi ARIMA</b> — Forecast<br>
-    <b>Analisis Pareto</b> — 80/20<br>
-    <b>Distribusi MPP</b> — Ketimpangan
+    <div style='font-size:13px; color:#181c1a; line-height:2;'>
+    <b>Gambaran Umum</b>, Peta IKP<br>
+    <b>Klaster Wilayah</b>, K-Means<br>
+    <b>Tren &amp; Gap Harga</b>, Slope<br>
+    <b>Proyeksi ARIMA</b>, Forecast<br>
+    <b>Analisis Pareto</b>, 80/20<br>
+    <b>Distribusi MPP</b>, Ketimpangan
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<hr style='border-color:#2d5a2d; margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='font-size:11px; color:#7a9060; line-height:1.6;'>
-    <b style='color:#a8c878;'>IF4061 Visualisasi Data</b><br>
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101 — Group 14<br><br>
+    VSC26101, Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -115,26 +115,31 @@ n_threshold = min(n_threshold, n_total)
 # ---------------------------------------------------------------------------
 st.markdown(f"""
 <div class='headline-card'>
-  <h1 style='color:#7ab528; margin:0;'>Analisis Prioritas — Prinsip Pareto</h1>
-  <p style='color:#e8f0e0; margin:4px 0 2px;'>
-    <b style='color:#d4a520;'>{n_80pct} provinsi ({pct_provinces:.0f}%)</b> dari total {n_total} provinsi
-    menyumbang <b style='color:#c53030;'>80% dari total defisit ketahanan pangan</b> pada {selected_year}.
+  <h1 style='color:#065f46; margin:0;'>Analisis Prioritas, Prinsip Pareto</h1>
+  <p style='color:#181c1a; margin:4px 0 2px;'>
+    <b style='color:#904d00;'>{n_80pct} provinsi ({pct_provinces:.0f}%)</b> dari total {n_total} provinsi
+    menyumbang <b style='color:#be123c;'>80% dari total defisit ketahanan pangan</b> pada {selected_year}.
     Intervensi tepat sasaran pada kelompok ini dapat memberikan dampak terbesar.
   </p>
 </div>
 """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
-# 7. Section 3: Top row — KPI + priority list | Donut chart
+# 7. Section 3: Top row, KPI + priority list | Donut chart
 # ---------------------------------------------------------------------------
 col1, col2 = st.columns([1, 1])
 
 with col1:
+    st.markdown("**Distribusi Kategori Ketahanan**")
+    fig_donut = make_donut_kerentanan(df_year)
+    st.plotly_chart(fig_donut, use_container_width=True, height=320)
+
+with col2:
     st.markdown(f"""
     <div class='kpi-card danger'>
-      <div style='font-size:12px; color:#8aaa70;'>Provinsi Perlu Prioritas ({pareto_threshold}% threshold)</div>
-      <div style='font-size:36px; font-weight:700; color:#d4a520;'>{n_threshold} Provinsi</div>
-      <div style='font-size:13px; color:#e8f0e0;'>dari total {n_total} provinsi ({n_threshold / n_total * 100:.0f}%)</div>
+      <div style='font-size:12px; color:#6f7973;'>Provinsi Perlu Prioritas ({pareto_threshold}% threshold)</div>
+      <div style='font-size:36px; font-weight:700; color:#904d00;'>{n_threshold} Provinsi</div>
+      <div style='font-size:13px; color:#181c1a;'>dari total {n_total} provinsi ({n_threshold / n_total * 100:.0f}%)</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -144,19 +149,26 @@ with col1:
     if len(priority_provs) < n_threshold and len(priority_provs) < n_total:
         priority_provs.append(df_pareto["PROVINSI"].iloc[len(priority_provs)])
 
-    st.markdown("**Provinsi Prioritas:**")
+    items_html = ""
     for i, prov in enumerate(priority_provs[:10], 1):
         mask = df_pareto["PROVINSI"] == prov
         ikp_val = float(df_pareto.loc[mask, "IKP"].values[0]) if mask.any() else 0.0
-        st.markdown(
-            f"<span style='color:#c53030;'>{i}.</span> {prov} — IKP: **{ikp_val:.1f}**",
-            unsafe_allow_html=True,
+        items_html += (
+            f"<div style='display:grid; grid-template-columns:28px 1fr; align-items:baseline;"
+            f" padding:3px 0; border-bottom:1px solid #f1f4f0;'>"
+            f"<span style='color:#be123c; font-weight:700; text-align:right; padding-right:6px;'>{i}.</span>"
+            f"<span style='color:#181c1a; font-size:0.86rem;'>{prov.title()}"
+            f" <span style='color:#6f7973;'>IKP:</span>"
+            f" <b style='color:#904d00;'>{ikp_val:.1f}</b></span>"
+            f"</div>"
         )
-
-with col2:
-    st.markdown("**Distribusi Kategori Ketahanan**")
-    fig_donut = make_donut_kerentanan(df_year)
-    st.plotly_chart(fig_donut, use_container_width=True, height=320)
+    st.markdown(
+        f"<div style='margin-top:10px;'>"
+        f"<div style='font-size:0.75rem; font-weight:700; text-transform:uppercase;"
+        f" letter-spacing:0.05em; color:#6f7973; margin-bottom:6px;'>Provinsi Prioritas</div>"
+        f"{items_html}</div>",
+        unsafe_allow_html=True,
+    )
 
 # ---------------------------------------------------------------------------
 # 8. Section 4: Full-width Pareto chart
@@ -206,18 +218,18 @@ with kons_col2:
 st.markdown("<div style='margin-bottom:24px;'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='
-    border-top: 1px solid #2d5a2d;
+    border-top: 1px solid #e2e8f0;
     padding-top: 16px;
     text-align: center;
-    color: #7a9060;
+    color: #6f7973;
     font-size: 0.78rem;
     line-height: 1.8;
 '>
-  <span style='color:#a8c878; font-weight:600;'>Sumber Data:</span>
+  <span style='color:#6f7973; font-weight:600;'>Sumber Data:</span>
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik — IF4061 Visualisasi Data,
+  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

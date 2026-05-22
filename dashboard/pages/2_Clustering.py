@@ -1,5 +1,5 @@
 """
-dashboard/pages/2_Clustering.py — Klaster Wilayah (K-Means Clustering)
+dashboard/pages/2_Clustering.py, Klaster Wilayah (K-Means Clustering)
 Segmentasi provinsi berdasarkan kondisi ketahanan pangan menggunakan K-Means.
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
@@ -22,7 +22,7 @@ from sklearn.metrics import silhouette_score
 import plotly.graph_objects as go
 
 # ---------------------------------------------------------------------------
-# 1. Page config — MUST be the first Streamlit call
+# 1. Page config, MUST be the first Streamlit call
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Klaster Wilayah | Ketahanan Pangan",
@@ -42,10 +42,10 @@ with open(Path(__file__).parent.parent / "assets" / "style.css") as f:
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center; padding: 16px 0 8px 0;'>
-      <div style='color:#7ab528; font-weight:700; font-size:16px; letter-spacing:1px;'>KLASTER WILAYAH</div>
-      <div style='color:#8aaa70; font-size:12px;'>K-Means Clustering</div>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>KLASTER WILAYAH</div>
+      <div style='color:#6f7973; font-size:12px;'>K-Means Clustering</div>
     </div>
-    <hr style='border-color:#2d5a2d; margin:8px 0;'>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
@@ -69,12 +69,12 @@ with st.sidebar:
         index=0,
     )
 
-    st.markdown("<hr style='border-color:#2d5a2d; margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='font-size:11px; color:#7a9060; line-height:1.6;'>
-    <b style='color:#a8c878;'>IF4061 Visualisasi Data</b><br>
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101 — Group 14<br><br>
+    VSC26101, Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -84,26 +84,26 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 st.markdown("""
 <div style='
-    background: linear-gradient(135deg, #152818 0%, #1c3319 60%, #0d1a0e 100%);
-    border: 1px solid #2d5a2d;
+    background: linear-gradient(135deg, #004532 0%, #065f46 100%);
     border-radius: 12px;
     padding: 32px 48px 24px 48px;
     margin-bottom: 28px;
     text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 69, 50, 0.2);
 '>
   <h1 style='
-    color: #7ab528;
+    color: #ffffff;
     font-size: 1.9rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     margin: 0 0 10px 0;
   '>Klaster Wilayah Berdasarkan Kondisi Ketahanan Pangan</h1>
   <p style='
-    color: #8aaa70;
-    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
     font-style: italic;
     margin: 0;
-  '>"Tidak semua provinsi rawan memiliki masalah yang sama — K-Means mengungkap polanya"</p>
+  '>"Tidak semua provinsi rawan memiliki masalah yang sama, K-Means mengungkap polanya"</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -148,7 +148,7 @@ def compute_kmeans(year: int, k: int):
 df_clean, inertias, silhouettes = compute_kmeans(year, k)
 
 # ---------------------------------------------------------------------------
-# 6. Section 4: Main layout — info panel + scatter plot
+# 6. Section 4: Main layout, info panel + scatter plot
 # ---------------------------------------------------------------------------
 col_left, col_right = st.columns([1, 2])
 
@@ -156,27 +156,27 @@ with col_left:
     st.markdown(
         f"""
         <div style='
-            background: #152818;
-            border: 1px solid #2d5a2d;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 10px;
             padding: 24px;
             margin-bottom: 16px;
         '>
-          <div style='color:#7ab528; font-weight:700; font-size:0.85rem;
+          <div style='color:#065f46; font-weight:700; font-size:0.85rem;
                       letter-spacing:1px; text-transform:uppercase; margin-bottom:12px;'>
             Parameter Analisis
           </div>
-          <div style='color:#e8f0e0; font-size:0.9rem; line-height:2;'>
-            <span style='color:#8aaa70;'>Tahun:</span>
-            <span style='color:#d4a520; font-weight:700;'> {year}</span><br>
-            <span style='color:#8aaa70;'>Jumlah Klaster:</span>
-            <span style='color:#d4a520; font-weight:700;'> K = {k}</span><br>
-            <span style='color:#8aaa70;'>Sumbu X:</span>
-            <span style='color:#e8f0e0;'> {x_feature}</span><br>
-            <span style='color:#8aaa70;'>Sumbu Y:</span>
-            <span style='color:#e8f0e0;'> {y_feature}</span><br>
-            <span style='color:#8aaa70;'>Provinsi:</span>
-            <span style='color:#e8f0e0;'> {len(df_clean) if not df_clean.empty else 0}</span>
+          <div style='color:#181c1a; font-size:0.9rem; line-height:2;'>
+            <span style='color:#6f7973;'>Tahun:</span>
+            <span style='color:#904d00; font-weight:700;'> {year}</span><br>
+            <span style='color:#6f7973;'>Jumlah Klaster:</span>
+            <span style='color:#904d00; font-weight:700;'> K = {k}</span><br>
+            <span style='color:#6f7973;'>Sumbu X:</span>
+            <span style='color:#181c1a;'> {x_feature}</span><br>
+            <span style='color:#6f7973;'>Sumbu Y:</span>
+            <span style='color:#181c1a;'> {y_feature}</span><br>
+            <span style='color:#6f7973;'>Provinsi:</span>
+            <span style='color:#181c1a;'> {len(df_clean) if not df_clean.empty else 0}</span>
           </div>
         </div>
         """,
@@ -186,22 +186,22 @@ with col_left:
     st.markdown(
         """
         <div style='
-            background: #152818;
-            border: 1px solid #2d5a2d;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 16px;
         '>
-          <div style='color:#7ab528; font-weight:700; font-size:0.85rem;
+          <div style='color:#065f46; font-weight:700; font-size:0.85rem;
                       letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;'>
             Tentang K-Means
           </div>
-          <div style='color:#8aaa70; font-size:0.85rem; line-height:1.7;'>
-            <b style='color:#e8f0e0;'>K-Means</b> adalah algoritma pengelompokan yang membagi
-            provinsi ke dalam <b style='color:#d4a520;'>K klaster</b> berdasarkan kemiripan
+          <div style='color:#6f7973; font-size:0.85rem; line-height:1.7;'>
+            <b style='color:#181c1a;'>K-Means</b> adalah algoritma pengelompokan yang membagi
+            provinsi ke dalam <b style='color:#904d00;'>K klaster</b> berdasarkan kemiripan
             indikator ketahanan pangan.<br><br>
             Setiap klaster merepresentasikan kelompok provinsi dengan karakteristik serupa,
-            sehingga kebijakan dapat dirancang lebih <b style='color:#7ab528;'>tertarget</b>
+            sehingga kebijakan dapat dirancang lebih <b style='color:#065f46;'>tertarget</b>
             sesuai kebutuhan masing-masing klaster.
           </div>
         </div>
@@ -223,7 +223,7 @@ with col_right:
 # ---------------------------------------------------------------------------
 st.markdown("<div style='margin-top:12px;'></div>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+    "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
     "text-transform:uppercase; margin-bottom:4px;'>Evaluasi Jumlah Klaster Optimal</h3>",
     unsafe_allow_html=True,
 )
@@ -249,7 +249,7 @@ else:
 # ---------------------------------------------------------------------------
 st.markdown("<div style='margin-top:12px;'></div>", unsafe_allow_html=True)
 st.markdown(
-    "<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+    "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
     "text-transform:uppercase; margin-bottom:8px;'>Ringkasan Per Klaster</h3>",
     unsafe_allow_html=True,
 )
@@ -272,19 +272,38 @@ if not df_clean.empty:
     # Identify worst cluster (lowest avg IKP)
     worst_cluster_label = summary_df.loc[summary_df["Rata-rata IKP"].idxmin(), "Klaster"]
 
-    # Highlight worst cluster row using Styler
-    def _highlight_worst(row):
-        if row["Klaster"] == worst_cluster_label:
-            return [f"color: {colors.ACCENT_RED}; font-weight: bold;"] * len(row)
-        return [""] * len(row)
+    # Render as plain HTML table (bypasses GlideDataGrid CSS issues)
+    rows_html = ""
+    for _, row in summary_df.iterrows():
+        is_worst = row["Klaster"] == worst_cluster_label
+        row_style = f"color:{colors.ACCENT_RED}; font-weight:700;" if is_worst else f"color:{colors.TEXT_PRIMARY};"
+        badge = f" <span style='background:{colors.ACCENT_RED};color:#fff;font-size:0.65rem;padding:1px 6px;border-radius:4px;vertical-align:middle;'>Kritis</span>" if is_worst else ""
+        rows_html += f"""
+        <tr style='border-bottom:1px solid #e2e8f0;'>
+          <td style='padding:10px 14px; {row_style}'>{row['Klaster']}{badge}</td>
+          <td style='padding:10px 14px; text-align:center; {row_style}'>{int(row['Jumlah Provinsi'])}</td>
+          <td style='padding:10px 14px; text-align:right; {row_style}'>{row['Rata-rata IKP']:.2f}</td>
+          <td style='padding:10px 14px; text-align:right; {row_style}'>Rp {row['Rata-rata Harga Beras']:,.0f}</td>
+          <td style='padding:10px 14px; text-align:right; {row_style}'>{row['Rata-rata MPP (%)']:.2f}%</td>
+        </tr>"""
 
-    styled_summary = summary_df.style.apply(_highlight_worst, axis=1).format({
-        "Rata-rata IKP": "{:.2f}",
-        "Rata-rata Harga Beras": "Rp {:,.0f}",
-        "Rata-rata MPP (%)": "{:.2f}%",
-    })
-
-    st.dataframe(styled_summary, use_container_width=True, hide_index=True)
+    th = "padding:10px 14px; background:#f1f4f0; color:#3f4944; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.04em; font-weight:600; border-bottom:2px solid #e2e8f0;"
+    html_table = f"""
+    <div style='background:#fff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden; box-shadow:0px 4px 20px rgba(0,0,0,0.06);'>
+    <table style='width:100%; border-collapse:collapse; font-family:Plus Jakarta Sans,sans-serif; font-size:0.88rem;'>
+      <thead>
+        <tr>
+          <th style='{th} text-align:left;'>Klaster</th>
+          <th style='{th} text-align:center;'>Jumlah Provinsi</th>
+          <th style='{th} text-align:right;'>Rata-rata IKP</th>
+          <th style='{th} text-align:right;'>Rata-rata Harga Beras</th>
+          <th style='{th} text-align:right;'>Rata-rata MPP (%)</th>
+        </tr>
+      </thead>
+      <tbody>{rows_html}</tbody>
+    </table>
+    </div>"""
+    st.markdown(html_table, unsafe_allow_html=True)
 
     # Expanders per cluster showing province list
     st.markdown("<div style='margin-top:8px;'></div>", unsafe_allow_html=True)
@@ -292,9 +311,9 @@ if not df_clean.empty:
         sub = df_clean[df_clean["CLUSTER"] == cluster_label]
         provinces_in_cluster = sub["PROVINSI"].sort_values().tolist()
         is_worst = cluster_label == worst_cluster_label
-        label_suffix = " — Klaster Kritis" if is_worst else ""
+        label_suffix = ", Klaster Kritis" if is_worst else ""
 
-        with st.expander(f"{cluster_label}{label_suffix} — {len(provinces_in_cluster)} Provinsi"):
+        with st.expander(f"{cluster_label}{label_suffix}, {len(provinces_in_cluster)} Provinsi"):
             prov_cols = st.columns(3)
             for idx, prov in enumerate(provinces_in_cluster):
                 with prov_cols[idx % 3]:
@@ -312,7 +331,7 @@ if not df_clean.empty:
     # ---------------------------------------------------------------------------
     st.markdown("<div style='margin-top:20px;'></div>", unsafe_allow_html=True)
     st.markdown(
-        "<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+        "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
         "text-transform:uppercase; margin-bottom:8px;'>Insight Klaster</h3>",
         unsafe_allow_html=True,
     )
@@ -327,15 +346,15 @@ if not df_clean.empty:
 
     st.warning(
         f"**Klaster Paling Kritis: {worst_cluster_label}**\n\n"
-        f"Rata-rata IKP: **{worst_ikp_avg:.2f}** — terendah di antara semua klaster.\n\n"
+        f"Rata-rata IKP: **{worst_ikp_avg:.2f}**, terendah di antara semua klaster.\n\n"
         f"**Provinsi dalam klaster ini ({len(worst_provinces)}):**\n"
         f"{worst_provinces_str}\n\n"
-        f"Klaster ini perlu prioritas intervensi kebijakan — termasuk penguatan distribusi beras, "
+        f"Klaster ini perlu prioritas intervensi kebijakan, termasuk penguatan distribusi beras, "
         f"subsidi harga, dan peningkatan produksi padi lokal.",
     )
 
     st.info(
-        f"**Klaster Terbaik: {best_cluster_label}** — Rata-rata IKP: **{best_ikp_avg:.2f}**. "
+        f"**Klaster Terbaik: {best_cluster_label}**, Rata-rata IKP: **{best_ikp_avg:.2f}**. "
         f"Provinsi di klaster ini dapat dijadikan benchmark praktik ketahanan pangan yang baik "
         f"untuk diadopsi wilayah lain.",
     )
@@ -344,22 +363,21 @@ if not df_clean.empty:
     st.markdown(
         f"""
         <div style='
-            background: #152818;
-            border: 1px solid #2d5a2d;
-            border-left: 4px solid #7ab528;
-            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
             padding: 16px 20px;
             margin-top: 12px;
             font-size: 0.85rem;
-            color: #8aaa70;
+            color: #6f7973;
             line-height: 1.7;
         '>
-          <b style='color:#7ab528;'>Catatan Metodologi:</b>
-          Pengelompokan menggunakan <b style='color:#e8f0e0;'>K-Means</b> dengan
-          <b style='color:#d4a520;'>K={k}</b> klaster dan fitur yang telah dinormalisasi
+          <b style='color:#065f46;'>Catatan Metodologi:</b>
+          Pengelompokan menggunakan <b style='color:#181c1a;'>K-Means</b> dengan
+          <b style='color:#904d00;'>K={k}</b> klaster dan fitur yang telah dinormalisasi
           (StandardScaler). Analisis dijalankan pada data tahun
-          <b style='color:#d4a520;'>{year}</b> mencakup
-          <b style='color:#e8f0e0;'>{len(df_clean)}</b> provinsi.
+          <b style='color:#904d00;'>{year}</b> mencakup
+          <b style='color:#181c1a;'>{len(df_clean)}</b> provinsi.
           Silakan ubah nilai K di sidebar untuk mengeksplorasi konfigurasi klaster yang berbeda.
         </div>
         """,
@@ -378,18 +396,18 @@ else:
 st.markdown("<div style='margin-top:32px;'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='
-    border-top: 1px solid #2d5a2d;
+    border-top: 1px solid #e2e8f0;
     padding-top: 16px;
     text-align: center;
-    color: #556644;
+    color: #6f7973;
     font-size: 0.78rem;
     line-height: 1.8;
 '>
-  <span style='color:#a8c878; font-weight:600;'>Sumber Data:</span>
+  <span style='color:#6f7973; font-weight:600;'>Sumber Data:</span>
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik — IF4061 Visualisasi Data,
+  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

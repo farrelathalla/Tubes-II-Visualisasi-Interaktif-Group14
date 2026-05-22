@@ -43,21 +43,21 @@ def _empty_fig(message: str = "No data available") -> go.Figure:
     return _apply_theme(fig)
 
 
-def _apply_theme(fig: go.Figure) -> go.Figure:
-    """Apply common dark theme layout to any figure."""
+def _apply_theme(fig: go.Figure, margin: dict | None = None) -> go.Figure:
+    """Apply light theme layout to any figure."""
     fig.update_layout(
-        paper_bgcolor=colors.BG_PANEL,
-        plot_bgcolor=colors.BG_CARD,
-        font=dict(color=colors.TEXT_PRIMARY, family="Inter, sans-serif"),
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#f7faf6",
+        font=dict(color=colors.TEXT_PRIMARY, family="Plus Jakarta Sans, Segoe UI, sans-serif"),
         legend=dict(
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             borderwidth=1,
-            font=dict(color=colors.TEXT_MUTED),
+            font=dict(color=colors.TEXT_PRIMARY),
         ),
-        margin=dict(l=40, r=20, t=40, b=40),
+        margin=margin if margin is not None else dict(l=64, r=60, t=72, b=52),
         hoverlabel=dict(
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             font=dict(color=colors.TEXT_PRIMARY),
         ),
@@ -112,18 +112,18 @@ def make_choropleth(df_ikp: pd.DataFrame, geojson: dict, title: str = "") -> go.
     )
 
     fig.update_layout(
-        paper_bgcolor=colors.BG_PANEL,
-        font=dict(color=colors.TEXT_PRIMARY, family="Inter, sans-serif"),
-        margin=dict(l=0, r=0, t=40, b=0),
+        paper_bgcolor="#ffffff",
+        font=dict(color=colors.TEXT_PRIMARY, family="Plus Jakarta Sans, Segoe UI, sans-serif"),
+        margin=dict(l=15, r=150, t=20, b=20),
         coloraxis_colorbar=dict(
             tickfont=dict(color=colors.TEXT_MUTED),
             title=dict(font=dict(color=colors.TEXT_MUTED), text="IKP"),
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             borderwidth=1,
         ),
         hoverlabel=dict(
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             font=dict(color=colors.TEXT_PRIMARY),
         ),
@@ -175,7 +175,7 @@ def make_bar_top_bottom(
         xaxis_title="IKP",
         showlegend=False,
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=60, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -236,8 +236,8 @@ def make_line_harga(
         yaxis_title="Harga Beras (Rp)",
         hovermode="x unified",
     )
-    fig.update_xaxes(rangeslider_visible=True)
-    return _apply_theme(fig)
+    fig.update_xaxes(rangeslider_visible=False)
+    return _apply_theme(fig, margin=dict(l=64, r=170, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -269,7 +269,7 @@ def make_slopegraph(
     fig = go.Figure()
     x_labels = [str(year_start), str(year_end)]
 
-    for province in provinces:
+    for idx, province in enumerate(provinces):
         p_start = avg[(avg["PROVINSI"] == province) & (avg["YEAR"] == year_start)]
         p_end = avg[(avg["PROVINSI"] == province) & (avg["YEAR"] == year_end)]
 
@@ -280,27 +280,16 @@ def make_slopegraph(
         val_end = p_end["HARGA_BERAS"].iloc[0]
 
         pct_change = (val_end - val_start) / val_start if val_start != 0 else 0
-        if pct_change > 0.15:
-            line_color = colors.ACCENT_RED
-        elif pct_change <= 0:
-            line_color = colors.ACCENT_GREEN
-        else:
-            line_color = colors.ACCENT_GOLD
+        line_color = _PALETTE[idx % len(_PALETTE)]
 
         fig.add_trace(
             go.Scatter(
                 x=x_labels,
                 y=[val_start, val_end],
-                mode="lines+markers+text",
+                mode="lines+markers",
                 name=province,
                 line=dict(color=line_color, width=2),
                 marker=dict(size=8, color=line_color),
-                text=[
-                    f"{province}<br>Rp {val_start:,.0f}",
-                    f"{province}<br>Rp {val_end:,.0f}",
-                ],
-                textposition=["middle left", "middle right"],
-                textfont=dict(color=colors.TEXT_MUTED, size=10),
                 hovertemplate=(
                     f"<b>{province}</b><br>"
                     "Tahun: %{x}<br>"
@@ -308,7 +297,7 @@ def make_slopegraph(
                     f"Perubahan: {pct_change:+.1%}"
                     "<extra></extra>"
                 ),
-                showlegend=False,
+                showlegend=True,
             )
         )
 
@@ -322,8 +311,16 @@ def make_slopegraph(
             ticktext=x_labels,
         ),
         yaxis_title="Rata-rata Harga Beras (Rp)",
+        legend=dict(
+            orientation="v",
+            x=1.02,
+            xanchor="left",
+            y=1,
+            yanchor="top",
+            font=dict(size=11),
+        ),
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=160, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -375,7 +372,7 @@ def make_elbow_silhouette(
         xaxis_title="Jumlah Cluster (K)",
         yaxis_title="Inertia",
     )
-    _apply_theme(elbow_fig)
+    _apply_theme(elbow_fig, margin=dict(l=64, r=44, t=72, b=52))
 
     # --- Silhouette chart ---
     best_k_idx = int(np.argmax(silhouettes))
@@ -410,7 +407,7 @@ def make_elbow_silhouette(
         xaxis_title="Jumlah Cluster (K)",
         yaxis_title="Silhouette Score",
     )
-    _apply_theme(sil_fig)
+    _apply_theme(sil_fig, margin=dict(l=64, r=44, t=72, b=52))
 
     return elbow_fig, sil_fig
 
@@ -478,7 +475,7 @@ def make_cluster_scatter(
         xaxis_title=x_col,
         yaxis_title=y_col,
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=180, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -592,7 +589,7 @@ def make_arima_forecast(
         xaxis_title="Tanggal",
         yaxis_title="Harga Beras (Rp)",
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=150, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -674,18 +671,18 @@ def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
             text="Analisis Pareto – Defisit IKP",
             font=dict(color=colors.TEXT_PRIMARY),
         ),
-        paper_bgcolor=colors.BG_PANEL,
-        plot_bgcolor=colors.BG_CARD,
-        font=dict(color=colors.TEXT_PRIMARY, family="Inter, sans-serif"),
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#f7faf6",
+        font=dict(color=colors.TEXT_PRIMARY, family="Plus Jakarta Sans, Segoe UI, sans-serif"),
         legend=dict(
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             borderwidth=1,
             font=dict(color=colors.TEXT_MUTED),
         ),
-        margin=dict(l=40, r=40, t=40, b=120),
+        margin=dict(l=64, r=220, t=72, b=120),
         hoverlabel=dict(
-            bgcolor=colors.BG_PANEL,
+            bgcolor="#ffffff",
             bordercolor=colors.BORDER_CARD,
             font=dict(color=colors.TEXT_PRIMARY),
         ),
@@ -754,7 +751,7 @@ def make_donut_kerentanan(df_ikp: pd.DataFrame) -> go.Figure:
             font=dict(color=colors.TEXT_PRIMARY),
         ),
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=40, r=170, t=72, b=40))
 
 
 # ---------------------------------------------------------------------------
@@ -808,7 +805,7 @@ def make_konsumsi_area(
         yaxis_title="Konsumsi",
         hovermode="x unified",
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=200, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -920,7 +917,7 @@ def make_mpp_scatter(
         xaxis_title="MPP Total (%)",
         yaxis_title="IKP",
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=220, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -984,4 +981,4 @@ def make_mpp_bar(df_mpp: pd.DataFrame, year: int = 2024) -> go.Figure:
         showlegend=False,
         height=max(400, len(df) * 22),
     )
-    return _apply_theme(fig)
+    return _apply_theme(fig, margin=dict(l=64, r=60, t=72, b=52))

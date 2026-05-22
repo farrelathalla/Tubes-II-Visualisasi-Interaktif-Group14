@@ -1,5 +1,5 @@
 """
-dashboard/pages/1_Overview.py — Gambaran Umum (Overview)
+dashboard/pages/1_Overview.py, Gambaran Umum (Overview)
 Peta distribusi Indeks Ketahanan Pangan (IKP) 38 provinsi Indonesia
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import streamlit as st
 
 # ---------------------------------------------------------------------------
-# 1. Page config — MUST be the first Streamlit call
+# 1. Page config, MUST be the first Streamlit call
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="Gambaran Umum IKP | Ketahanan Pangan Indonesia",
@@ -44,36 +44,36 @@ from utils import colors
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center; padding: 16px 0 8px 0;'>
-      <div style='color:#7ab528; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
-      <div style='color:#a8c878; font-size:12px;'>Indonesia Dashboard</div>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
+      <div style='color:#6f7973; font-size:12px;'>Indonesia Dashboard</div>
     </div>
-    <hr style='border-color:#2d5a2d; margin:8px 0;'>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
     st.markdown(
-        "<div style='color:#a8c878; font-size:11px; padding: 4px 0 8px 0; "
+        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
         "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
         unsafe_allow_html=True,
     )
 
     st.markdown("""
-    <div style='font-size:13px; color:#f2f7ec; line-height:2;'>
-    <b>Gambaran Umum</b> — Peta IKP<br>
-    <b>Klaster Wilayah</b> — K-Means<br>
-    <b>Tren &amp; Gap Harga</b> — Slope<br>
-    <b>Proyeksi ARIMA</b> — Forecast<br>
-    <b>Analisis Pareto</b> — 80/20<br>
-    <b>Distribusi MPP</b> — Ketimpangan
+    <div style='font-size:13px; color:#181c1a; line-height:2;'>
+    <b>Gambaran Umum</b>, Peta IKP<br>
+    <b>Klaster Wilayah</b>, K-Means<br>
+    <b>Tren &amp; Gap Harga</b>, Slope<br>
+    <b>Proyeksi ARIMA</b>, Forecast<br>
+    <b>Analisis Pareto</b>, 80/20<br>
+    <b>Distribusi MPP</b>, Ketimpangan
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<hr style='border-color:#2d5a2d; margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
 
     st.markdown("""
-    <div style='font-size:11px; color:#7a9060; line-height:1.6;'>
-    <b style='color:#a8c878;'>IF4061 Visualisasi Data</b><br>
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101 — Group 14<br><br>
+    VSC26101, Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -92,8 +92,8 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 st.markdown("""
 <div class='headline-card'>
-  <h1 style='color:#7ab528; margin:0;'>Gambaran Umum Ketahanan Pangan</h1>
-  <p style='color:#8aaa70; margin:4px 0 0;'>Peta distribusi Indeks Ketahanan Pangan (IKP) 38 provinsi Indonesia</p>
+  <h1 style='color:#065f46; margin:0;'>Gambaran Umum Ketahanan Pangan</h1>
+  <p style='color:#6f7973; margin:4px 0 0;'>Peta distribusi Indeks Ketahanan Pangan (IKP) 38 provinsi Indonesia</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -183,9 +183,9 @@ else:
     df_filtered = df_year.copy()
 
 st.markdown(
-    f"<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+    f"<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
     f"text-transform:uppercase; margin-bottom:8px;'>"
-    f"Peta IKP — {selected_year}"
+    f"Peta IKP, {selected_year}"
     f"{' · ' + selected_island if selected_island != 'Semua' else ''}"
     f"</h3>",
     unsafe_allow_html=True,
@@ -195,7 +195,7 @@ map_fig = make_choropleth(df_filtered, geojson)
 st.plotly_chart(map_fig, use_container_width=True, height=500)
 
 st.markdown(
-    f"<p style='color:#556644; font-size:0.78rem; text-align:center; margin-top:-8px;'>"
+    f"<p style='color:#6f7973; font-size:0.78rem; text-align:center; margin-top:-8px;'>"
     f"Sumber: Badan Pangan Nasional (NFA) &nbsp;·&nbsp; Data IKP Tahun {selected_year} &nbsp;·&nbsp; "
     f"Skala warna: merah (kritis) → kuning (sedang) → hijau (tahan)"
     f"</p>",
@@ -208,7 +208,7 @@ st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
 # 9. Section 5: Two-column bar charts
 # ---------------------------------------------------------------------------
 st.markdown(
-    "<h3 style='color:#7ab528; font-size:1rem; letter-spacing:2px; "
+    "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
     "text-transform:uppercase; margin-bottom:8px;'>Peringkat Provinsi</h3>",
     unsafe_allow_html=True,
 )
@@ -231,18 +231,18 @@ st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
 st.markdown("<div style='margin-bottom:24px;'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='
-    border-top: 1px solid #2d5a2d;
+    border-top: 1px solid #e2e8f0;
     padding-top: 16px;
     text-align: center;
-    color: #7a9060;
+    color: #6f7973;
     font-size: 0.78rem;
     line-height: 1.8;
 '>
-  <span style='color:#a8c878; font-weight:600;'>Sumber Data:</span>
+  <span style='color:#6f7973; font-weight:600;'>Sumber Data:</span>
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik — IF4061 Visualisasi Data,
+  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)
