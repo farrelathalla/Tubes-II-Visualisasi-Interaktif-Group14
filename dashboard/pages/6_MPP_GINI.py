@@ -248,18 +248,6 @@ with col2:
     st.plotly_chart(fig_trend, use_container_width=True, height=450)
 
 # ---------------------------------------------------------------------------
-# 10. Section 5: Interpretation / warning box
-# ---------------------------------------------------------------------------
-worst_mpp = df_merged.nlargest(3, "MPP_TOTAL_PCT")[["PROVINSI", "MPP_TOTAL_PCT", "IKP", "JUMLAH_RANTAI"]]
-
-st.markdown("---")
-st.warning(
-    f"**3 Provinsi dengan MPP Tertinggi 2024:** {', '.join(worst_mpp['PROVINSI'].tolist())} "
-    f"— Margin distribusi tinggi berarti harga di tingkat konsumen jauh melampaui harga produsen, "
-    f"mencerminkan rantai distribusi yang panjang dan ineffisiensi logistik."
-)
-
-# ---------------------------------------------------------------------------
 # 11. Footer
 # ---------------------------------------------------------------------------
 st.markdown("<div style='margin-bottom:24px;'></div>", unsafe_allow_html=True)

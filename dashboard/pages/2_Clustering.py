@@ -326,39 +326,6 @@ if not df_clean.empty:
                         unsafe_allow_html=True,
                     )
 
-    # ---------------------------------------------------------------------------
-    # 9. Section 7: Insight box
-    # ---------------------------------------------------------------------------
-    st.markdown("<div style='margin-top:20px;'></div>", unsafe_allow_html=True)
-    st.markdown(
-        "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
-        "text-transform:uppercase; margin-bottom:8px;'>Insight Klaster</h3>",
-        unsafe_allow_html=True,
-    )
-
-    worst_sub = df_clean[df_clean["CLUSTER"] == worst_cluster_label]
-    worst_ikp_avg = worst_sub["IKP"].mean()
-    worst_provinces = worst_sub["PROVINSI"].sort_values().tolist()
-    worst_provinces_str = ", ".join([p.title() for p in worst_provinces])
-
-    best_cluster_label = summary_df.loc[summary_df["Rata-rata IKP"].idxmax(), "Klaster"]
-    best_ikp_avg = df_clean[df_clean["CLUSTER"] == best_cluster_label]["IKP"].mean()
-
-    st.warning(
-        f"**Klaster Paling Kritis: {worst_cluster_label}**\n\n"
-        f"Rata-rata IKP: **{worst_ikp_avg:.2f}**, terendah di antara semua klaster.\n\n"
-        f"**Provinsi dalam klaster ini ({len(worst_provinces)}):**\n"
-        f"{worst_provinces_str}\n\n"
-        f"Klaster ini perlu prioritas intervensi kebijakan, termasuk penguatan distribusi beras, "
-        f"subsidi harga, dan peningkatan produksi padi lokal.",
-    )
-
-    st.info(
-        f"**Klaster Terbaik: {best_cluster_label}**, Rata-rata IKP: **{best_ikp_avg:.2f}**. "
-        f"Provinsi di klaster ini dapat dijadikan benchmark praktik ketahanan pangan yang baik "
-        f"untuk diadopsi wilayah lain.",
-    )
-
     # Additional context
     st.markdown(
         f"""
