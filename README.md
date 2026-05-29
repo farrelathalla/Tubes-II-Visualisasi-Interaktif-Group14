@@ -47,6 +47,6 @@ dashboard/
 
 ## Sumber Data
 
-- **BPS** — Badan Pusat Statistik
-- **Badan Pangan Nasional (NFA)** — Indeks Ketahanan Pangan (IKP)
-- **Panel Harga Pangan** — Kementerian Pertanian
+- **BPS** (Badan Pusat Statistik)
+- **Badan Pangan Nasional (NFA)** untuk Indeks Ketahanan Pangan (IKP)
+- **Panel Harga Pangan** dari Kementerian Pertanian
