@@ -93,38 +93,19 @@ def run_arima(provinsi: str, p: int = 1, d: int = 1, q: int = 1, ci_alpha: float
 with st.sidebar:
     st.markdown("""
     <div style='text-align:center; padding: 16px 0 8px 0;'>
-      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>KETAHANAN PANGAN</div>
-      <div style='color:#6f7973; font-size:12px;'>Indonesia Dashboard</div>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>Proyeksi ARIMA</div>
+      <div style='color:#6f7973; font-size:12px;'>Forecast Harga Beras</div>
     </div>
     <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
-    st.markdown(
-        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
-        "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
-        unsafe_allow_html=True,
-    )
-
     st.markdown("""
-    <div style='font-size:13px; color:#181c1a; line-height:2;'>
-    <b>Gambaran Umum</b>, Peta IKP<br>
-    <b>Klaster Wilayah</b>, K-Means<br>
-    <b>Tren &amp; Gap Harga</b>, Slope<br>
-    <b>Proyeksi ARIMA</b>, Forecast<br>
-    <b>Analisis Pareto</b>, 80/20<br>
-    <b>Distribusi MPP</b>, Ketimpangan
+    <div style='font-size:0.7rem; color:rgba(255,255,255,0.5); text-transform:uppercase;
+                letter-spacing:0.07em; margin-bottom:4px;'>Konten</div>
+    <div style='font-size:0.82rem; color:rgba(255,255,255,0.85); line-height:2;'>
+      Proyeksi Harga Beras
     </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
-
-    st.markdown("""
-    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
-    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
-    Semester 2 2025/2026<br>
-    VSC26101, Group 14<br><br>
-    Sumber: BPS, Badan Pangan Nasional
-    </div>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:10px 0;'>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
@@ -148,6 +129,16 @@ with st.sidebar:
     ci_level = st.radio("Confidence Interval", ["95%", "80%"], index=0)
     ci_alpha = 0.05 if ci_level == "95%" else 0.20
     show_hist = st.checkbox("Tampilkan Data Historis", value=True)
+
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
+    Semester 2 2025/2026<br>
+    Group 14<br><br>
+    Sumber: BPS, Badan Pangan Nasional
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # ---------------------------------------------------------------------------
@@ -313,7 +304,7 @@ st.markdown("""
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
+  IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

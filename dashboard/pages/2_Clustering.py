@@ -48,6 +48,16 @@ with st.sidebar:
     <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
+    st.markdown("""
+    <div style='font-size:0.7rem; color:rgba(255,255,255,0.5); text-transform:uppercase;
+                letter-spacing:0.07em; margin-bottom:4px;'>Konten</div>
+    <div style='font-size:0.82rem; color:rgba(255,255,255,0.85); line-height:2;'>
+      Evaluasi Jumlah Klaster Optimal<br>
+      Ringkasan Per Klaster
+    </div>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:10px 0;'>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
     st.markdown("**Pengaturan Klaster**")
 
@@ -74,7 +84,7 @@ with st.sidebar:
     <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
     <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101, Group 14<br><br>
+    Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -374,7 +384,7 @@ st.markdown("""
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
+  IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

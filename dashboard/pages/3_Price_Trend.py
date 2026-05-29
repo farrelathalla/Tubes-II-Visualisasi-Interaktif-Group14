@@ -65,6 +65,26 @@ st.markdown(f"""
 all_provinces = get_provinces_list()
 
 with st.sidebar:
+    st.markdown("""
+    <div style='text-align:center; padding: 16px 0 8px 0;'>
+      <div style='color:#065f46; font-weight:700; font-size:16px; letter-spacing:1px;'>Tren & Gap Harga</div>
+      <div style='color:#6f7973; font-size:12px;'>Harga Beras Provinsi</div>
+    </div>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style='font-size:0.7rem; color:rgba(255,255,255,0.5); text-transform:uppercase;
+                letter-spacing:0.07em; margin-bottom:4px;'>Konten</div>
+    <div style='font-size:0.82rem; color:rgba(255,255,255,0.85); line-height:2;'>
+      Harga Beras Per Provinsi<br>
+      Perubahan Harga 2019 vs 2025<br>
+      Kalkulator Gap Harga<br>
+      Rata-rata Harga Beras Nasional
+    </div>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:10px 0;'>
+    """, unsafe_allow_html=True)
+
     st.markdown("---")
     st.markdown("**Filter Harga Beras**")
 
@@ -83,6 +103,16 @@ with st.sidebar:
         max_value=2025,
         value=(2019, 2025),
     )
+
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
+    Semester 2 2025/2026<br>
+    Group 14<br><br>
+    Sumber: BPS, Badan Pangan Nasional
+    </div>
+    """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # 6. Main line chart (full width)

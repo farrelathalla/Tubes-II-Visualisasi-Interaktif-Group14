@@ -4,6 +4,7 @@ Ketahanan Pangan Indonesia, Dashboard Analitik Spasial-Temporal Distribusi Beras
 IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
 """
 
+import base64
 import sys
 from pathlib import Path
 
@@ -13,6 +14,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 import streamlit as st
+
+_ICONS_DIR = Path(__file__).parent / "assets" / "icons"
+
+def _icon_src(filename: str) -> str:
+    """Return base64 data URI for an icon file, or empty string if missing."""
+    path = _ICONS_DIR / filename
+    if not path.exists():
+        return ""
+    ext = filename.rsplit(".", 1)[-1].lower()
+    mime = {"svg": "image/svg+xml", "jpg": "image/jpeg", "jpeg": "image/jpeg"}.get(ext, "image/png")
+    data = base64.b64encode(path.read_bytes()).decode()
+    return f"data:{mime};base64,{data}"
 
 # ---------------------------------------------------------------------------
 # 1. Page config, MUST be the first Streamlit call
@@ -49,30 +62,11 @@ with st.sidebar:
     <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
-    st.markdown(
-        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
-        "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
-        unsafe_allow_html=True,
-    )
-
-    st.markdown("""
-    <div style='font-size:13px; color:#181c1a; line-height:2;'>
-    <b>Gambaran Umum</b>, Peta IKP<br>
-    <b>Klaster Wilayah</b>, K-Means<br>
-    <b>Tren &amp; Gap Harga</b>, Slope<br>
-    <b>Proyeksi ARIMA</b>, Forecast<br>
-    <b>Analisis Pareto</b>, 80/20<br>
-    <b>Distribusi MPP</b>, Ketimpangan
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
-
     st.markdown("""
     <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
     <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
     Semester 2 2025/2026<br>
-    VSC26101, Group 14<br><br>
+    Group 14<br><br>
     Sumber: BPS, Badan Pangan Nasional
     </div>
     """, unsafe_allow_html=True)
@@ -296,44 +290,44 @@ st.markdown(
 
 NAV_PAGES = [
     {
-        "icon": "🗺️",
+        "icon_file": "overview.png",
         "title": "Gambaran Umum",
         "desc": "Peta IKP interaktif seluruh provinsi dengan choropleth dan tabel peringkat.",
         "href": "/Overview",
         "color": "#1e6ba8",
     },
     {
-        "icon": "🔍",
+        "icon_file": "clustering.png",
         "title": "Klaster Wilayah",
-        "desc": "Segmentasi provinsi menggunakan K-Means clustering berdasarkan 5 indikator.",
+        "desc": "Segmentasi provinsi menggunakan K-Means clustering.",
         "href": "/Clustering",
         "color": "#065f46",
     },
     {
-        "icon": "📈",
+        "icon_file": "price_trend.png",
         "title": "Tren & Gap Harga",
         "desc": "Slope chart harga beras antar provinsi dan gap wilayah barat–timur.",
         "href": "/Price_Trend",
         "color": "#904d00",
     },
     {
-        "icon": "🔮",
+        "icon_file": "arima.png",
         "title": "Proyeksi ARIMA",
         "desc": "Forecast harga beras 12 bulan ke depan per provinsi menggunakan ARIMA.",
         "href": "/ARIMA",
         "color": "#7c3aed",
     },
     {
-        "icon": "📊",
+        "icon_file": "pareto.png",
         "title": "Analisis Pareto",
         "desc": "Identifikasi 20% provinsi yang menyumbang 60%+ beban kerentanan pangan.",
         "href": "/Pareto",
         "color": "#c2410c",
     },
     {
-        "icon": "🔗",
+        "icon_file": "mpp.png",
         "title": "Distribusi MPP",
-        "desc": "Analisis ketimpangan margin perdagangan dan penyaluran beras antar wilayah.",
+        "desc": "Analisis ketimpangan margin perdagangan dan penyaluran beras.",
         "href": "/MPP_GINI",
         "color": "#0891b2",
     },
@@ -342,6 +336,12 @@ NAV_PAGES = [
 nav_cols = st.columns(6)
 for col, page in zip(nav_cols, NAV_PAGES):
     with col:
+        src = _icon_src(page["icon_file"])
+        icon_html = (
+            f"<img src='{src}' style='width:40px; height:40px; object-fit:contain; margin-bottom:8px;'>"
+            if src else
+            "<div style='width:40px; height:40px; background:#e2e8f0; border-radius:8px; margin:0 auto 8px;'></div>"
+        )
         st.markdown(f"""
         <a href="{page['href']}" target="_self" style="text-decoration:none;">
           <div style='
@@ -357,7 +357,7 @@ for col, page in zip(nav_cols, NAV_PAGES):
               align-items: center;
               justify-content: flex-start;
           '>
-            <div style='font-size:1.4rem; margin-bottom:8px; line-height:1;'>{page['icon']}</div>
+            {icon_html}
             <div style='color:{page['color']}; font-weight:700; font-size:0.78rem;
                         margin-bottom:6px; line-height:1.2;'>{page['title']}</div>
             <div style='color:#6f7973; font-size:0.67rem; line-height:1.4;'>
@@ -385,7 +385,7 @@ st.markdown("""
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
+  IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)

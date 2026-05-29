@@ -50,35 +50,16 @@ with st.sidebar:
     <hr style='border-color:rgba(255,255,255,0.15); margin:8px 0;'>
     """, unsafe_allow_html=True)
 
-    st.markdown(
-        "<div style='color:#6f7973; font-size:11px; padding: 4px 0 8px 0; "
-        "text-transform:uppercase; letter-spacing:1px;'>Navigasi</div>",
-        unsafe_allow_html=True,
-    )
-
     st.markdown("""
-    <div style='font-size:13px; color:#181c1a; line-height:2;'>
-    <b>Gambaran Umum</b>, Peta IKP<br>
-    <b>Klaster Wilayah</b>, K-Means<br>
-    <b>Tren &amp; Gap Harga</b>, Slope<br>
-    <b>Proyeksi ARIMA</b>, Forecast<br>
-    <b>Analisis Pareto</b>, 80/20<br>
-    <b>Distribusi MPP</b>, Ketimpangan
+    <div style='font-size:0.7rem; color:rgba(255,255,255,0.5); text-transform:uppercase;
+                letter-spacing:0.07em; margin-bottom:4px;'>Konten</div>
+    <div style='font-size:0.82rem; color:rgba(255,255,255,0.85); line-height:2;'>
+      Peta IKP<br>
+      Peringkat Provinsi
     </div>
+    <hr style='border-color:rgba(255,255,255,0.15); margin:10px 0;'>
     """, unsafe_allow_html=True)
 
-    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
-
-    st.markdown("""
-    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
-    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
-    Semester 2 2025/2026<br>
-    VSC26101, Group 14<br><br>
-    Sumber: BPS, Badan Pangan Nasional
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Page-specific filters
     st.markdown("---")
     st.markdown("**Filter Halaman Ini**")
     selected_year = st.selectbox("Tahun", options=list(range(2019, 2026)), index=6)
@@ -86,6 +67,16 @@ with st.sidebar:
         "Pulau",
         options=["Semua"] + list(colors.ISLAND_GROUPS.keys()),
     )
+
+    st.markdown("<hr style='border-color:rgba(255,255,255,0.15); margin:12px 0;'>", unsafe_allow_html=True)
+    st.markdown("""
+    <div style='font-size:11px; color:#6f7973; line-height:1.6;'>
+    <b style='color:#6f7973;'>IF4061 Visualisasi Data</b><br>
+    Semester 2 2025/2026<br>
+    Group 14<br><br>
+    Sumber: BPS, Badan Pangan Nasional
+    </div>
+    """, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # 5. Section 1: Page header
@@ -242,7 +233,7 @@ st.markdown("""
   Badan Pusat Statistik (BPS) &nbsp;·&nbsp;
   Badan Pangan Nasional (NFA) &nbsp;·&nbsp;
   Panel Harga Pangan Kementerian Pertanian<br>
-  Dashboard ini dibuat untuk keperluan akademik, IF4061 Visualisasi Data,
+  IF4061 Visualisasi Data,
   Institut Teknologi Bandung, Semester 2 2025/2026.
 </div>
 """, unsafe_allow_html=True)
