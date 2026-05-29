@@ -65,14 +65,18 @@ def _apply_theme(fig: go.Figure, margin: dict | None = None) -> go.Figure:
     fig.update_xaxes(
         gridcolor=colors.BORDER_CARD,
         zerolinecolor=colors.BORDER_CARD,
-        tickfont=dict(color=colors.TEXT_MUTED),
-        linecolor=colors.BORDER_CARD,
+        color=colors.TEXT_PRIMARY,
+        tickfont=dict(color=colors.TEXT_PRIMARY),
+        title_font=dict(color=colors.TEXT_PRIMARY),
+        linecolor=colors.TEXT_DIM,
     )
     fig.update_yaxes(
         gridcolor=colors.BORDER_CARD,
         zerolinecolor=colors.BORDER_CARD,
-        tickfont=dict(color=colors.TEXT_MUTED),
-        linecolor=colors.BORDER_CARD,
+        color=colors.TEXT_PRIMARY,
+        tickfont=dict(color=colors.TEXT_PRIMARY),
+        title_font=dict(color=colors.TEXT_PRIMARY),
+        linecolor=colors.TEXT_DIM,
     )
     return fig
 
@@ -686,20 +690,32 @@ def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
             bordercolor=colors.BORDER_CARD,
             font=dict(color=colors.TEXT_PRIMARY),
         ),
-        xaxis=dict(tickangle=-45),
+        xaxis=dict(
+            tickangle=-45,
+            color=colors.TEXT_PRIMARY,
+            tickfont=dict(color=colors.TEXT_PRIMARY, size=11),
+            title=dict(font=dict(color=colors.TEXT_PRIMARY, size=13)),
+            linecolor=colors.TEXT_PRIMARY,
+        ),
     )
     fig.update_yaxes(
         title_text="IKP",
         gridcolor=colors.BORDER_CARD,
         zerolinecolor=colors.BORDER_CARD,
-        tickfont=dict(color=colors.TEXT_MUTED),
+        color=colors.TEXT_PRIMARY,
+        tickfont=dict(color=colors.TEXT_PRIMARY, size=12),
+        title_font=dict(color=colors.TEXT_PRIMARY, size=13),
+        linecolor=colors.TEXT_PRIMARY,
         secondary_y=False,
     )
     fig.update_yaxes(
         title_text="Kumulatif Defisit (%)",
         range=[0, 105],
         gridcolor="rgba(0,0,0,0)",
-        tickfont=dict(color=colors.ACCENT_GOLD),
+        color=colors.TEXT_PRIMARY,
+        tickfont=dict(color=colors.TEXT_PRIMARY, size=12),
+        title_font=dict(color=colors.TEXT_PRIMARY, size=13),
+        linecolor=colors.TEXT_PRIMARY,
         secondary_y=True,
     )
     return fig

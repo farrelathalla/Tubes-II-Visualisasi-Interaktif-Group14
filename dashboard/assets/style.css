@@ -38,8 +38,26 @@
 /* ------------------------------------------------------------
    2. Global font + app background
    ------------------------------------------------------------ */
-.stApp, .stApp * {
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif !important;
+.stApp {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+}
+
+.stApp .material-icons,
+.stApp .material-symbols,
+.stApp .material-symbols-outlined,
+.stApp .material-symbols-rounded,
+.stApp .material-symbols-sharp {
+  font-family: 'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Icons' !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  direction: ltr !important;
+  font-feature-settings: 'liga' !important;
+  -webkit-font-feature-settings: 'liga' !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 .stApp {
@@ -309,6 +327,23 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    9. Form controls — multiselect
    ------------------------------------------------------------ */
+/* ------------------------------------------------------------
+   7b. Form controls - radio
+   ------------------------------------------------------------ */
+[data-testid="stRadio"] label,
+[data-testid="stRadio"] p,
+[data-testid="stRadio"] span {
+  color: var(--text-primary) !important;
+}
+
+[data-testid="stRadio"] [role="radiogroup"] label {
+  background-color: transparent !important;
+}
+
+[data-testid="stRadio"] svg {
+  fill: var(--primary-dark) !important;
+}
+
 [data-baseweb="tag"] {
   background-color: #ecf4f0 !important;
   border: 1px solid var(--primary-light) !important;
@@ -582,11 +617,131 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 #MainMenu          { visibility: hidden !important; }
 footer             { visibility: hidden !important; }
-header             { visibility: hidden !important; }
-[data-testid="stToolbar"]            { display: none !important; }
 [data-testid="stDecoration"]         { display: none !important; }
 [data-testid="stStatusWidget"]       { display: none !important; }
+header {
+  visibility: visible !important;
+}
 
+[data-testid="stToolbar"] {
+  display: flex !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+[data-testid="stToolbar"] [data-testid="stBaseButton-header"],
+[data-testid="stToolbar"] [data-testid="baseButton-header"],
+[data-testid="stToolbar"] [data-testid="baseButton-headerNoPadding"],
+[data-testid="stToolbar"] a,
+[data-testid="stToolbar"] button {
+  opacity: 1 !important;
+}
+
+[data-testid="stToolbar"] [aria-label*="Deploy"],
+[data-testid="stToolbar"] [title*="Deploy"],
+[data-testid="stDeployButton"],
+[data-testid="stToolbar"] [data-testid="stDeployButton"],
+[data-testid="stToolbar"] [data-testid="deployButton"],
+[data-testid="stToolbar"] a[href*="share.streamlit.io"],
+[data-testid="stToolbar"] a[href*="streamlit.io/cloud"] {
+  display: none !important;
+}
+
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stBaseButton-header"],
+[data-testid="stBaseButton-headerNoPadding"],
+[data-testid="baseButton-header"],
+[data-testid="baseButton-headerNoPadding"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 999999 !important;
+}
+
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapsedControl"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-btn) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+[data-testid="collapsedControl"] svg,
+[data-testid="stSidebarCollapsedControl"] svg {
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #000000 !important;
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+[data-testid="collapsedControl"] button,
+[data-testid="stSidebarCollapsedControl"] button,
+[data-testid="collapsedControl"] span,
+[data-testid="stSidebarCollapsedControl"] span {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="baseButton-header"],
+[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"],
+[data-testid="stSidebar"] [data-testid="stBaseButton-header"],
+[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"],
+[data-testid="stSidebar"] [aria-label="Close sidebar"],
+[data-testid="stSidebar"] [aria-label="Close sidebar"] *,
+[data-testid="stSidebar"] [data-testid="baseButton-header"] *,
+[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"] *,
+[data-testid="stSidebar"] [data-testid="stBaseButton-header"] *,
+[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"] * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+[data-testid="stSidebar"] [aria-label="Close sidebar"],
+[data-testid="stSidebar"] [data-testid="baseButton-header"],
+[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"],
+[data-testid="stSidebar"] [data-testid="stBaseButton-header"],
+[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"] {
+  display: flex !important;
+  pointer-events: auto !important;
+}
+
+[data-testid="stHeader"] button[kind="header"],
+[data-testid="stHeader"] button[kind="headerNoPadding"],
+[data-testid="stHeader"] button[data-testid^="stBaseButton-header"],
+[data-testid="stHeader"] button[kind="header"] *,
+[data-testid="stHeader"] button[kind="headerNoPadding"] *,
+[data-testid="stHeader"] button[data-testid^="stBaseButton-header"] * {
+  color: #000000 !important;
+  fill: #000000 !important;
+  stroke: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+[data-testid="stSidebar"] button[kind="header"],
+[data-testid="stSidebar"] button[kind="headerNoPadding"],
+[data-testid="stSidebar"] button[data-testid^="stBaseButton-header"],
+[data-testid="stSidebar"] button[kind="header"] *,
+[data-testid="stSidebar"] button[kind="headerNoPadding"] *,
+[data-testid="stSidebar"] button[data-testid^="stBaseButton-header"] * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+button[aria-label*="sidebar" i],
+button[aria-label*="sidebar" i] * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
 /* ------------------------------------------------------------
    19. Custom scrollbar
