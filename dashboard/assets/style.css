@@ -586,7 +586,7 @@ header             { visibility: hidden !important; }
 [data-testid="stToolbar"]            { display: none !important; }
 [data-testid="stDecoration"]         { display: none !important; }
 [data-testid="stStatusWidget"]       { display: none !important; }
-[data-testid="collapsedControl"]     { display: flex !important; }
+
 
 /* ------------------------------------------------------------
    19. Custom scrollbar
