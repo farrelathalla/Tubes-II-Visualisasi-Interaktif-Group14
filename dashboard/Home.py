@@ -1,9 +1,3 @@
-"""
-dashboard/app.py, Landing / Home page
-Ketahanan Pangan Indonesia, Dashboard Analitik Spasial-Temporal Distribusi Beras
-IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
-"""
-
 import base64
 import sys
 from pathlib import Path

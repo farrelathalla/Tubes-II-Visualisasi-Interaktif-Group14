@@ -1,9 +1,3 @@
-"""
-dashboard/pages/6_MPP_GINI.py, Ketimpangan Distribusi (MPP)
-Margin Perdagangan & Pengangkutan vs Indeks Ketahanan Pangan
-IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
-"""
-
 import sys
 from pathlib import Path
 

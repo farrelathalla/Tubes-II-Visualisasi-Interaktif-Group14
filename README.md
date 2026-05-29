@@ -1,7 +1,7 @@
 # Ketahanan Pangan Indonesia Dashboard
 
 Dashboard analitik spasial-temporal distribusi beras Indonesia.  
-**IF4061 Visualisasi Data** | Semester 2 2025/2026 | VSC26101 Group 14
+**IF4061 Visualisasi Data** | Semester 2 2025/2026 | Group 14
 
 ---
 

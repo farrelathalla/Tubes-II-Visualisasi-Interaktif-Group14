@@ -1,9 +1,3 @@
-"""
-dashboard/pages/3_Price_Trend.py, Tren & Gap Harga Beras
-Interactive rice price trend and gap analysis across Indonesian provinces.
-IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
-"""
-
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))

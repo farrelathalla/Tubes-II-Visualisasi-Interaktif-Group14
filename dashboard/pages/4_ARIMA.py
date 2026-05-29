@@ -1,9 +1,3 @@
-"""
-dashboard/pages/4_ARIMA.py, Proyeksi Harga ARIMA 2026–2027
-Model ARIMA untuk proyeksi harga beras per provinsi Indonesia
-IF4061 Visualisasi Data | Semester 2 2025/2026 | VSC26101 Group 14
-"""
-
 import sys
 from pathlib import Path
 
