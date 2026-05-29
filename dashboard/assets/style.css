@@ -344,6 +344,22 @@ h4, h5, h6 {
   fill: var(--primary-dark) !important;
 }
 
+[data-testid="stSidebar"] [data-testid="stRadio"] label,
+[data-testid="stSidebar"] [data-testid="stRadio"] p,
+[data-testid="stSidebar"] [data-testid="stRadio"] span {
+  color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label,
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label p,
+[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label span {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadio"] svg {
+  fill: #ffffff !important;
+}
+
 [data-baseweb="tag"] {
   background-color: #ecf4f0 !important;
   border: 1px solid var(--primary-light) !important;
