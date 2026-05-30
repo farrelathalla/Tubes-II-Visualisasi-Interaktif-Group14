@@ -81,7 +81,13 @@ df_year = get_ikp_for_year(selected_year)
 MAX_IKP = 100.0
 df_pareto = df_year.copy()
 df_pareto["DEFICIT"] = MAX_IKP - df_pareto["IKP"]
-df_pareto = df_pareto.sort_values("DEFICIT", ascending=False).reset_index(drop=True)
+
+# Sort based on user selection
+if show_by == "Skor IKP (terendah)":
+    df_pareto = df_pareto.sort_values("IKP", ascending=True).reset_index(drop=True)
+else:  # "Defisit IKP"
+    df_pareto = df_pareto.sort_values("DEFICIT", ascending=False).reset_index(drop=True)
+
 df_pareto["CUM_DEFICIT"] = df_pareto["DEFICIT"].cumsum()
 total_deficit = df_pareto["DEFICIT"].sum()
 df_pareto["CUM_PCT"] = (df_pareto["CUM_DEFICIT"] / total_deficit * 100) if total_deficit > 0 else 0.0
@@ -100,14 +106,23 @@ n_threshold = min(n_threshold, n_total)
 # ---------------------------------------------------------------------------
 # 6. Section 1: Headline card
 # ---------------------------------------------------------------------------
+headline_text = (
+    f"<b style='color:#904d00;'>{n_80pct} provinsi ({pct_provinces:.0f}%)</b> dari total {n_total} provinsi "
+    f"menyumbang <b style='color:#be123c;'>80% dari total defisit ketahanan pangan</b> pada {selected_year}."
+)
+
+if show_by == "Skor IKP (terendah)":
+    headline_title = "Prioritas: Provinsi dengan Skor IKP Terendah"
+    headline_context = "Intervensi pada provinsi dengan skor IKP paling rendah dapat memberikan dampak terbesar untuk meningkatkan ketahanan pangan."
+else:
+    headline_title = "Prioritas: Provinsi dengan Defisit Ketahanan Pangan"
+    headline_context = "Intervensi tepat sasaran pada kelompok ini dapat memberikan dampak terbesar untuk mengatasi kekurangan ketahanan pangan."
+
 st.markdown(f"""
 <div class='headline-card'>
-  <h1 style='color:#065f46; margin:0;'>Analisis Prioritas, Prinsip Pareto</h1>
-  <p style='color:#181c1a; margin:4px 0 2px;'>
-    <b style='color:#904d00;'>{n_80pct} provinsi ({pct_provinces:.0f}%)</b> dari total {n_total} provinsi
-    menyumbang <b style='color:#be123c;'>80% dari total defisit ketahanan pangan</b> pada {selected_year}.
-    Intervensi tepat sasaran pada kelompok ini dapat memberikan dampak terbesar.
-  </p>
+  <h1 style='color:#065f46; margin:0;'>{headline_title}</h1>
+  <p style='color:#181c1a; margin:4px 0 2px;'>{headline_text}</p>
+  <p style='color:#6f7973; margin:4px 0; font-size:0.95rem;'>{headline_context}</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -122,9 +137,13 @@ with col1:
     st.plotly_chart(fig_donut, use_container_width=True, height=320)
 
 with col2:
+    kpi_label = (
+        "Provinsi dengan IKP Terendah" if show_by == "Skor IKP (terendah)"
+        else "Provinsi Perlu Prioritas"
+    )
     st.markdown(f"""
     <div class='kpi-card danger'>
-      <div style='font-size:12px; color:#6f7973;'>Provinsi Perlu Prioritas ({pareto_threshold}% threshold)</div>
+      <div style='font-size:12px; color:#6f7973;'>{kpi_label} ({pareto_threshold}% threshold)</div>
       <div style='font-size:36px; font-weight:700; color:#904d00;'>{n_threshold} Provinsi</div>
       <div style='font-size:13px; color:#181c1a;'>dari total {n_total} provinsi ({n_threshold / n_total * 100:.0f}%)</div>
     </div>
@@ -161,9 +180,9 @@ with col2:
 # 8. Section 4: Full-width Pareto chart
 # ---------------------------------------------------------------------------
 st.markdown("---")
-st.markdown(f"#### Pareto Chart: IKP Defisit per Provinsi ({selected_year})")
+st.markdown(f"#### Pareto Chart: IKP {show_by} per Provinsi ({selected_year})")
 
-fig_pareto = make_pareto_chart(df_pareto)
+fig_pareto = make_pareto_chart(df_pareto, show_by=show_by)
 st.plotly_chart(fig_pareto, use_container_width=True, height=500)
 
 # ---------------------------------------------------------------------------

@@ -600,16 +600,34 @@ def make_arima_forecast(
 # 8. Pareto chart
 # ---------------------------------------------------------------------------
 
-def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
-    """Bar chart of IKP with cumulative deficit line (Pareto)."""
+def make_pareto_chart(df_ikp_sorted: pd.DataFrame, show_by: str = "Defisit IKP") -> go.Figure:
+    
     if df_ikp_sorted is None or df_ikp_sorted.empty:
         return _empty_fig("No IKP data available")
 
     df = df_ikp_sorted.copy().reset_index(drop=True)
-    max_ikp = df["IKP"].max()
-    df["DEFICIT"] = max_ikp - df["IKP"]
-    total_deficit = df["DEFICIT"].sum()
-    df["CUM_PCT"] = (df["DEFICIT"].cumsum() / total_deficit * 100) if total_deficit > 0 else 0
+    max_ikp = 100.0
+    
+    # Prepare data based on show_by selection
+    if show_by == "Skor IKP (terendah)":
+        # Sort by lowest IKP score
+        df = df.sort_values("IKP", ascending=True).reset_index(drop=True)
+        df["DEFICIT"] = max_ikp - df["IKP"]
+        # Calculate cumulative based on sorted order
+        df["CUM_DEFICIT"] = df["DEFICIT"].cumsum()
+        total_deficit = df["DEFICIT"].sum()
+        df["CUM_PCT"] = (df["CUM_DEFICIT"] / total_deficit * 100) if total_deficit > 0 else 0
+        title_text = "Analisis Pareto – Skor IKP Terendah"
+        bar_name = "IKP"
+    else:  # "Defisit IKP"
+        # Sort by highest deficit
+        df["DEFICIT"] = max_ikp - df["IKP"]
+        df = df.sort_values("DEFICIT", ascending=False).reset_index(drop=True)
+        df["CUM_DEFICIT"] = df["DEFICIT"].cumsum()
+        total_deficit = df["DEFICIT"].sum()
+        df["CUM_PCT"] = (df["CUM_DEFICIT"] / total_deficit * 100) if total_deficit > 0 else 0
+        title_text = "Analisis Pareto – Defisit IKP"
+        bar_name = "Defisit IKP"
 
     # Number of provinces that account for 80% of deficit
     threshold_count = int((df["CUM_PCT"] <= 80).sum()) + 1
@@ -626,13 +644,21 @@ def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
+    # Determine bar y-value based on show_by
+    if show_by == "Skor IKP (terendah)":
+        bar_y = df["IKP"]
+        bar_hover = "<b>%{x}</b><br>IKP: %{y:.2f}<extra></extra>"
+    else:
+        bar_y = df["DEFICIT"]
+        bar_hover = "<b>%{x}</b><br>Defisit: %{y:.2f}<extra></extra>"
+
     fig.add_trace(
         go.Bar(
             x=df["PROVINSI"],
-            y=df["IKP"],
-            name="IKP",
+            y=bar_y,
+            name=bar_name,
             marker_color=bar_colors,
-            hovertemplate="<b>%{x}</b><br>IKP: %{y:.2f}<extra></extra>",
+            hovertemplate=bar_hover,
         ),
         secondary_y=False,
     )
@@ -672,7 +698,7 @@ def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
 
     fig.update_layout(
         title=dict(
-            text="Analisis Pareto – Defisit IKP",
+            text=title_text,
             font=dict(color=colors.TEXT_PRIMARY),
         ),
         paper_bgcolor="#ffffff",
@@ -699,7 +725,7 @@ def make_pareto_chart(df_ikp_sorted: pd.DataFrame) -> go.Figure:
         ),
     )
     fig.update_yaxes(
-        title_text="IKP",
+        title_text=bar_name,
         gridcolor=colors.BORDER_CARD,
         zerolinecolor=colors.BORDER_CARD,
         color=colors.TEXT_PRIMARY,
