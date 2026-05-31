@@ -132,9 +132,8 @@ st.markdown(f"""
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.markdown("**Distribusi Kategori Ketahanan**")
     fig_donut = make_donut_kerentanan(df_year)
-    st.plotly_chart(fig_donut, use_container_width=True, height=320)
+    st.plotly_chart(fig_donut, width="stretch", height=390)
 
 with col2:
     kpi_label = (
@@ -183,7 +182,7 @@ st.markdown("---")
 st.markdown(f"#### Pareto Chart: IKP {show_by} per Provinsi ({selected_year})")
 
 fig_pareto = make_pareto_chart(df_pareto, show_by=show_by)
-st.plotly_chart(fig_pareto, use_container_width=True, height=500)
+st.plotly_chart(fig_pareto, width="stretch", height=500)
 
 # ---------------------------------------------------------------------------
 # 9. Section 5: Food consumption trend
@@ -216,7 +215,7 @@ with kons_col2:
         df_for_chart = df_kons[df_kons["KELOMPOK"].isin(selected_groups)].copy()
 
     fig_kons = make_konsumsi_area(df_for_chart, selected_groups)
-    st.plotly_chart(fig_kons, use_container_width=True, height=380)
+    st.plotly_chart(fig_kons, width="stretch", height=380)
 
 # ---------------------------------------------------------------------------
 # 10. Footer

@@ -118,6 +118,7 @@
 
 [data-testid="stSidebar"] [data-baseweb="select"] svg {
   fill: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 
@@ -260,6 +261,52 @@ h4, h5, h6 {
   border: 1px solid var(--border) !important;
   color: var(--text-primary) !important;
   border-radius: var(--radius-btn) !important;
+}
+
+[data-testid="stSelectbox"] label,
+[data-testid="stSelectbox"] label p,
+[data-testid="stSelectbox"] label span,
+[data-testid="stMultiSelect"] label,
+[data-testid="stMultiSelect"] label p,
+[data-testid="stMultiSelect"] label span,
+[data-testid="stDateInput"] label,
+[data-testid="stDateInput"] label p,
+[data-testid="stDateInput"] label span {
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stSelectbox"] label,
+[data-testid="stSidebar"] [data-testid="stSelectbox"] label p,
+[data-testid="stSidebar"] [data-testid="stSelectbox"] label span,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] label,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] label p,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] label span {
+  color: rgba(255, 255, 255, 0.85) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSelectbox"] [data-baseweb="select"] *,
+[data-testid="stMultiSelect"] [data-baseweb="select"] * {
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSelectbox"] [data-baseweb="select"] svg,
+[data-testid="stMultiSelect"] [data-baseweb="select"] svg,
+[data-baseweb="select"] svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  fill: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="select"] svg,
+[data-testid="stSidebar"] [data-testid="stSelectbox"] svg,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] svg {
+  fill: rgba(255, 255, 255, 0.85) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 [data-baseweb="select"] > div:focus-within {
@@ -514,6 +561,37 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    15. Progress bar
    ------------------------------------------------------------ */
+/* Keep selected expanders readable, especially cluster detail panels. */
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] summary *,
+[data-testid="stExpander"] summary[aria-expanded="true"],
+[data-testid="stExpander"] summary[aria-expanded="true"] * {
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stExpander"] summary[aria-expanded="true"] {
+  background-color: #ecf4f0 !important;
+  border-color: var(--primary-light) !important;
+}
+
+[data-testid="stExpander"] details[open] summary,
+[data-testid="stExpander"] details[open] summary *,
+[data-testid="stExpander"] summary:hover,
+[data-testid="stExpander"] summary:hover * {
+  color: var(--text-primary) !important;
+  background-color: #ecf4f0 !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stExpander"] summary svg,
+[data-testid="stExpander"] details[open] summary svg,
+[data-testid="stExpander"] summary:hover svg {
+  fill: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
+
 [data-testid="stProgress"] > div > div > div {
   background-color: var(--primary-dark) !important;
 }
@@ -613,6 +691,121 @@ h4, h5, h6 {
   margin: 20px 0;
 }
 
+.headline-card b,
+.headline-card strong,
+.kpi-card b,
+.kpi-card strong {
+  font-size: 1.08em;
+  font-weight: 800 !important;
+}
+
+.headline-card,
+.headline-card *,
+.kpi-card,
+.kpi-card *,
+[data-testid="stMetric"],
+[data-testid="stMetric"] * {
+  opacity: 1 !important;
+}
+
+.headline-card p,
+.kpi-card p,
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] *,
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] * {
+  color: var(--primary-dark) !important;
+}
+
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] * {
+  color: var(--text-primary) !important;
+}
+
+[data-testid="stMetricDelta"],
+[data-testid="stMetricDelta"] * {
+  opacity: 1 !important;
+}
+
+[data-testid="stMetric"] [data-testid="stTooltipIcon"],
+[data-testid="stMetric"] [data-testid="stTooltipIcon"] *,
+[data-testid="stMetric"] svg {
+  color: var(--text-secondary) !important;
+  fill: var(--text-secondary) !important;
+  opacity: 0.75 !important;
+}
+
+.kpi-card .metric-title {
+  color: var(--text-primary) !important;
+}
+
+.arima-metric-card {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px;
+  min-height: 116px;
+  text-align: left;
+}
+
+.arima-metric-card .metric-title {
+  color: var(--text-primary) !important;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.arima-metric-card .metric-main-value {
+  color: var(--primary-dark) !important;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.arima-metric-card .delta-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.kpi-card .gap-value.danger,
+.kpi-card .delta-value.danger {
+  color: var(--accent-red) !important;
+}
+
+.kpi-card .gap-value.success,
+.kpi-card .delta-value.success {
+  color: var(--primary-dark) !important;
+}
+
+.kpi-card .gap-value.success-soft {
+  color: var(--accent-green) !important;
+}
+
+.kpi-card [style*="color:#6f7973"],
+.kpi-card [style*="color: #6f7973"],
+.headline-card [style*="color:#6f7973"],
+.headline-card [style*="color: #6f7973"] {
+  color: var(--text-primary) !important;
+}
+
+.kpi-card [style*="color:#be123c"],
+.kpi-card [style*="color: #be123c"],
+.headline-card [style*="color:#be123c"],
+.headline-card [style*="color: #be123c"] {
+  color: var(--accent-red) !important;
+}
+
+.kpi-card [style*="color:#065f46"],
+.kpi-card [style*="color: #065f46"],
+.headline-card [style*="color:#065f46"],
+.headline-card [style*="color: #065f46"] {
+  color: var(--primary-dark) !important;
+}
+
 /* Badge / chip */
 .badge {
   display: inline-block;
@@ -627,6 +820,20 @@ h4, h5, h6 {
 .badge.amber  { background-color: #fffbeb; color: #92400e;  border: 1px solid #fcd34d; }
 .badge.red    { background-color: #fff1f2; color: #9f1239;  border: 1px solid #fca5a5; }
 .badge.orange { background-color: #fff7ed; color: #9a3412;  border: 1px solid #fdba74; }
+
+/* Plotly text contrast */
+[data-testid="stPlotlyChart"] .xtitle,
+[data-testid="stPlotlyChart"] .ytitle,
+[data-testid="stPlotlyChart"] .gtitle,
+[data-testid="stPlotlyChart"] .xtick text,
+[data-testid="stPlotlyChart"] .ytick text,
+[data-testid="stPlotlyChart"] .legendtext,
+[data-testid="stPlotlyChart"] .annotation-text,
+[data-testid="stPlotlyChart"] .annotation text {
+  fill: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  opacity: 1 !important;
+}
 
 /* ------------------------------------------------------------
    18. Hide Streamlit branding / default chrome
@@ -759,6 +966,22 @@ button[aria-label*="sidebar" i] * {
   visibility: visible !important;
 }
 
+[data-testid="stSidebar"] [data-baseweb="select"],
+[data-testid="stSidebar"] [data-baseweb="select"] *,
+[data-testid="stSidebar"] [data-testid="stSelectbox"],
+[data-testid="stSidebar"] [data-testid="stSelectbox"] *,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"],
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] * {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="select"] svg,
+[data-testid="stSidebar"] [data-testid="stSelectbox"] svg,
+[data-testid="stSidebar"] [data-testid="stMultiSelect"] svg {
+  fill: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 /* ------------------------------------------------------------
    19. Custom scrollbar
    ------------------------------------------------------------ */
@@ -768,6 +991,21 @@ button[aria-label*="sidebar" i] * {
 ::-webkit-scrollbar-thumb:hover { background-color: var(--primary-dark); }
 ::-webkit-scrollbar-corner { background: var(--bg-main); }
 * { scrollbar-width: thin; scrollbar-color: var(--border-muted) var(--bg-main); }
+
+@media (max-width: 768px) {
+  .headline-card p,
+  .kpi-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .headline-card b,
+  .headline-card strong,
+  .kpi-card b,
+  .kpi-card strong {
+    font-size: 1.12em;
+  }
+}
 
 /* ------------------------------------------------------------
    20. Responsive tweaks

@@ -7,6 +7,20 @@ from utils.data_loader import get_clustering_features, get_available_years
 from utils.charts import make_cluster_scatter, make_elbow_silhouette
 from utils import colors
 
+FEATURE_LABELS = {
+    "IKP": "IKP",
+    "PRODUKSI_TON": "Produksi Ton",
+    "HARGA_BERAS_AVG": "Harga Beras Rata-Rata",
+    "HARGA_BERAS": "Harga Beras",
+    "MPP_TOTAL_PCT": "MPP Total (%)",
+    "MPP_TOTAL": "MPP Total",
+    "GINI": "Gini Ratio",
+}
+
+
+def feature_label(feature: str) -> str:
+    return FEATURE_LABELS.get(feature, feature.replace("_", " ").title())
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -176,9 +190,9 @@ with col_left:
             <span style='color:#6f7973;'>Jumlah Klaster:</span>
             <span style='color:#904d00; font-weight:700;'> K = {k}</span><br>
             <span style='color:#6f7973;'>Sumbu X:</span>
-            <span style='color:#181c1a;'> {x_feature}</span><br>
+            <span style='color:#181c1a;'> {feature_label(x_feature)}</span><br>
             <span style='color:#6f7973;'>Sumbu Y:</span>
-            <span style='color:#181c1a;'> {y_feature}</span><br>
+            <span style='color:#181c1a;'> {feature_label(y_feature)}</span><br>
             <span style='color:#6f7973;'>Provinsi:</span>
             <span style='color:#181c1a;'> {len(df_clean) if not df_clean.empty else 0}</span>
           </div>
@@ -220,7 +234,7 @@ with col_right:
         st.warning("Tidak ada data klaster untuk tahun yang dipilih.")
     else:
         fig_scatter = make_cluster_scatter(df_clean, x_col=x_feature, y_col=y_feature)
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        st.plotly_chart(fig_scatter, width="stretch")
 
 # ---------------------------------------------------------------------------
 # 7. Section 5: Elbow and Silhouette
@@ -238,10 +252,10 @@ if inertias and silhouettes:
     fig_elbow, fig_sil = make_elbow_silhouette(inertias, silhouettes, list(range(2, 7)))
     with col_elbow:
         st.markdown("**Elbow Method**")
-        st.plotly_chart(fig_elbow, use_container_width=True)
+        st.plotly_chart(fig_elbow, width="stretch")
     with col_sil:
         st.markdown("**Silhouette Score**")
-        st.plotly_chart(fig_sil, use_container_width=True)
+        st.plotly_chart(fig_sil, width="stretch")
 else:
     with col_elbow:
         st.warning("Data elbow tidak tersedia.")
@@ -350,6 +364,10 @@ if not df_clean.empty:
           <b style='color:#904d00;'>{year}</b> mencakup
           <b style='color:#181c1a;'>{len(df_clean)}</b> provinsi.
           Silakan ubah nilai K di sidebar untuk mengeksplorasi konfigurasi klaster yang berbeda.
+          <br><br>
+          <b style='color:#065f46;'>Cara membaca:</b>
+          klaster dengan IKP lebih rendah, harga beras lebih tinggi, atau MPP lebih besar
+          dapat diprioritaskan untuk analisis lanjutan.
         </div>
         """,
         unsafe_allow_html=True,

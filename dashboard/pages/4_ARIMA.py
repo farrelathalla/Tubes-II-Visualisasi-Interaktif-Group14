@@ -232,7 +232,7 @@ if df_fc is not None:
                 )
             )
 
-    st.plotly_chart(fig, use_container_width=True, height=480)
+    st.plotly_chart(fig, width="stretch", height=480)
 
 elif df_hist is not None and not df_hist.empty:
     st.warning("Model ARIMA tidak dapat menghasilkan proyeksi. Coba ubah parameter (p, d, q).")
@@ -254,11 +254,20 @@ with col1:
         st.metric("Harga Terakhir (Des 2025)", f"Rp {last_hist_price:,.0f}")
 with col2:
     if last_fc_price:
-        st.metric(
-            "Proyeksi Des 2027",
-            f"Rp {last_fc_price:,.0f}",
-            f"{delta_pct:+.1f}%" if delta_pct is not None else None,
-        )
+        is_increase = bool(delta_pct and delta_pct > 0)
+        delta_color = "#be123c" if is_increase else "#065f46"
+        delta_class = "danger" if is_increase else "success"
+        delta_icon = "▲" if is_increase else "▼"
+        delta_label = f"{delta_pct:+.1f}%" if delta_pct is not None else "-"
+        st.markdown(f"""
+        <div class='kpi-card arima-metric-card'>
+          <div class='metric-title'>Proyeksi Des 2027</div>
+          <div class='metric-main-value'>Rp {last_fc_price:,.0f}</div>
+          <div class='delta-value {delta_class}' style='color:{delta_color};'>
+            {delta_icon} {delta_label}
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
 with col3:
     if rmse:
         st.metric("RMSE Model", f"Rp {rmse:,.0f}")

@@ -43,6 +43,25 @@ def _empty_fig(message: str = "No data available") -> go.Figure:
     return _apply_theme(fig)
 
 
+def _pretty_label(label: str) -> str:
+    """Convert data-column labels into readable chart labels."""
+    replacements = {
+        "PROVINSI": "Provinsi",
+        "TAHUN": "Tahun",
+        "IKP": "IKP",
+        "PRODUKSI_TON": "Produksi Ton",
+        "HARGA_BERAS_AVG": "Harga Beras Rata-Rata",
+        "HARGA_BERAS": "Harga Beras",
+        "MPP_TOTAL_PCT": "MPP Total (%)",
+        "MPP_TOTAL": "MPP Total",
+        "GINI": "Gini Ratio",
+        "KONSUMSI": "Konsumsi",
+    }
+    if label in replacements:
+        return replacements[label]
+    return label.replace("_", " ").title()
+
+
 def _apply_theme(fig: go.Figure, margin: dict | None = None) -> go.Figure:
     """Apply light theme layout to any figure."""
     fig.update_layout(
@@ -78,6 +97,7 @@ def _apply_theme(fig: go.Figure, margin: dict | None = None) -> go.Figure:
         title_font=dict(color=colors.TEXT_PRIMARY),
         linecolor=colors.TEXT_DIM,
     )
+    fig.update_annotations(font=dict(color=colors.TEXT_PRIMARY))
     return fig
 
 
@@ -180,6 +200,56 @@ def make_bar_top_bottom(
         showlegend=False,
     )
     return _apply_theme(fig, margin=dict(l=64, r=60, t=72, b=52))
+
+
+def make_gap_ikp_chart(df_ikp: pd.DataFrame, n: int = 10) -> go.Figure:
+    """Horizontal bar chart of provinces below the national average IKP."""
+    if df_ikp is None or df_ikp.empty:
+        return _empty_fig("No IKP data available")
+
+    df = df_ikp.copy()
+    national_avg = df["IKP"].mean()
+    df["GAP_IKP"] = (national_avg - df["IKP"]).clip(lower=0)
+    df_plot = df[df["GAP_IKP"] > 0].nlargest(n, "GAP_IKP")
+
+    if df_plot.empty:
+        return _empty_fig("All provinces are at or above the national average")
+
+    df_plot = df_plot.sort_values("GAP_IKP", ascending=True)
+
+    fig = go.Figure(
+        go.Bar(
+            x=df_plot["GAP_IKP"],
+            y=df_plot["PROVINSI"],
+            orientation="h",
+            marker_color=colors.ACCENT_RED,
+            text=df_plot["GAP_IKP"].map(lambda v: f"{v:.1f}"),
+            textposition="outside",
+            textfont=dict(color=colors.TEXT_PRIMARY),
+            customdata=df_plot[["PROVINSI", "IKP", "GAP_IKP"]].values,
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"
+                "IKP: %{customdata[1]:.2f}<br>"
+                "Gap dari rata-rata nasional: %{customdata[2]:.2f}"
+                "<extra></extra>"
+            ),
+        )
+    )
+
+    fig.update_layout(
+        title=dict(
+            text="Gap IKP terhadap Rata-rata Nasional",
+            font=dict(color=colors.TEXT_PRIMARY),
+        ),
+        xaxis_title="Selisih IKP",
+        showlegend=False,
+    )
+    fig.add_vline(
+        x=0,
+        line_color=colors.TEXT_DIM,
+        line_width=1,
+    )
+    return _apply_theme(fig, margin=dict(l=96, r=70, t=72, b=52))
 
 
 # ---------------------------------------------------------------------------
@@ -476,8 +546,8 @@ def make_cluster_scatter(
             text=f"Cluster Scatter: {x_col} vs {y_col}",
             font=dict(color=colors.TEXT_PRIMARY),
         ),
-        xaxis_title=x_col,
-        yaxis_title=y_col,
+        xaxis_title=_pretty_label(x_col),
+        yaxis_title=_pretty_label(y_col),
     )
     return _apply_theme(fig, margin=dict(l=64, r=180, t=72, b=52))
 

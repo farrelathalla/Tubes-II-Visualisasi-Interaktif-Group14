@@ -29,7 +29,7 @@ with open(_CSS_PATH) as f:
 # 3. Data imports (after sys.path is set)
 # ---------------------------------------------------------------------------
 from utils.data_loader import load_ikp, load_geojson, get_ikp_for_year
-from utils.charts import make_choropleth, make_bar_top_bottom
+from utils.charts import make_choropleth, make_bar_top_bottom, make_gap_ikp_chart
 from utils import colors
 
 # ---------------------------------------------------------------------------
@@ -49,7 +49,8 @@ with st.sidebar:
                 letter-spacing:0.07em; margin-bottom:4px;'>Konten</div>
     <div style='font-size:0.82rem; color:rgba(255,255,255,0.85); line-height:2;'>
       Peta IKP<br>
-      Peringkat Provinsi
+      Peringkat Provinsi<br>
+        Gap IKP dari Rata-rata Nasional
     </div>
     <hr style='border-color:rgba(255,255,255,0.15); margin:10px 0;'>
     """, unsafe_allow_html=True)
@@ -110,6 +111,20 @@ prov_min = df_year.loc[min_idx, "PROVINSI"].title()
 # ---------------------------------------------------------------------------
 # 7. Section 3: KPI Metrics row (5 columns)
 # ---------------------------------------------------------------------------
+st.markdown("""
+<style>
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > div:nth-of-type(4) [data-testid="stMetricDelta"] svg,
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > div:nth-of-type(5) [data-testid="stMetricDelta"] svg {
+  display: none !important;
+}
+
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > div:nth-of-type(4) [data-testid="stMetricDelta"],
+div[data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > div:nth-of-type(5) [data-testid="stMetricDelta"] {
+  color: #4b5563 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
 
 with kpi1:
@@ -142,7 +157,7 @@ with kpi4:
         value=f"{max_ikp:.1f}",
         delta=prov_max,
         delta_color="off",
-        help="Nilai IKP tertinggi dan provinsinya",
+        help=f"Nilai IKP tertinggi dan provinsinya: {prov_max}",
     )
 
 with kpi5:
@@ -151,7 +166,7 @@ with kpi5:
         value=f"{min_ikp:.1f}",
         delta=prov_min,
         delta_color="off",
-        help="Nilai IKP terendah dan provinsinya",
+        help=f"Nilai IKP terendah dan provinsinya: {prov_min}",
     )
 
 st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
@@ -177,7 +192,7 @@ st.markdown(
 )
 
 map_fig = make_choropleth(df_filtered, geojson)
-st.plotly_chart(map_fig, use_container_width=True, height=500)
+st.plotly_chart(map_fig, width="stretch", height=500)
 
 st.markdown(
     f"<p style='color:#6f7973; font-size:0.78rem; text-align:center; margin-top:-8px;'>"
@@ -202,17 +217,33 @@ bar_col1, bar_col2 = st.columns(2)
 
 with bar_col1:
     fig_top = make_bar_top_bottom(df_year, top=True, n=10)
-    st.plotly_chart(fig_top, use_container_width=True, height=420)
+    st.plotly_chart(fig_top, width="stretch", height=420)
 
 with bar_col2:
     fig_bot = make_bar_top_bottom(df_year, top=False, n=10)
-    st.plotly_chart(fig_bot, use_container_width=True, height=420)
+    st.plotly_chart(fig_bot, width="stretch", height=420)
 
 st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # 10. Footer
 # ---------------------------------------------------------------------------
+st.markdown("<div style='margin-bottom:16px;'></div>", unsafe_allow_html=True)
+st.markdown(
+    "<h3 style='color:#004532; font-size:1rem; font-weight:700; letter-spacing:0.04em; "
+    "text-transform:uppercase; margin-bottom:8px;'>Gap IKP dari Rata-rata Nasional</h3>",
+    unsafe_allow_html=True,
+)
+st.markdown(
+    "<p style='color:#3f4944; font-size:0.86rem; margin-top:-4px;'>"
+    "Gap dihitung sebagai selisih antara rata-rata IKP nasional dan nilai IKP provinsi. "
+    "Semakin besar gap, semakin jauh posisi provinsi tersebut dari kondisi nasional rata-rata."
+    "</p>",
+    unsafe_allow_html=True,
+)
+fig_gap = make_gap_ikp_chart(df_year)
+st.plotly_chart(fig_gap, width="stretch", height=420)
+
 st.markdown("<div style='margin-bottom:24px;'></div>", unsafe_allow_html=True)
 st.markdown("""
 <div style='

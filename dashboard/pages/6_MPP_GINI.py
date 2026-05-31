@@ -151,7 +151,7 @@ st.markdown(
 )
 
 fig_scatter = make_mpp_scatter(df_scatter, show_regression=show_regression)
-st.plotly_chart(fig_scatter, use_container_width=True, height=480)
+st.plotly_chart(fig_scatter, width="stretch", height=480)
 
 st.caption(
     f"Ukuran titik = volume produksi padi. Data MPP 2024, IKP 2024. "
@@ -172,7 +172,7 @@ with col1:
         island_provs = colors.ISLAND_GROUPS.get(selected_island, [])
         df_mpp_year = df_mpp_year[df_mpp_year.PROVINSI.isin(island_provs)]
     fig_bar = make_mpp_bar(df_mpp_year, year=mpp_year)
-    st.plotly_chart(fig_bar, use_container_width=True, height=450)
+    st.plotly_chart(fig_bar, width="stretch", height=450)
 
 with col2:
     st.markdown("#### Tren MPP Multi-Tahun")
@@ -233,7 +233,7 @@ with col2:
         ),
     )
 
-    st.plotly_chart(fig_trend, use_container_width=True, height=450)
+    st.plotly_chart(fig_trend, width="stretch", height=450)
 
 # ---------------------------------------------------------------------------
 # 11. Footer

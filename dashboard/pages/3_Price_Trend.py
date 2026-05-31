@@ -113,7 +113,7 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 if selected_provinces:
     fig_line = make_line_harga(df_harga, selected_provinces, year_range=year_range)
-    st.plotly_chart(fig_line, use_container_width=True, height=450)
+    st.plotly_chart(fig_line, width="stretch", height=450)
 else:
     st.warning("Pilih minimal satu provinsi untuk menampilkan grafik.")
 
@@ -126,7 +126,7 @@ with col1:
     st.markdown("#### Perubahan Harga: 2019 vs 2025")
     st.caption("Garis merah = kenaikan >15% | Garis hijau = stabil/turun")
     fig_slope = make_slopegraph(df_harga, selected_provinces, year_start=2019, year_end=2025)
-    st.plotly_chart(fig_slope, use_container_width=True, height=400)
+    st.plotly_chart(fig_slope, width="stretch", height=400)
 
 with col2:
     st.markdown("#### Kalkulator Gap Harga")
@@ -165,12 +165,13 @@ with col2:
         st.metric(f"Harga {prov_a} ({gap_year})", f"Rp {price_a:,.0f}/kg")
         st.metric(f"Harga {prov_b} ({gap_year})", f"Rp {price_b:,.0f}/kg")
 
-        color = "#be123c" if gap_val > 0 else "#065f46"
+        color = "#be123c" if gap_val > 0 else "#15803d"
+        gap_value_class = "danger" if gap_val > 0 else "success-soft"
         card_class = "danger" if gap_val > 0 else "success"
         st.markdown(f"""
         <div class='kpi-card {card_class}' style='margin-top:12px;'>
           <div style='font-size:12px; color:#6f7973;'>Selisih Harga</div>
-          <div style='font-size:28px; font-weight:700; color:{color};'>
+          <div class='gap-value {gap_value_class}' style='font-size:28px; font-weight:700; color:{color};'>
             Rp {abs(gap_val):,.0f}/kg
           </div>
           <div style='font-size:13px; color:#181c1a;'>
@@ -208,4 +209,4 @@ fig_nat = make_line_harga(
     year_range=year_range,
 )
 fig_nat.update_layout(margin=dict(l=64, r=80, t=72, b=52))
-st.plotly_chart(fig_nat, use_container_width=True, height=300)
+st.plotly_chart(fig_nat, width="stretch", height=300)
