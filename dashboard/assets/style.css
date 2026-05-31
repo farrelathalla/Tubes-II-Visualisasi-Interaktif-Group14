@@ -12,27 +12,27 @@
    1. Root variables
    ------------------------------------------------------------ */
 :root {
-  --bg-main:        #f7faf6;
-  --bg-card:        #ffffff;
+  --bg-main: #f7faf6;
+  --bg-card: #ffffff;
   --bg-surface-low: #f1f4f0;
-  --bg-sidebar:     #004532;
-  --border:         #e2e8f0;
-  --border-muted:   #bec9c2;
-  --shadow-card:    0px 4px 20px rgba(0, 0, 0, 0.06);
-  --shadow-float:   0px 10px 30px rgba(0, 0, 0, 0.10);
-  --primary:        #004532;
-  --primary-dark:   #065f46;
-  --primary-light:  #a6f2d1;
-  --secondary:      #904d00;
-  --secondary-lt:   #fe932c;
-  --text-primary:   #181c1a;
+  --bg-sidebar: #004532;
+  --border: #e2e8f0;
+  --border-muted: #bec9c2;
+  --shadow-card: 0px 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-float: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  --primary: #004532;
+  --primary-dark: #065f46;
+  --primary-light: #a6f2d1;
+  --secondary: #904d00;
+  --secondary-lt: #fe932c;
+  --text-primary: #181c1a;
   --text-secondary: #3f4944;
-  --text-muted:     #6f7973;
-  --accent-green:   #15803d;
-  --accent-amber:   #904d00;
-  --accent-red:     #be123c;
-  --radius-card:    12px;
-  --radius-btn:     8px;
+  --text-muted: #6f7973;
+  --accent-green: #15803d;
+  --accent-amber: #904d00;
+  --accent-red: #be123c;
+  --radius-card: 12px;
+  --radius-btn: 8px;
 }
 
 /* ------------------------------------------------------------
@@ -47,7 +47,8 @@
 .stApp .material-symbols-outlined,
 .stApp .material-symbols-rounded,
 .stApp .material-symbols-sharp {
-  font-family: 'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Icons' !important;
+  font-family:
+    'Material Symbols Rounded', 'Material Symbols Outlined', 'Material Icons' !important;
   font-weight: normal !important;
   font-style: normal !important;
   letter-spacing: normal !important;
@@ -71,7 +72,11 @@
   padding-bottom: 2rem !important;
 }
 
-[data-testid="stHeader"] {
+.stMainBlockContainer {
+  padding-top: 2rem !important;
+}
+
+[data-testid='stHeader'] {
   background-color: var(--bg-main) !important;
   border-bottom: 1px solid var(--border) !important;
 }
@@ -79,69 +84,68 @@
 /* ------------------------------------------------------------
    3. Sidebar — deep emerald
    ------------------------------------------------------------ */
-[data-testid="stSidebar"] {
+[data-testid='stSidebar'] {
   background-color: var(--bg-sidebar) !important;
   border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
-[data-testid="stSidebar"] * {
+[data-testid='stSidebar'] * {
   color: #ffffff !important;
 }
 
-[data-testid="stSidebar"] p,
-[data-testid="stSidebar"] .stMarkdown p {
+[data-testid='stSidebar'] p,
+[data-testid='stSidebar'] .stMarkdown p {
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-[data-testid="stSidebar"] hr {
+[data-testid='stSidebar'] hr {
   border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-[data-testid="stSidebar"] h1,
-[data-testid="stSidebar"] h2,
-[data-testid="stSidebar"] h3 {
+[data-testid='stSidebar'] h1,
+[data-testid='stSidebar'] h2,
+[data-testid='stSidebar'] h3 {
   color: #ffffff !important;
 }
 
-[data-testid="stSidebarNav"] {
+[data-testid='stSidebarNav'] {
   background-color: var(--bg-sidebar) !important;
 }
 
 /* Sidebar form controls */
-[data-testid="stSidebar"] [data-baseweb="select"] > div,
-[data-testid="stSidebar"] [data-testid="stSelectbox"] > div > div {
+[data-testid='stSidebar'] [data-baseweb='select'] > div,
+[data-testid='stSidebar'] [data-testid='stSelectbox'] > div > div {
   background-color: rgba(255, 255, 255, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="select"] svg {
+[data-testid='stSidebar'] [data-baseweb='select'] svg {
   fill: rgba(255, 255, 255, 0.7) !important;
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-
-[data-testid="stSidebar"] [data-baseweb="tag"] {
+[data-testid='stSidebar'] [data-baseweb='tag'] {
   background-color: rgba(255, 255, 255, 0.18) !important;
   border: 1px solid rgba(255, 255, 255, 0.35) !important;
   color: #ffffff !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="tag"] span {
+[data-testid='stSidebar'] [data-baseweb='tag'] span {
   color: #ffffff !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="tag"] button {
+[data-testid='stSidebar'] [data-baseweb='tag'] button {
   color: rgba(255, 255, 255, 0.75) !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="tag"] button:hover {
+[data-testid='stSidebar'] [data-baseweb='tag'] button:hover {
   color: #ffffff !important;
 }
 
 /* Sidebar multiselect input */
-[data-testid="stSidebar"] [data-baseweb="input"] input {
+[data-testid='stSidebar'] [data-baseweb='input'] input {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: #ffffff !important;
 }
@@ -167,14 +171,16 @@ h3 {
   font-weight: 600 !important;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   color: var(--text-primary);
 }
 
 /* ------------------------------------------------------------
    5. Metric cards (st.metric)
    ------------------------------------------------------------ */
-[data-testid="stMetric"] {
+[data-testid='stMetric'] {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
@@ -183,7 +189,7 @@ h4, h5, h6 {
   box-shadow: var(--shadow-card) !important;
 }
 
-[data-testid="stMetricLabel"] {
+[data-testid='stMetricLabel'] {
   color: var(--text-muted) !important;
   font-size: 0.72rem !important;
   text-transform: uppercase;
@@ -191,37 +197,37 @@ h4, h5, h6 {
   font-weight: 600 !important;
 }
 
-[data-testid="stMetricValue"] {
+[data-testid='stMetricValue'] {
   color: var(--primary) !important;
   font-size: 1.8rem !important;
   font-weight: 700 !important;
 }
 
-[data-testid="stMetricDelta"] {
+[data-testid='stMetricDelta'] {
   font-size: 0.8rem !important;
 }
 
-[data-testid="stMetricDelta"][data-direction="up"] {
+[data-testid='stMetricDelta'][data-direction='up'] {
   color: var(--accent-green) !important;
 }
 
-[data-testid="stMetricDelta"][data-direction="down"] {
+[data-testid='stMetricDelta'][data-direction='down'] {
   color: var(--accent-red) !important;
 }
 
 /* ------------------------------------------------------------
    6. Dataframe / Table
    ------------------------------------------------------------ */
-[data-testid="stDataFrame"],
-[data-testid="stTable"] {
+[data-testid='stDataFrame'],
+[data-testid='stTable'] {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
   box-shadow: var(--shadow-card) !important;
 }
 
-[data-testid="stDataFrame"] th,
-[data-testid="stTable"] th {
+[data-testid='stDataFrame'] th,
+[data-testid='stTable'] th {
   background-color: var(--bg-surface-low) !important;
   color: var(--text-secondary) !important;
   font-weight: 600 !important;
@@ -231,20 +237,20 @@ h4, h5, h6 {
   letter-spacing: 0.04em;
 }
 
-[data-testid="stDataFrame"] td,
-[data-testid="stTable"] td {
+[data-testid='stDataFrame'] td,
+[data-testid='stTable'] td {
   background-color: var(--bg-card) !important;
   color: var(--text-primary) !important;
   border-bottom: 1px solid var(--border) !important;
 }
 
-[data-testid="stDataFrame"] tr:nth-child(even) td,
-[data-testid="stTable"] tr:nth-child(even) td {
+[data-testid='stDataFrame'] tr:nth-child(even) td,
+[data-testid='stTable'] tr:nth-child(even) td {
   background-color: var(--bg-surface-low) !important;
 }
 
-[data-testid="stDataFrame"] tr:hover td,
-[data-testid="stTable"] tr:hover td {
+[data-testid='stDataFrame'] tr:hover td,
+[data-testid='stTable'] tr:hover td {
   background-color: #ecf4f0 !important;
 }
 
@@ -255,46 +261,46 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    7. Form controls — selectbox
    ------------------------------------------------------------ */
-[data-testid="stSelectbox"] > div > div,
-[data-baseweb="select"] > div {
+[data-testid='stSelectbox'] > div > div,
+[data-baseweb='select'] > div {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   color: var(--text-primary) !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stSelectbox"] label,
-[data-testid="stSelectbox"] label p,
-[data-testid="stSelectbox"] label span,
-[data-testid="stMultiSelect"] label,
-[data-testid="stMultiSelect"] label p,
-[data-testid="stMultiSelect"] label span,
-[data-testid="stDateInput"] label,
-[data-testid="stDateInput"] label p,
-[data-testid="stDateInput"] label span {
+[data-testid='stSelectbox'] label,
+[data-testid='stSelectbox'] label p,
+[data-testid='stSelectbox'] label span,
+[data-testid='stMultiSelect'] label,
+[data-testid='stMultiSelect'] label p,
+[data-testid='stMultiSelect'] label span,
+[data-testid='stDateInput'] label,
+[data-testid='stDateInput'] label p,
+[data-testid='stDateInput'] label span {
   color: var(--text-primary) !important;
   opacity: 1 !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stSelectbox"] label,
-[data-testid="stSidebar"] [data-testid="stSelectbox"] label p,
-[data-testid="stSidebar"] [data-testid="stSelectbox"] label span,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] label,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] label p,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] label span {
+[data-testid='stSidebar'] [data-testid='stSelectbox'] label,
+[data-testid='stSidebar'] [data-testid='stSelectbox'] label p,
+[data-testid='stSidebar'] [data-testid='stSelectbox'] label span,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] label,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] label p,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] label span {
   color: rgba(255, 255, 255, 0.85) !important;
   opacity: 1 !important;
 }
 
-[data-testid="stSelectbox"] [data-baseweb="select"] *,
-[data-testid="stMultiSelect"] [data-baseweb="select"] * {
+[data-testid='stSelectbox'] [data-baseweb='select'] *,
+[data-testid='stMultiSelect'] [data-baseweb='select'] * {
   color: var(--text-primary) !important;
   opacity: 1 !important;
 }
 
-[data-testid="stSelectbox"] [data-baseweb="select"] svg,
-[data-testid="stMultiSelect"] [data-baseweb="select"] svg,
-[data-baseweb="select"] svg {
+[data-testid='stSelectbox'] [data-baseweb='select'] svg,
+[data-testid='stMultiSelect'] [data-baseweb='select'] svg,
+[data-baseweb='select'] svg {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -302,34 +308,34 @@ h4, h5, h6 {
   color: var(--text-primary) !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="select"] svg,
-[data-testid="stSidebar"] [data-testid="stSelectbox"] svg,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] svg {
+[data-testid='stSidebar'] [data-baseweb='select'] svg,
+[data-testid='stSidebar'] [data-testid='stSelectbox'] svg,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] svg {
   fill: rgba(255, 255, 255, 0.85) !important;
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-[data-baseweb="select"] > div:focus-within {
+[data-baseweb='select'] > div:focus-within {
   border-color: var(--primary-dark) !important;
   box-shadow: 0 0 0 2px rgba(6, 95, 70, 0.2) !important;
 }
 
-[data-baseweb="popover"] {
+[data-baseweb='popover'] {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   box-shadow: var(--shadow-float) !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-baseweb="menu"] {
+[data-baseweb='menu'] {
   background-color: var(--bg-card) !important;
 }
 
-[data-baseweb="menu"] li {
+[data-baseweb='menu'] li {
   color: var(--text-primary) !important;
 }
 
-[data-baseweb="menu"] li:hover {
+[data-baseweb='menu'] li:hover {
   background-color: var(--bg-surface-low) !important;
   color: var(--primary-dark) !important;
 }
@@ -339,35 +345,39 @@ h4, h5, h6 {
    ------------------------------------------------------------ */
 
 /* Override Streamlit's inline red fill (rgb(255, 75, 75)) on any div inside slider */
-[data-testid="stSlider"] div[style*="rgb(255"],
-[data-testid="stSlider"] div[style*="background: rgb(255"],
-[data-testid="stSlider"] div[style*="background-color: rgb(255"] {
+[data-testid='stSlider'] div[style*='rgb(255'],
+[data-testid='stSlider'] div[style*='background: rgb(255'],
+[data-testid='stSlider'] div[style*='background-color: rgb(255'] {
   background: var(--primary-dark) !important;
   background-color: var(--primary-dark) !important;
 }
 
 /* Sidebar: same override but with light green */
-[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="rgb(255"],
-[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="background: rgb(255"],
-[data-testid="stSidebar"] [data-testid="stSlider"] div[style*="background-color: rgb(255"] {
+[data-testid='stSidebar'] [data-testid='stSlider'] div[style*='rgb(255'],
+[data-testid='stSidebar']
+  [data-testid='stSlider']
+  div[style*='background: rgb(255'],
+[data-testid='stSidebar']
+  [data-testid='stSlider']
+  div[style*='background-color: rgb(255'] {
   background: var(--primary-light) !important;
   background-color: var(--primary-light) !important;
 }
 
 /* Thumb */
-[data-testid="stSlider"] [role="slider"] {
+[data-testid='stSlider'] [role='slider'] {
   background-color: var(--primary-dark) !important;
   border: 2px solid var(--bg-card) !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
   outline: none !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stSlider"] [role="slider"] {
+[data-testid='stSidebar'] [data-testid='stSlider'] [role='slider'] {
   background-color: #ffffff !important;
   border: 2px solid var(--primary-light) !important;
 }
 
-[data-testid="stSlider"] [data-testid="stThumbValue"] {
+[data-testid='stSlider'] [data-testid='stThumbValue'] {
   color: var(--primary-dark) !important;
 }
 
@@ -377,70 +387,74 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    7b. Form controls - radio
    ------------------------------------------------------------ */
-[data-testid="stRadio"] label,
-[data-testid="stRadio"] p,
-[data-testid="stRadio"] span {
+[data-testid='stRadio'] label,
+[data-testid='stRadio'] p,
+[data-testid='stRadio'] span {
   color: var(--text-primary) !important;
 }
 
-[data-testid="stRadio"] [role="radiogroup"] label {
+[data-testid='stRadio'] [role='radiogroup'] label {
   background-color: transparent !important;
 }
 
-[data-testid="stRadio"] svg {
+[data-testid='stRadio'] svg {
   fill: var(--primary-dark) !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stRadio"] label,
-[data-testid="stSidebar"] [data-testid="stRadio"] p,
-[data-testid="stSidebar"] [data-testid="stRadio"] span {
+[data-testid='stSidebar'] [data-testid='stRadio'] label,
+[data-testid='stSidebar'] [data-testid='stRadio'] p,
+[data-testid='stSidebar'] [data-testid='stRadio'] span {
   color: #ffffff !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label,
-[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label p,
-[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] label span {
+[data-testid='stSidebar'] [data-testid='stRadio'] [role='radiogroup'] label,
+[data-testid='stSidebar'] [data-testid='stRadio'] [role='radiogroup'] label p,
+[data-testid='stSidebar']
+  [data-testid='stRadio']
+  [role='radiogroup']
+  label
+  span {
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-[data-testid="stSidebar"] [data-testid="stRadio"] svg {
+[data-testid='stSidebar'] [data-testid='stRadio'] svg {
   fill: #ffffff !important;
 }
 
-[data-baseweb="tag"] {
+[data-baseweb='tag'] {
   background-color: #ecf4f0 !important;
   border: 1px solid var(--primary-light) !important;
   color: var(--primary-dark) !important;
   border-radius: 6px !important;
 }
 
-[data-baseweb="tag"] span {
+[data-baseweb='tag'] span {
   color: var(--primary-dark) !important;
 }
 
-[data-baseweb="tag"] button {
+[data-baseweb='tag'] button {
   color: var(--text-muted) !important;
 }
 
-[data-baseweb="tag"] button:hover {
+[data-baseweb='tag'] button:hover {
   color: var(--accent-red) !important;
 }
 
 /* ------------------------------------------------------------
    10. Text input / number input
    ------------------------------------------------------------ */
-[data-testid="stTextInput"] input,
-[data-testid="stNumberInput"] input,
-[data-testid="stTextArea"] textarea {
+[data-testid='stTextInput'] input,
+[data-testid='stNumberInput'] input,
+[data-testid='stTextArea'] textarea {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   color: var(--text-primary) !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stTextInput"] input:focus,
-[data-testid="stNumberInput"] input:focus,
-[data-testid="stTextArea"] textarea:focus {
+[data-testid='stTextInput'] input:focus,
+[data-testid='stNumberInput'] input:focus,
+[data-testid='stTextArea'] textarea:focus {
   border-color: var(--primary-dark) !important;
   box-shadow: 0 0 0 2px rgba(6, 95, 70, 0.2) !important;
 }
@@ -448,28 +462,30 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    11. Buttons
    ------------------------------------------------------------ */
-[data-testid="stButton"] > button {
+[data-testid='stButton'] > button {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   color: var(--text-secondary) !important;
   border-radius: var(--radius-btn) !important;
   font-weight: 600 !important;
-  transition: background-color 0.15s, border-color 0.15s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
 }
 
-[data-testid="stButton"] > button:hover {
+[data-testid='stButton'] > button:hover {
   background-color: var(--bg-surface-low) !important;
   border-color: var(--primary-dark) !important;
   color: var(--primary-dark) !important;
 }
 
-[data-testid="stButton"] > button[kind="primary"] {
+[data-testid='stButton'] > button[kind='primary'] {
   background-color: var(--primary-dark) !important;
   border-color: var(--primary-dark) !important;
   color: #ffffff !important;
 }
 
-[data-testid="stButton"] > button[kind="primary"]:hover {
+[data-testid='stButton'] > button[kind='primary']:hover {
   background-color: var(--primary) !important;
   color: #ffffff !important;
 }
@@ -477,32 +493,32 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    12. Alert / info / warning / error / success boxes
    ------------------------------------------------------------ */
-[data-testid="stInfo"],
-.stAlert[data-baseweb="notification"][kind="info"] {
+[data-testid='stInfo'],
+.stAlert[data-baseweb='notification'][kind='info'] {
   background-color: #eff6ff !important;
   border: 1px solid #93c5fd !important;
   color: #1e40af !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stWarning"],
-.stAlert[data-baseweb="notification"][kind="warning"] {
+[data-testid='stWarning'],
+.stAlert[data-baseweb='notification'][kind='warning'] {
   background-color: #fffbeb !important;
   border: 1px solid #fcd34d !important;
   color: #92400e !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stError"],
-.stAlert[data-baseweb="notification"][kind="error"] {
+[data-testid='stError'],
+.stAlert[data-baseweb='notification'][kind='error'] {
   background-color: #fff1f2 !important;
   border: 1px solid #fca5a5 !important;
   color: #9f1239 !important;
   border-radius: var(--radius-btn) !important;
 }
 
-[data-testid="stSuccess"],
-.stAlert[data-baseweb="notification"][kind="success"] {
+[data-testid='stSuccess'],
+.stAlert[data-baseweb='notification'][kind='success'] {
   background-color: #f0fdf4 !important;
   border: 1px solid #86efac !important;
   color: #166534 !important;
@@ -512,12 +528,12 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    13. Tabs
    ------------------------------------------------------------ */
-[data-testid="stTabs"] [role="tablist"] {
+[data-testid='stTabs'] [role='tablist'] {
   border-bottom: 1px solid var(--border) !important;
   background-color: transparent !important;
 }
 
-[data-testid="stTabs"] [role="tab"] {
+[data-testid='stTabs'] [role='tab'] {
   color: var(--text-muted) !important;
   border-bottom: 2px solid transparent !important;
   background-color: transparent !important;
@@ -525,16 +541,16 @@ h4, h5, h6 {
   font-weight: 500;
 }
 
-[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+[data-testid='stTabs'] [role='tab'][aria-selected='true'] {
   color: var(--primary-dark) !important;
   border-bottom: 2px solid var(--primary-dark) !important;
 }
 
-[data-testid="stTabs"] [role="tab"]:hover {
+[data-testid='stTabs'] [role='tab']:hover {
   color: var(--text-primary) !important;
 }
 
-[data-testid="stTabs"] [role="tabpanel"] {
+[data-testid='stTabs'] [role='tabpanel'] {
   background-color: var(--bg-main) !important;
   padding-top: 1rem !important;
 }
@@ -542,19 +558,19 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    14. Expander
    ------------------------------------------------------------ */
-[data-testid="stExpander"] {
+[data-testid='stExpander'] {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
   box-shadow: var(--shadow-card) !important;
 }
 
-[data-testid="stExpander"] summary {
+[data-testid='stExpander'] summary {
   color: var(--text-primary) !important;
   font-weight: 600 !important;
 }
 
-[data-testid="stExpander"] summary:hover {
+[data-testid='stExpander'] summary:hover {
   color: var(--primary-dark) !important;
 }
 
@@ -562,41 +578,41 @@ h4, h5, h6 {
    15. Progress bar
    ------------------------------------------------------------ */
 /* Keep selected expanders readable, especially cluster detail panels. */
-[data-testid="stExpander"] summary,
-[data-testid="stExpander"] summary *,
-[data-testid="stExpander"] summary[aria-expanded="true"],
-[data-testid="stExpander"] summary[aria-expanded="true"] * {
+[data-testid='stExpander'] summary,
+[data-testid='stExpander'] summary *,
+[data-testid='stExpander'] summary[aria-expanded='true'],
+[data-testid='stExpander'] summary[aria-expanded='true'] * {
   color: var(--text-primary) !important;
   opacity: 1 !important;
 }
 
-[data-testid="stExpander"] summary[aria-expanded="true"] {
+[data-testid='stExpander'] summary[aria-expanded='true'] {
   background-color: #ecf4f0 !important;
   border-color: var(--primary-light) !important;
 }
 
-[data-testid="stExpander"] details[open] summary,
-[data-testid="stExpander"] details[open] summary *,
-[data-testid="stExpander"] summary:hover,
-[data-testid="stExpander"] summary:hover * {
+[data-testid='stExpander'] details[open] summary,
+[data-testid='stExpander'] details[open] summary *,
+[data-testid='stExpander'] summary:hover,
+[data-testid='stExpander'] summary:hover * {
   color: var(--text-primary) !important;
   background-color: #ecf4f0 !important;
   opacity: 1 !important;
 }
 
-[data-testid="stExpander"] summary svg,
-[data-testid="stExpander"] details[open] summary svg,
-[data-testid="stExpander"] summary:hover svg {
+[data-testid='stExpander'] summary svg,
+[data-testid='stExpander'] details[open] summary svg,
+[data-testid='stExpander'] summary:hover svg {
   fill: var(--text-primary) !important;
   color: var(--text-primary) !important;
   opacity: 1 !important;
 }
 
-[data-testid="stProgress"] > div > div > div {
+[data-testid='stProgress'] > div > div > div {
   background-color: var(--primary-dark) !important;
 }
 
-[data-testid="stProgress"] > div > div {
+[data-testid='stProgress'] > div > div {
   background-color: var(--border) !important;
   border-radius: 4px !important;
 }
@@ -604,7 +620,7 @@ h4, h5, h6 {
 /* ------------------------------------------------------------
    16. Plotly chart container
    ------------------------------------------------------------ */
-[data-testid="stPlotlyChart"] {
+[data-testid='stPlotlyChart'] {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-card) !important;
@@ -644,7 +660,7 @@ h4, h5, h6 {
 
 /* Remove stray bottom margin from Streamlit's wrapper divs inside the card */
 .headline-card > div > div,
-.headline-card [data-testid="stMarkdownContainer"] > * {
+.headline-card [data-testid='stMarkdownContainer'] > * {
   margin-bottom: 0 !important;
 }
 
@@ -680,9 +696,15 @@ h4, h5, h6 {
   margin-top: 4px;
 }
 
-.kpi-card.danger .kpi-value  { color: var(--accent-red); }
-.kpi-card.warning .kpi-value { color: var(--secondary); }
-.kpi-card.success .kpi-value { color: var(--accent-green); }
+.kpi-card.danger .kpi-value {
+  color: var(--accent-red);
+}
+.kpi-card.warning .kpi-value {
+  color: var(--secondary);
+}
+.kpi-card.success .kpi-value {
+  color: var(--accent-green);
+}
 
 /* Section divider */
 .section-divider {
@@ -703,33 +725,33 @@ h4, h5, h6 {
 .headline-card *,
 .kpi-card,
 .kpi-card *,
-[data-testid="stMetric"],
-[data-testid="stMetric"] * {
+[data-testid='stMetric'],
+[data-testid='stMetric'] * {
   opacity: 1 !important;
 }
 
 .headline-card p,
 .kpi-card p,
-[data-testid="stMetricLabel"],
-[data-testid="stMetricLabel"] *,
-[data-testid="stMetricValue"],
-[data-testid="stMetricValue"] * {
+[data-testid='stMetricLabel'],
+[data-testid='stMetricLabel'] *,
+[data-testid='stMetricValue'],
+[data-testid='stMetricValue'] * {
   color: var(--primary-dark) !important;
 }
 
-[data-testid="stMetricLabel"],
-[data-testid="stMetricLabel"] * {
+[data-testid='stMetricLabel'],
+[data-testid='stMetricLabel'] * {
   color: var(--text-primary) !important;
 }
 
-[data-testid="stMetricDelta"],
-[data-testid="stMetricDelta"] * {
+[data-testid='stMetricDelta'],
+[data-testid='stMetricDelta'] * {
   opacity: 1 !important;
 }
 
-[data-testid="stMetric"] [data-testid="stTooltipIcon"],
-[data-testid="stMetric"] [data-testid="stTooltipIcon"] *,
-[data-testid="stMetric"] svg {
+[data-testid='stMetric'] [data-testid='stTooltipIcon'],
+[data-testid='stMetric'] [data-testid='stTooltipIcon'] *,
+[data-testid='stMetric'] svg {
   color: var(--text-secondary) !important;
   fill: var(--text-secondary) !important;
   opacity: 0.75 !important;
@@ -785,24 +807,24 @@ h4, h5, h6 {
   color: var(--accent-green) !important;
 }
 
-.kpi-card [style*="color:#6f7973"],
-.kpi-card [style*="color: #6f7973"],
-.headline-card [style*="color:#6f7973"],
-.headline-card [style*="color: #6f7973"] {
+.kpi-card [style*='color:#6f7973'],
+.kpi-card [style*='color: #6f7973'],
+.headline-card [style*='color:#6f7973'],
+.headline-card [style*='color: #6f7973'] {
   color: var(--text-primary) !important;
 }
 
-.kpi-card [style*="color:#be123c"],
-.kpi-card [style*="color: #be123c"],
-.headline-card [style*="color:#be123c"],
-.headline-card [style*="color: #be123c"] {
+.kpi-card [style*='color:#be123c'],
+.kpi-card [style*='color: #be123c'],
+.headline-card [style*='color:#be123c'],
+.headline-card [style*='color: #be123c'] {
   color: var(--accent-red) !important;
 }
 
-.kpi-card [style*="color:#065f46"],
-.kpi-card [style*="color: #065f46"],
-.headline-card [style*="color:#065f46"],
-.headline-card [style*="color: #065f46"] {
+.kpi-card [style*='color:#065f46'],
+.kpi-card [style*='color: #065f46'],
+.headline-card [style*='color:#065f46'],
+.headline-card [style*='color: #065f46'] {
   color: var(--primary-dark) !important;
 }
 
@@ -816,20 +838,36 @@ h4, h5, h6 {
   letter-spacing: 0.03em;
 }
 
-.badge.green  { background-color: #f0fdf4; color: #15803d;  border: 1px solid #86efac; }
-.badge.amber  { background-color: #fffbeb; color: #92400e;  border: 1px solid #fcd34d; }
-.badge.red    { background-color: #fff1f2; color: #9f1239;  border: 1px solid #fca5a5; }
-.badge.orange { background-color: #fff7ed; color: #9a3412;  border: 1px solid #fdba74; }
+.badge.green {
+  background-color: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+.badge.amber {
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+.badge.red {
+  background-color: #fff1f2;
+  color: #9f1239;
+  border: 1px solid #fca5a5;
+}
+.badge.orange {
+  background-color: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+}
 
 /* Plotly text contrast */
-[data-testid="stPlotlyChart"] .xtitle,
-[data-testid="stPlotlyChart"] .ytitle,
-[data-testid="stPlotlyChart"] .gtitle,
-[data-testid="stPlotlyChart"] .xtick text,
-[data-testid="stPlotlyChart"] .ytick text,
-[data-testid="stPlotlyChart"] .legendtext,
-[data-testid="stPlotlyChart"] .annotation-text,
-[data-testid="stPlotlyChart"] .annotation text {
+[data-testid='stPlotlyChart'] .xtitle,
+[data-testid='stPlotlyChart'] .ytitle,
+[data-testid='stPlotlyChart'] .gtitle,
+[data-testid='stPlotlyChart'] .xtick text,
+[data-testid='stPlotlyChart'] .ytick text,
+[data-testid='stPlotlyChart'] .legendtext,
+[data-testid='stPlotlyChart'] .annotation-text,
+[data-testid='stPlotlyChart'] .annotation text {
   fill: var(--text-primary) !important;
   color: var(--text-primary) !important;
   opacity: 1 !important;
@@ -837,45 +875,23 @@ h4, h5, h6 {
 
 /* ------------------------------------------------------------
    18. Hide Streamlit branding / default chrome
-   ------------------------------------------------------------ */
-#MainMenu          { visibility: hidden !important; }
-footer             { visibility: hidden !important; }
-[data-testid="stDecoration"]         { display: none !important; }
-[data-testid="stStatusWidget"]       { display: none !important; }
-header {
-  visibility: visible !important;
-}
-
-[data-testid="stToolbar"] {
-  display: flex !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
-
-[data-testid="stToolbar"] [data-testid="stBaseButton-header"],
-[data-testid="stToolbar"] [data-testid="baseButton-header"],
-[data-testid="stToolbar"] [data-testid="baseButton-headerNoPadding"],
-[data-testid="stToolbar"] a,
-[data-testid="stToolbar"] button {
-  opacity: 1 !important;
-}
-
-[data-testid="stToolbar"] [aria-label*="Deploy"],
-[data-testid="stToolbar"] [title*="Deploy"],
-[data-testid="stDeployButton"],
-[data-testid="stToolbar"] [data-testid="stDeployButton"],
-[data-testid="stToolbar"] [data-testid="deployButton"],
-[data-testid="stToolbar"] a[href*="share.streamlit.io"],
-[data-testid="stToolbar"] a[href*="streamlit.io/cloud"] {
+    ------------------------------------------------------------ */
+header,
+[data-testid='stHeader'],
+[data-testid='stToolbar'],
+[data-testid='stDecoration'],
+[data-testid='stStatusWidget'],
+#MainMenu,
+footer {
   display: none !important;
 }
 
-[data-testid="collapsedControl"],
-[data-testid="stSidebarCollapsedControl"],
-[data-testid="stBaseButton-header"],
-[data-testid="stBaseButton-headerNoPadding"],
-[data-testid="baseButton-header"],
-[data-testid="baseButton-headerNoPadding"] {
+[data-testid='collapsedControl'],
+[data-testid='stSidebarCollapsedControl'],
+[data-testid='stBaseButton-header'],
+[data-testid='stBaseButton-headerNoPadding'],
+[data-testid='baseButton-header'],
+[data-testid='baseButton-headerNoPadding'] {
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -883,16 +899,16 @@ header {
   z-index: 999999 !important;
 }
 
-[data-testid="collapsedControl"],
-[data-testid="stSidebarCollapsedControl"] {
+[data-testid='collapsedControl'],
+[data-testid='stSidebarCollapsedControl'] {
   background: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--radius-btn) !important;
   box-shadow: var(--shadow-card) !important;
 }
 
-[data-testid="collapsedControl"] svg,
-[data-testid="stSidebarCollapsedControl"] svg {
+[data-testid='collapsedControl'] svg,
+[data-testid='stSidebarCollapsedControl'] svg {
   visibility: visible !important;
   opacity: 1 !important;
   color: #000000 !important;
@@ -900,24 +916,24 @@ header {
   stroke: #000000 !important;
 }
 
-[data-testid="collapsedControl"] button,
-[data-testid="stSidebarCollapsedControl"] button,
-[data-testid="collapsedControl"] span,
-[data-testid="stSidebarCollapsedControl"] span {
+[data-testid='collapsedControl'] button,
+[data-testid='stSidebarCollapsedControl'] button,
+[data-testid='collapsedControl'] span,
+[data-testid='stSidebarCollapsedControl'] span {
   color: #000000 !important;
   opacity: 1 !important;
 }
 
-[data-testid="stSidebar"] [data-testid="baseButton-header"],
-[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"],
-[data-testid="stSidebar"] [data-testid="stBaseButton-header"],
-[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"],
-[data-testid="stSidebar"] [aria-label="Close sidebar"],
-[data-testid="stSidebar"] [aria-label="Close sidebar"] *,
-[data-testid="stSidebar"] [data-testid="baseButton-header"] *,
-[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"] *,
-[data-testid="stSidebar"] [data-testid="stBaseButton-header"] *,
-[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"] * {
+[data-testid='stSidebar'] [data-testid='baseButton-header'],
+[data-testid='stSidebar'] [data-testid='baseButton-headerNoPadding'],
+[data-testid='stSidebar'] [data-testid='stBaseButton-header'],
+[data-testid='stSidebar'] [data-testid='stBaseButton-headerNoPadding'],
+[data-testid='stSidebar'] [aria-label='Close sidebar'],
+[data-testid='stSidebar'] [aria-label='Close sidebar'] *,
+[data-testid='stSidebar'] [data-testid='baseButton-header'] *,
+[data-testid='stSidebar'] [data-testid='baseButton-headerNoPadding'] *,
+[data-testid='stSidebar'] [data-testid='stBaseButton-header'] *,
+[data-testid='stSidebar'] [data-testid='stBaseButton-headerNoPadding'] * {
   color: #ffffff !important;
   fill: #ffffff !important;
   stroke: #ffffff !important;
@@ -925,21 +941,21 @@ header {
   visibility: visible !important;
 }
 
-[data-testid="stSidebar"] [aria-label="Close sidebar"],
-[data-testid="stSidebar"] [data-testid="baseButton-header"],
-[data-testid="stSidebar"] [data-testid="baseButton-headerNoPadding"],
-[data-testid="stSidebar"] [data-testid="stBaseButton-header"],
-[data-testid="stSidebar"] [data-testid="stBaseButton-headerNoPadding"] {
+[data-testid='stSidebar'] [aria-label='Close sidebar'],
+[data-testid='stSidebar'] [data-testid='baseButton-header'],
+[data-testid='stSidebar'] [data-testid='baseButton-headerNoPadding'],
+[data-testid='stSidebar'] [data-testid='stBaseButton-header'],
+[data-testid='stSidebar'] [data-testid='stBaseButton-headerNoPadding'] {
   display: flex !important;
   pointer-events: auto !important;
 }
 
-[data-testid="stHeader"] button[kind="header"],
-[data-testid="stHeader"] button[kind="headerNoPadding"],
-[data-testid="stHeader"] button[data-testid^="stBaseButton-header"],
-[data-testid="stHeader"] button[kind="header"] *,
-[data-testid="stHeader"] button[kind="headerNoPadding"] *,
-[data-testid="stHeader"] button[data-testid^="stBaseButton-header"] * {
+[data-testid='stHeader'] button[kind='header'],
+[data-testid='stHeader'] button[kind='headerNoPadding'],
+[data-testid='stHeader'] button[data-testid^='stBaseButton-header'],
+[data-testid='stHeader'] button[kind='header'] *,
+[data-testid='stHeader'] button[kind='headerNoPadding'] *,
+[data-testid='stHeader'] button[data-testid^='stBaseButton-header'] * {
   color: #000000 !important;
   fill: #000000 !important;
   stroke: #000000 !important;
@@ -947,12 +963,12 @@ header {
   visibility: visible !important;
 }
 
-[data-testid="stSidebar"] button[kind="header"],
-[data-testid="stSidebar"] button[kind="headerNoPadding"],
-[data-testid="stSidebar"] button[data-testid^="stBaseButton-header"],
-[data-testid="stSidebar"] button[kind="header"] *,
-[data-testid="stSidebar"] button[kind="headerNoPadding"] *,
-[data-testid="stSidebar"] button[data-testid^="stBaseButton-header"] * {
+[data-testid='stSidebar'] button[kind='header'],
+[data-testid='stSidebar'] button[kind='headerNoPadding'],
+[data-testid='stSidebar'] button[data-testid^='stBaseButton-header'],
+[data-testid='stSidebar'] button[kind='header'] *,
+[data-testid='stSidebar'] button[kind='headerNoPadding'] *,
+[data-testid='stSidebar'] button[data-testid^='stBaseButton-header'] * {
   color: #ffffff !important;
   fill: #ffffff !important;
   stroke: #ffffff !important;
@@ -960,24 +976,24 @@ header {
   visibility: visible !important;
 }
 
-button[aria-label*="sidebar" i],
-button[aria-label*="sidebar" i] * {
+button[aria-label*='sidebar' i],
+button[aria-label*='sidebar' i] * {
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="select"],
-[data-testid="stSidebar"] [data-baseweb="select"] *,
-[data-testid="stSidebar"] [data-testid="stSelectbox"],
-[data-testid="stSidebar"] [data-testid="stSelectbox"] *,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"],
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] * {
+[data-testid='stSidebar'] [data-baseweb='select'],
+[data-testid='stSidebar'] [data-baseweb='select'] *,
+[data-testid='stSidebar'] [data-testid='stSelectbox'],
+[data-testid='stSidebar'] [data-testid='stSelectbox'] *,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'],
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] * {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="select"] svg,
-[data-testid="stSidebar"] [data-testid="stSelectbox"] svg,
-[data-testid="stSidebar"] [data-testid="stMultiSelect"] svg {
+[data-testid='stSidebar'] [data-baseweb='select'] svg,
+[data-testid='stSidebar'] [data-testid='stSelectbox'] svg,
+[data-testid='stSidebar'] [data-testid='stMultiSelect'] svg {
   fill: rgba(255, 255, 255, 0.9) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
@@ -985,12 +1001,27 @@ button[aria-label*="sidebar" i] * {
 /* ------------------------------------------------------------
    19. Custom scrollbar
    ------------------------------------------------------------ */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-main); }
-::-webkit-scrollbar-thumb { background-color: var(--border-muted); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background-color: var(--primary-dark); }
-::-webkit-scrollbar-corner { background: var(--bg-main); }
-* { scrollbar-width: thin; scrollbar-color: var(--border-muted) var(--bg-main); }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-dark);
+}
+::-webkit-scrollbar-corner {
+  background: var(--bg-main);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-muted) var(--bg-main);
+}
 
 @media (max-width: 768px) {
   .headline-card p,
@@ -1011,7 +1042,13 @@ button[aria-label*="sidebar" i] * {
    20. Responsive tweaks
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
-  .kpi-card { padding: 12px 14px; }
-  .kpi-card .kpi-value { font-size: 1.4rem; }
-  .headline-card { padding: 16px; }
+  .kpi-card {
+    padding: 12px 14px;
+  }
+  .kpi-card .kpi-value {
+    font-size: 1.4rem;
+  }
+  .headline-card {
+    padding: 16px;
+  }
 }
